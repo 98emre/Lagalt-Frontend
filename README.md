@@ -1,4 +1,4 @@
-# Legalt Front End
+# Lagalt Front End
 ## Description
 ## Installation
 ## Authors
