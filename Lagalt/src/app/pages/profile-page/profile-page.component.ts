@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ProjectItemComponent } from 'src/app/components/project-item/project-item.component';
 
 
 @Component({
@@ -11,8 +12,9 @@ export class ProfilePageComponent implements OnInit{
   constructor() { }
   ngOnInit(): void {}
 
-  dummyName:String = "Mr Brass"
-  dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard."
+  dummyName:String = "Mr Brass-Bilalsson"
+  dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard. Bruce Willys stars in Die Hard. I am him. I am a shining star. On a bright day."
+  projectList:ProjectItemComponent[] = [ProjectItemComponent, ProjectItemComponent, ProjectItemComponent]
 
   /** 
    * TODO: Currently this function only registers a button press. It should perhaps navigate the user to the add project component?
@@ -35,6 +37,5 @@ export class ProfilePageComponent implements OnInit{
 
   public onSubmit(form: NgForm): void {
     this.dummyDescription = form.value.desc
-    console.log("Submitted", form.value.description)
   }
 }

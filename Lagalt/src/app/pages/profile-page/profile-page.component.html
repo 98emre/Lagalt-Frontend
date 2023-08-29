@@ -2,6 +2,9 @@
 <p>{{dummyDescription}}</p>
 
 <h2>My Projects</h2>
+<app-project-list>
+    <app-project-item *ngFor="let project of projectList"/>
+</app-project-list>
 
 <h1>Edit My Settings</h1>
 <h2>Change Description</h2>
