@@ -3,7 +3,7 @@
 
 <h2>My Projects</h2>
 <app-project-list>
-    <app-project-item *ngFor="let project of projectList"/>
+    <app-project-item *ngFor="let projectData of projectList" [project]="projectData"/>
 </app-project-list>
 
 <h1>Edit My Settings</h1>
