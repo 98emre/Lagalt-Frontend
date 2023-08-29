@@ -1,0 +1,31 @@
+/* Logo font */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+header{
+    background-color: white;
+    border-bottom: 0.5px solid #d8d9e1;
+    height: 5vh;
+    padding: 0.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-wr{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.donutIcon{
+    color: #3d5afe;
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+.logo{
+    font-family: 'Paytone One', sans-serif;
+    color: black;
+    margin: 0;
+}
