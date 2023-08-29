@@ -5,13 +5,15 @@
 
 <h1>Edit My Settings</h1>
 <h2>Change Description</h2>
-<form #createTodoForm="ngForm" (ngSubmit)="onSubmit(createTodoForm)">
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     <input type="text"
     ngModel
-    name="title"
+    name="desc"
+    id = "desc"
+    type = "Hello"
     required
     placeholder="What do you want to do?">
-    <button type="submit" [disabled]="createTodoForm.form.invalid">Create todo</button>
+    <button type="submit" [disabled]="myForm.form.invalid">Create todo</button>
 </form>
 
 <h2>Add a project</h2>
