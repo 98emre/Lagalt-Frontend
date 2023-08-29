@@ -1,2 +1,18 @@
-<h1>Profile Page</h1>
-<button (click)="onClick()"> Create New Project </button>
+<h1>Welcome, {{dummyName}}</h1>
+<p>{{dummyDescription}}</p>
+
+<h2>My Projects</h2>
+
+<h1>Edit My Settings</h1>
+<h2>Change Description</h2>
+<form #createTodoForm="ngForm" (ngSubmit)="onSubmit(createTodoForm)">
+    <input type="text"
+    ngModel
+    name="title"
+    required
+    placeholder="What do you want to do?">
+    <button type="submit" [disabled]="createTodoForm.form.invalid">Create todo</button>
+</form>
+
+<h2>Add a project</h2>
+<button (click)="onClickAddProject()"> Create New Project </button>
