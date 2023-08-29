@@ -7,5 +7,6 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./project-item.component.scss']
 })
 export class ProjectItemComponent {
-  @Input() project: Project | undefined;
+  // Input: When the component is created a project model is passed:
+  @Input() projectModel: Project | undefined;
 }

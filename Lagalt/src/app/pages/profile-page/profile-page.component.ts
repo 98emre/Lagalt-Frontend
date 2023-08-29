@@ -13,9 +13,10 @@ export class ProfilePageComponent implements OnInit{
   constructor() { }
   ngOnInit(): void {}
 
+  //TODO: Replace this dummy data with data that we read in from an API or something later on:
   dummyName:String = "Mr Brass-Bilalsson (Billys)"
   dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard. Bruce Willys stars in Die Hard. I pretend am him. In life i am shining star... but on a bright day (sun in my eye). In gaming I play single player games cause they remind me that in real life I am single player. As project I look for frend i can play with. I dont have skills (sadge). Also I dislike spider because have claustrofobia. thx."
-  projectList:Project[] = [{name: "Project 1"}, {name: "Project 2"}, {name: "Project 3"}]
+  projectModels:Project[] = [{name: "Project 1"}, {name: "Project 2"}, {name: "Project 3"}]
 
   /** 
    * TODO: Currently this function only registers a button press. It should perhaps navigate the user to the add project component?
