@@ -2,7 +2,7 @@
     <span>{{projectModel?.name}}</span>
     <button *ngIf="projectModel?.owner" (click)= "onRemoveClick()"> Remove Project </button>
     <button *ngIf="!projectModel?.owner" (click)= "onRemoveClick()"> Leave Project </button>
-    <button (click) = "onGotoClick()">Go To Project</button>
+    <button (click) = "onGotoClick(projectModel.id)">Go To Project</button>
     <span *ngIf="projectModel?.owner">Owner</span>
     <span *ngIf="!projectModel?.owner">Collaborator</span>
 </p>

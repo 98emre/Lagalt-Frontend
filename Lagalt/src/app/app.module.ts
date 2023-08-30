@@ -13,6 +13,7 @@ import { ProjectItemComponent } from './components/project-item/project-item.com
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { CustomFormComponent } from './components/custom-form/custom-form.component';
+import { ProjectPageComponent } from './pages/project-page/project-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CustomFormComponent } from './components/custom-form/custom-form.compon
     ProjectItemComponent,
     ProjectListComponent,
     AddProjectPageComponent,
-    CustomFormComponent
+    CustomFormComponent,
+    ProjectPageComponent
   ],
   imports: [
     BrowserModule,
