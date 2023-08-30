@@ -3,16 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
 import {LandingPageComponent} from './pages/landing-page/landing-page.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
-//import {authGuard} from '.'
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [ 
   {
   path: 'profile',
   component: ProfilePageComponent,
+  canActivate: [AuthGuard]
 },
 {
   path: 'add',
-  component: AddProjectPageComponent
+  component: AddProjectPageComponent,
+  canActivate: [AuthGuard]
 },
 {
   path:'', 

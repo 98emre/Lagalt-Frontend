@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { LoginService } from './services/login-service.service';
+import { UserService } from './services/user-service.service';
+import keycloak from 'src/keycloak';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,17 @@ import { LoginService } from './services/login-service.service';
 })
 export class AppComponent {
   title = 'Lagalt';
+  keycloakToken = "";
 
-  constructor(private loginService: LoginService) {}
+  constructor(private userService: UserService, private readonly router: Router) {}
 
-  onButtonClick() {
-    this.loginService.setElementVisibility(true);
+  isLoggedIn(){
+    //console.log("hej")
+    //console.log(this.userService.isLoggedIn)
+    return this.userService.isAuthenticated();
+  }
+
+  onLoginClick() {
+    this.userService.keyCloakLogin();
   }
 }

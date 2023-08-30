@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginService } from 'src/app/services/login-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,12 +10,10 @@ export class LandingPageComponent {
 
   public loginBtnClicked = false;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: UserService) {}
   
   ngOnInit() {
-    this.loginService.getElementVisibility().subscribe((visibility) => {
-      this.loginBtnClicked = visibility;
-    });
+    
   }
 
 }
