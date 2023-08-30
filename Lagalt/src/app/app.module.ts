@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
+import { CustomFormComponent } from './components/custom-form/custom-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ProjectListComponent } from './components/project-list/project-list.com
     LandingPageComponent,
     LoginFormComponent,
     ProjectItemComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    AddProjectPageComponent,
+    CustomFormComponent
   ],
   imports: [
     BrowserModule,

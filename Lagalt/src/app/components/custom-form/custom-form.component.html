@@ -1,0 +1,30 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+    
+    <h3>Project Title</h3>
+    <input type="text"
+    ngModel
+    name="title"
+    id = "title"
+    required
+    placeholder="What do you want to do?">
+    <p></p>
+    
+    <h3>Description</h3>
+    <input type="text"
+    ngModel
+    name="desc"
+    id = "desc"
+    required
+    placeholder="What do you want to do?">
+    <p></p>
+
+    <h3>Category</h3>
+    <input type="text"
+    ngModel
+    name="desc"
+    id = "desc"
+    required
+    placeholder="What do you want to do?">
+    <p></p>
+    <button type="submit" [disabled]="myForm.form.invalid">Add Project</button>
+</form>
