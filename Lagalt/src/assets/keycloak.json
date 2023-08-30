@@ -1,0 +1,8 @@
+{
+    "realm": "case-lagalt",
+    "auth-server-url": "https://lemur-8.cloud-iam.com/auth/",
+    "ssl-required": "external",
+    "resource": "ng-lagalt",
+    "public-client": true,
+    "confidential-port": 0
+  }

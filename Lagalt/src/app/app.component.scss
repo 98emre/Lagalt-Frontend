@@ -24,8 +24,22 @@ header{
     width: 40px;
 }
 
+.btnIcon{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo{
     font-family: 'Paytone One', sans-serif;
     color: black;
     margin: 0;
+}
+
+.widthIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
 }
