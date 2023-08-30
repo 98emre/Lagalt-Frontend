@@ -1,9 +1,14 @@
 <header>
-  <div class="logo-wr">
+  <a routerLink = "" class="logo-wr">
     <mat-icon class="donutIcon">donut_large</mat-icon>
     <h1 class="logo">lagalt</h1>
+  </a>
+  <div *ngIf="!isLoggedIn()">
+    <button class="btn widthIcon" (click)="onLoginClick()"><mat-icon class="btnIcon">lock</mat-icon>Login</button>
   </div>
-  <button class="btn loginBtn" (click)="onButtonClick()">Login</button>
+  <div *ngIf="isLoggedIn()">
+      <a routerLink="profile" class="btn widthIcon"><mat-icon class="btnIcon">account_circle</mat-icon>Profile</a>
+  </div>
 </header>
 
 <router-outlet></router-outlet>
