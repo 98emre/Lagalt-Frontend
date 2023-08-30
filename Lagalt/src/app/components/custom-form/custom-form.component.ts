@@ -11,7 +11,6 @@ import { Routes, RouterModule, Router } from '@angular/router';
 export class CustomFormComponent {
   constructor(private router: Router) { }
 
-  // Output signal to push up a project object up to the Add-Project-Page:
   @Output('pushProject') buttonPressed: EventEmitter<Project> = new EventEmitter(); 
 
   /**
@@ -35,7 +34,6 @@ export class CustomFormComponent {
   pushToParent(project:Project){
     this.buttonPressed.emit(project)
   }
-
 
   /**
    * onGoBack()
