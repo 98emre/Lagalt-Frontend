@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProjectItemComponent } from 'src/app/components/project-item/project-item.component';
 import { Project } from 'src/app/models/project';
 
 
@@ -11,13 +10,17 @@ import { Project } from 'src/app/models/project';
 })
 export class ProfilePageComponent implements OnInit{
   constructor() { }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   //TODO: Replace this dummy data with data that we read in from an API later on:
   dummyName:String = "Mr Brass-Bilalsson (Billys)"
   dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard. Bruce Willys stars in Die Hard. I pretend am him. In life i am shining star... but on a bright day (sun in my eye). In gaming I play single player games cause they remind me that in real life I am single player. As project I look for frend i can play with. I dont have skills (sadge). Also I dislike spider because have claustrofobia. thx."
-  projectModels:Project[] = [{id:1, name: "Project 1", owner:true}, {id: 2, name: "Project 2", owner: false}, {id: 3, name: "Project 3", owner: false}]
-  
+  projectModels:Project[] = [{id:1, name: "Project 1", owner:true, category:"yo", description:"yo"}, 
+                             {id: 2, name: "Project 2", owner: false, category:"yo", description: "yo"}, 
+                             {id: 3, name: "Project 3", owner: false, category:"yo", description: "yo"}
+                            ]
   /**
    * onRemoveEvent()
    * An event is passed up from a project item component and in the emitting of that event the corresponding project is passed.

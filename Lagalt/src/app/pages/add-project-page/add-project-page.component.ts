@@ -7,6 +7,10 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./add-project-page.component.scss']
 })
 export class AddProjectPageComponent {
-  projectList:Project[] = [{id:1, name: "yo yo yo project", owner: true}]
+  projectModels:Project[] = [{id:1, name: "yo yo yo project", owner: true, description: "yo", category:"yo"}]
+
+  test(project:Project){
+    this.projectModels.push(project)
+  }
   
 }

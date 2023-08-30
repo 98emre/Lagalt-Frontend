@@ -1,2 +1,8 @@
 <h1>Create A New Project</h1>
-<app-custom-form></app-custom-form>
+<h2>Projects (Only for testing, should be removed)</h2>
+
+<app-project-list>
+    <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
+</app-project-list>
+
+<app-custom-form (pushProject)="test($event)"></app-custom-form>

@@ -1,4 +1,4 @@
-<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     
     <h3>Project Title</h3>
     <input type="text"
@@ -6,25 +6,25 @@
     name="title"
     id = "title"
     required
-    placeholder="What do you want to do?">
+    placeholder="Provide your title">
     <p></p>
     
     <h3>Description</h3>
     <input type="text"
     ngModel
-    name="desc"
-    id = "desc"
+    name="description"
+    id = "description"
     required
-    placeholder="What do you want to do?">
+    placeholder="Provide a description of your project">
     <p></p>
 
     <h3>Category</h3>
     <input type="text"
     ngModel
-    name="desc"
-    id = "desc"
+    name="category"
+    id = "category"
     required
-    placeholder="What do you want to do?">
+    placeholder="Provide a category">
     <p></p>
-    <button type="submit" [disabled]="myForm.form.invalid">Add Project</button>
+    <button type="submit" [disabled]="myForm.form.invalid">Add New Project</button>
 </form>
