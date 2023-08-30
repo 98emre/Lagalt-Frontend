@@ -15,8 +15,6 @@ export class AppComponent {
   constructor(private userService: UserService, private readonly router: Router) {}
 
   isLoggedIn(){
-    //console.log("hej")
-    //console.log(this.userService.isLoggedIn)
     return this.userService.isAuthenticated();
   }
 

@@ -18,33 +18,19 @@ export class UserService {
     if(keycloak.authenticated){
       this.isLoggedIn = true;
     }
-
+    console.log(keycloak.token);
   }
 
   // Keycloak login 
   keyCloakLogin(): void {
     keycloak.login();
 
-    // checks if authenticated in keycloak
-    /*if(keycloak.authenticated){
-      this.isLoggedIn = true;
-    }*/
   }
 
-  /*getUsers(keyCloakToken: String = ""): Observable<User | null>{
-    this.keyCloakToken = keyCloakToken;
-    //return this.http.get<User>(`https://api-url/${keyCloakToken}`)
-    console.log(keyCloakToken);
-
-    const loggedInUser: User = {
-      id: 1, 
-      username: "Tore", 
-      email: "tore@hotmail.com",
-      skills: ["java", "javascript"]
-    }
-    
-    return loggedInUser || null
-  }*/
+  // Keycloak logout 
+  keyCloakLogOut(): void {
+    keycloak.logout();
+  }
 
   isAuthenticated(){
     return this.isLoggedIn;
