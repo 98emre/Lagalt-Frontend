@@ -5,8 +5,9 @@
 1. Install NPM and Git Bash if you haven't already.
 2. Install Angular globally: ```npm install -g @angular/cli```
 3. Install Angular Material Dependancy:```ng add @angular/material```
-4. Clone down this folder: ```git clone <ssh link>```
-5. Navigate to the Lagalt Folder (cd) and run: ```ng``` serve to start a development server 
+4. Install Angular Keycloak Dependancy:```npm install keycloak-js```
+5. Clone down this folder: ```git clone <ssh link>```
+6. Navigate to the Lagalt Folder (cd) and run: ```ng``` serve to start a development server 
 
 ## Authors
 Emre Demirel
