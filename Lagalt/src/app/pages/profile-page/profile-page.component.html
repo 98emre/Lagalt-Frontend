@@ -8,7 +8,7 @@
     <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
 </app-project-list>
 
-<!-- Edit My Settings has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input can be extracted. -->
+<!-- Edit My Settings has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
 <h1>Edit My Settings</h1>
 <h2>Change Description</h2>
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
