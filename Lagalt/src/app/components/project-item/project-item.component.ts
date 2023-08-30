@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Project } from 'src/app/models/project';
 
 @Component({
@@ -9,12 +9,13 @@ import { Project } from 'src/app/models/project';
 export class ProjectItemComponent implements OnInit{
   // Input: When the component is created a project model is passed:
   @Input() projectModel: Project | undefined;
-  onwerStr:String = "Remove Project"
+  @Output('buttonPressed') buttonPressed: EventEmitter<Project> = new EventEmitter(); 
+  
   ngOnInit(){
     ownerStr:String
   }
-  onRemoveClick(){
-    alert("onRemoveClick() was called in project-item.component")
+  onRemoveClick(){ 
+    this.buttonPressed.emit(this.projectModel)
   }
   onGotoClick(){
     alert("onGotoClick() was called in project-item.component")
