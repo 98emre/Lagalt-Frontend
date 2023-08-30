@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Project } from 'src/app/models/project';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-form',
@@ -8,6 +9,7 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./custom-form.component.scss']
 })
 export class CustomFormComponent {
+  constructor(private router: Router) { }
 
   // Output signal to push up a project object up to the Add-Project-Page:
   @Output('pushProject') buttonPressed: EventEmitter<Project> = new EventEmitter(); 
@@ -32,5 +34,14 @@ export class CustomFormComponent {
    */
   pushToParent(project:Project){
     this.buttonPressed.emit(project)
+  }
+
+
+  /**
+   * onGoBack()
+   * A function that is triggered on a button click and navigates the user back to the profile page.
+   */
+  onGoBack(){
+    this.router.navigate(['/profile']);
   }
 }
