@@ -1,8 +1,2 @@
 <h1>Create A New Project</h1>
-<h2>Projects (Only for testing, should be removed, projects should be saved in API):</h2>
-
-<app-project-list>
-    <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
-</app-project-list>
-
 <app-custom-form (pushProject)="addProject($event)"></app-custom-form>

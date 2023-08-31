@@ -10,8 +10,8 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 export class ProjectPageComponent {
   constructor(private apiHandler:ApiHandlerService){}
 
-  // TODO: Currently, display the first project:
-  project:Project = {id:1, category:"category", descriptions:"descriptions", gitlink:"gitlink", status:0, title:"title"}
+  // TODO: Currently, display the dummy project:
+  project:Project = {id:1, category:"dummy project", descriptions:"dummy project", gitlink:"dummy project", status:0, title:"dummy project", commentIds:[], collaboratorIds:[]}
   ngOnInit(): void {
   
   }

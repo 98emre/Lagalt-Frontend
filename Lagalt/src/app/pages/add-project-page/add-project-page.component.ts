@@ -8,21 +8,20 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrls: ['./add-project-page.component.scss']
 })
 export class AddProjectPageComponent {
+
   constructor(private apiHandler:ApiHandlerService){}
 
-  // Dummy data:
-  projectModels:Project[] = []
 
   /**
    * addProject()
    * A function that is triggered by listening to an event, takes in a project and adds it to the users' projects.
-   * TODO: This is only done locally for now.
    * 
    * @param project 
    */
 
   addProject(project:Project){
-    //this.projectModels.push(project)
+    let dummyProject:Project = {id:1, title: "posted project", descriptions:"description posted", gitlink:"Yo link", category: "GAME", status:0, collaboratorIds:[], commentIds:[]}
+    this.apiHandler.postProject(dummyProject)
   }
   
 }

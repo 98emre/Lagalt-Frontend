@@ -17,12 +17,16 @@ export class ProfilePageComponent implements OnInit{
   dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard. Bruce Willys stars in Die Hard. I pretend am him. In life i am shining star... but on a bright day (sun in my eye). In gaming I play single player games cause they remind me that in real life I am single player. As project I look for frend i can play with. I dont have skills (sadge). Also I dislike spider because have claustrofobia. thx."
   projectModels:Project[] = []
 
+  /**
+   * ngOnInit()
+   * On init we do a GET request using the apiHandler to set our project models, that are later used to create items.
+   */
   ngOnInit(): void {
-    let list = this.apiHandler.getProjects().subscribe(
+    this.apiHandler.getProjects().subscribe(
       (projects: Project[]) => {
         this.projectModels = projects
       }
-      
+
     )
   }
 
