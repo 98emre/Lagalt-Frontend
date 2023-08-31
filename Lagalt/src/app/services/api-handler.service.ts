@@ -10,14 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiHandlerService {
   constructor(private http: HttpClient) {}
-  getProjects(): Project[] {
-    let projectList:Project[] = []
-    this.http.get<Project>(PROJECT_API_URL).subscribe(
-      (response) => {projectList.push(response)},
-      (error) => {
-        console.error("Error:", error);
-      }
-    )
-    return projectList;
-  }  
+  getProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(PROJECT_API_URL)
+  }
+  
 }

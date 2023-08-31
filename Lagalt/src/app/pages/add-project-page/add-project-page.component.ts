@@ -8,10 +8,10 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrls: ['./add-project-page.component.scss']
 })
 export class AddProjectPageComponent {
-  constructor(apiHandler:ApiHandlerService){}
+  constructor(private apiHandler:ApiHandlerService){}
 
   // Dummy data:
-  projectModels:Project[] = this.apiHandler.getProjects()
+  projectModels:Project[] = []
 
   /**
    * addProject()
@@ -22,7 +22,7 @@ export class AddProjectPageComponent {
    */
 
   addProject(project:Project){
-    this.projectModels.push(project)
+    //this.projectModels.push(project)
   }
   
 }
