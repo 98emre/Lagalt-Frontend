@@ -40,7 +40,7 @@ export class ProfilePageComponent implements OnInit{
     let index = this.projectModels.indexOf(project)
     this.projectModels.splice(index, 1)
     
-    alert("TODO: Locally the project was removed but we need to update it as an API.")
+    alert("TODO: Locally the project was removed but we need to remove it as an API.")
     // TODO: 2. Make an API request with the updated data
   }
 

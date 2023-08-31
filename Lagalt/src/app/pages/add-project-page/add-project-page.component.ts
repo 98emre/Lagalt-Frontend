@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -8,10 +8,19 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   templateUrl: './add-project-page.component.html',
   styleUrls: ['./add-project-page.component.scss']
 })
-export class AddProjectPageComponent {
+export class AddProjectPageComponent implements OnInit {
 
+  projectModels:Project[] = []
   constructor(private router:Router, private apiHandler:ApiHandlerService){}
 
+  ngOnInit(): void {
+    this.apiHandler.getProjects().subscribe(
+      (projects: Project[]) => {
+        this.projectModels = projects
+      }
+
+    )
+  }
 
   /**
    * addProject()
@@ -21,8 +30,9 @@ export class AddProjectPageComponent {
    */
 
   addProject(project:Project){
-    let dummyProject:Project = {id:2, title: "posted project", descriptions:"description posted", gitlink:"Yo link", category: "GAME", status:0, collaboratorIds:[], commentIds:[]}
-    this.apiHandler.postProject(dummyProject)
+    let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:"Yo link", category: "GAME", status:0, collaboratorIds:[], commentIds:[]}
+    this.apiHandler.postProject(insertProject)
+    this.projectModels.push(insertProject)
     this.router.navigate(['/profile']);
   }
   

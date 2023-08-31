@@ -19,7 +19,6 @@ export class ApiHandlerService {
    * to set a local list of projects. (See, for example, ngOnInit in profile page)
    *  
    * Important Note: Make sure that the backend side uses @CrossOrigin annotation, else a CORS error will be thrown
-   * 
    * @returns An observable on the project URL, 
    */
   getProjects(): Observable<Project[]> {
@@ -44,7 +43,7 @@ export class ApiHandlerService {
     this.http
     .post<Project>(PROJECT_API_URL, project, httpOptions)
     .subscribe({
-      next: (res) => {alert(res)},
+      //Logging: next: (res) => {alert(res)},
       error: (error) => {console.log(error)}
     });
   }

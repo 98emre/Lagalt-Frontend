@@ -14,7 +14,6 @@ export class LandingPageComponent {
   constructor(private loginService: UserService, private apiHandler:ApiHandlerService) {}
   ngOnInit(): void {
     let list = this.apiHandler.getProjects()
-    console.log(list)
   }
 
 
