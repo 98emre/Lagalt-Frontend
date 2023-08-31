@@ -43,7 +43,6 @@ export class ApiHandlerService {
     this.http
     .post<Project>(PROJECT_API_URL, project, httpOptions)
     .subscribe({
-      //Logging: next: (res) => {alert(res)},
       error: (error) => {console.log(error)}
     });
   }
@@ -53,8 +52,18 @@ export class ApiHandlerService {
    * 
    */
 
-  deleteProject(){
-    
+  deleteProject(project:Project){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'x-api-key': "yo yo yo",
+      }),
+    };
+    this.http
+    .delete<Project>(PROJECT_API_URL+"/" + project.id)
+    .subscribe({
+      error: (error) => {console.log(error)}
+    });
   }
 
 }
