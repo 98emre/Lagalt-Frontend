@@ -22,7 +22,7 @@ export class CustomFormComponent {
     let newTitle = form.value.title
     let newDescription = form.value.description
     let newCategory = form.value.category
-    let project:Project = {id:1, name:newTitle, description:newDescription, owner:true, category:newCategory}
+    let project:Project = {id:1, name:newTitle, descriptions:newDescription, owner:true, category:newCategory}
     this.pushToParent(project)
   }
 

@@ -1,1 +1,1 @@
-export const PROJECT_API_URL:string = "http://localhost:5432/api/projects"
+export const PROJECT_API_URL:string = "http://localhost:8080/api/projects"

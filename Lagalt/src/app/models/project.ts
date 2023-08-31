@@ -1,8 +1,9 @@
 export type Project = {
     id: number,
-    name: string,
-    owner: boolean,
+    title: string,
+    descriptions: string,
+    gitlink: string,
     category: string,
-    description: string,
+    status: number,
 }
   

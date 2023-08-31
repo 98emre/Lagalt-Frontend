@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Project } from 'src/app/models/project';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-add-project-page',
@@ -7,8 +8,10 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./add-project-page.component.scss']
 })
 export class AddProjectPageComponent {
+  constructor(apiHandler:ApiHandlerService){}
+
   // Dummy data:
-  projectModels:Project[] = [{id:1, name: "yo yo yo project", owner: true, description: "yo", category:"yo"}]
+  projectModels:Project[] = this.apiHandler.getProjects()
 
   /**
    * addProject()

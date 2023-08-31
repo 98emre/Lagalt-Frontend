@@ -13,7 +13,10 @@ export class ApiHandlerService {
   getProjects(): Project[] {
     let projectList:Project[] = []
     this.http.get<Project>(PROJECT_API_URL).subscribe(
-      (response) => {projectList.push(response)}
+      (response) => {projectList.push(response)},
+      (error) => {
+        console.error("Error:", error);
+      }
     )
     return projectList;
   }  

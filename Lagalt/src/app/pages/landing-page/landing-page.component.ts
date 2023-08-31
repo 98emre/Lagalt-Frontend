@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -10,10 +11,10 @@ export class LandingPageComponent {
 
   public loginBtnClicked = false;
 
-  constructor(private loginService: UserService) {}
-  
-  ngOnInit() {
-    
+  constructor(private loginService: UserService, private apiHandler:ApiHandlerService) {}
+  ngOnInit(): void {
+    let list = this.apiHandler.getProjects()
   }
+
 
 }

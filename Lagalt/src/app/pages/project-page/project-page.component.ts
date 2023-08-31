@@ -7,6 +7,5 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./project-page.component.scss']
 })
 export class ProjectPageComponent {
-  dummyProject:Project = {id:1, name:"Skratthörnan", owner:true, category:"Yo", description:"Yo town, this project thaaa best wazzup."}
-
+  
 }
