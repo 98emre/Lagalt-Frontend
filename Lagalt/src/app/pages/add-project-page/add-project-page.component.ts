@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
@@ -9,7 +10,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class AddProjectPageComponent {
 
-  constructor(private apiHandler:ApiHandlerService){}
+  constructor(private router:Router, private apiHandler:ApiHandlerService){}
 
 
   /**
@@ -20,8 +21,9 @@ export class AddProjectPageComponent {
    */
 
   addProject(project:Project){
-    let dummyProject:Project = {id:1, title: "posted project", descriptions:"description posted", gitlink:"Yo link", category: "GAME", status:0, collaboratorIds:[], commentIds:[]}
+    let dummyProject:Project = {id:2, title: "posted project", descriptions:"description posted", gitlink:"Yo link", category: "GAME", status:0, collaboratorIds:[], commentIds:[]}
     this.apiHandler.postProject(dummyProject)
+    this.router.navigate(['/profile']);
   }
   
 }

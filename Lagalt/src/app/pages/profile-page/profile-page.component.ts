@@ -19,7 +19,7 @@ export class ProfilePageComponent implements OnInit{
 
   /**
    * ngOnInit()
-   * On init we do a GET request using the apiHandler to set our project models, that are later used to create items.
+   * On init we do a GET request using the apiHandler to set our project models with data from the Backend:
    */
   ngOnInit(): void {
     this.apiHandler.getProjects().subscribe(
