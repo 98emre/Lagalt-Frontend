@@ -10,9 +10,18 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Lagalt';
-  keycloakToken = "";
 
   constructor(private userService: UserService, private readonly router: Router) {}
+
+  ngOnInit(){
+    if(this.userService.isAuthenticated()){
+      this.userService.getUserDetails().subscribe((user) => {
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+      })
+    }
+    
+  }
 
   isLoggedIn(){
     return this.userService.isAuthenticated();

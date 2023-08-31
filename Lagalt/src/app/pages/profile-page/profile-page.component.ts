@@ -10,8 +10,14 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit{
+  
+  userName: String = "";
+
   constructor() { }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem("user")!);
+    this.userName = user.name 
+  }
 
   //TODO: Replace this dummy data with data that we read in from an API or something later on:
   dummyName:String = "Mr Brass-Bilalsson (Billys)"

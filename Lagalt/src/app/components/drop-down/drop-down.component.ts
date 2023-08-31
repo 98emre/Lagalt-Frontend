@@ -23,5 +23,6 @@ export class DropDownComponent {
 
   onLogOutClick(){
     this.userService.keyCloakLogOut();
+    localStorage.removeItem('user');
   }
 }

@@ -9,11 +9,13 @@ import { UserService } from 'src/app/services/user-service.service';
 export class LandingPageComponent {
 
   public loginBtnClicked = false;
+  userName: String = "";
 
-  constructor(private loginService: UserService) {}
+  constructor() {}
   
   ngOnInit() {
-    
+    let user = JSON.parse(localStorage.getItem("user")!);
+    this.userName = user.name;
   }
 
 }
