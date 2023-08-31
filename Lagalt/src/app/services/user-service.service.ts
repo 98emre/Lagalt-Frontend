@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, of, tap } from "rxjs";
 import { User } from "../models/user";
 import keycloak from 'src/keycloak';
 
@@ -10,7 +10,6 @@ import keycloak from 'src/keycloak';
 
 export class UserService {
 
-  private user! : User | undefined
   public isLoggedIn = false;
 
   constructor(private readonly http:HttpClient){
@@ -18,20 +17,31 @@ export class UserService {
     if(keycloak.authenticated){
       this.isLoggedIn = true;
     }
-
   }
 
   // Keycloak login 
   keyCloakLogin(): void {
     keycloak.login();
+  }
 
-    // checks if authenticated in keycloak
-    /*if(keycloak.authenticated){
-      this.isLoggedIn = true;
-    }*/
+  // Keycloak logout 
+  keyCloakLogOut(): void {
+    keycloak.logout();
   }
 
   isAuthenticated(){
     return this.isLoggedIn;
   }
+
+  // get user from database
+  getUserDetails(): Observable<User> {
+
+    /* TO DO: sending keycloak token */
+
+    //const keyCloakToken = keycloak.token;
+    //return this.http.get<User>('/api/verifyOrCreateUser', { headers: { Authorization: `Bearer ${keyCloakToken}` } });
+
+     return this.http.get<User>("http://localhost:8080/api/users/1")
+  }
+
 }

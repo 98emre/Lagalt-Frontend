@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { CustomFormComponent } from './components/custom-form/custom-form.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
@@ -22,6 +23,7 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
     LandingPageComponent,
     ProjectItemComponent,
     ProjectListComponent,
+    DropDownComponent,
     AddProjectPageComponent,
     CustomFormComponent,
     ProjectPageComponent
@@ -32,11 +34,11 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-     //Required to use forms features
-    FormsModule
+    //Required to use forms features
+    FormsModule,
   ],
-  
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,7 +1,8 @@
 
 export type User = {
     id: number, 
-    username: string, 
-    email: string, 
-    skills : string[]
+    email: String, 
+    fullname: String, 
+    username: String, 
+    description: String
 }

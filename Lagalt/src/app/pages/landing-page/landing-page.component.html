@@ -1,1 +1,27 @@
-<p>Här är massa landing page content</p>
+<div class="page-wr">
+    <div class="col-1">
+        <h3>Category</h3>
+        <div class="category-btns">
+            <button (click)="onCategoryClicked('GAME')"><mat-icon class="icon">videogame_asset</mat-icon>Game</button>
+            <button (click)="onCategoryClicked('FILM')"><mat-icon class="icon">local_movies</mat-icon>Film</button>
+            <button (click)="onCategoryClicked('WEB')"><mat-icon class="icon">computer</mat-icon>Web</button>
+            <button (click)="onCategoryClicked('MUSIC')"><mat-icon class="icon">music_note</mat-icon>Music</button>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <div class="project-div">
+            <div *ngIf="isLoggedIn()">
+                <p>Inloggad user: {{userName}}</p>
+            </div>
+
+            <h2>All projects</h2>
+            <div class="project-list-wr">
+                <app-project-list class="landing-list">
+                    <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
+                        [projectModel]="projectData" />
+                </app-project-list>
+            </div>
+        </div>
+    </div>
+</div>
