@@ -13,6 +13,10 @@ export class AddProjectPageComponent implements OnInit {
   projectModels:Project[] = []
   constructor(private router:Router, private apiHandler:ApiHandlerService){}
 
+  /** 
+  * ngOnInit()
+  * Reads in the projects from the API to be stored locally.   
+  */
   ngOnInit(): void {
     this.apiHandler.getProjects().subscribe(
       (projects: Project[]) => {
@@ -33,7 +37,7 @@ export class AddProjectPageComponent implements OnInit {
     let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:"Yo link", category: "GAME", status:0, collaboratorIds:[], commentIds:[]}
     this.apiHandler.postProject(insertProject)
     this.projectModels.push(insertProject)
-    this.router.navigate(['/profile']);
+    alert("A new project was added!")
   }
   
 }
