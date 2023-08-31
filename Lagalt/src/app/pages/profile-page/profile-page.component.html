@@ -4,12 +4,12 @@
 
 <!-- My Projects has a list of projects (project list), containing project-items. Every such item takes data from the list of project models. -->
 <h2>My Projects</h2>
-<app-project-list>
-    <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
+<app-project-list class="profile-list">
+    <app-project-item *ngFor="let projectData of projectModels" (buttonPressed)= "onRemoveEvent($event)" [projectModel]="projectData"/>
 </app-project-list>
 
-<!-- Edit My Settings has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input can be extracted. -->
-<h1>Edit My Settings</h1>
+<!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
+<h1>Edit My Profile</h1>
 <h2>Change Description</h2>
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     <input type="text"

@@ -1,11 +1,15 @@
 /* standard font */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
 
+html{
+    height: 100%;
+}
+
 body{
     margin: 0;
     background-color: rgb(240, 239, 239);
+    font-family: 'Manrope', sans-serif !important;
     height: 100%;
-    font-family: 'Manrope', sans-serif;
 }
 
 :root{
@@ -32,6 +36,56 @@ body{
 header a:visited, header a:active, header a:link{
     text-decoration: none;
 }
+
+/* fonts */ 
+
+.small-title {
+    font-size: smaller;
+}
 /*
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+
+/* --- project list on landing page */ 
+
+.landing-list .project-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /*width: 80%;*/
+    margin: auto;
+}
+
+.landing-item .test{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    height: 20vh;
+    width: 40vh;
+    margin-bottom: 2rem;
+    padding: 10px;
+    justify-content: space-between;
+    border: 0.5px solid rgb(230, 230, 230);
+}
+
+.landing-item .test:hover{
+    cursor: pointer;
+    box-shadow: -1px 9px 36px 1px rgba(130,130,130,0.34);
+}
+
+.landing-item .col-2{
+    border-top: 0.5px solid rgb(238, 237, 237);
+    padding-top: 10px;
+}
+
+.landing-item .col-2 p{
+    margin: 0;
+    background-color: rgb(207, 207, 207);
+    color: black;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.landing-item .col-1 h2{
+    color: var(--primary-blue-color);
+}

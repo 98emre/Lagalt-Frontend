@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of, tap } from "rxjs";
 import { User } from "../models/user";
@@ -35,7 +35,7 @@ export class UserService {
 
   // get user from database
   getUserDetails(): Observable<User> {
-    
+
     /* TO DO: sending keycloak token */
 
     //const keyCloakToken = keycloak.token;

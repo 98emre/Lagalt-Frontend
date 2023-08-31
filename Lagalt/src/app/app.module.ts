@@ -12,6 +12,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
+import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
+import { CustomFormComponent } from './components/custom-form/custom-form.component';
+import { ProjectPageComponent } from './pages/project-page/project-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { DropDownComponent } from './components/drop-down/drop-down.component';
     LandingPageComponent,
     ProjectItemComponent,
     ProjectListComponent,
-    DropDownComponent
+    DropDownComponent,
+    AddProjectPageComponent,
+    CustomFormComponent,
+    ProjectPageComponent
   ],
   imports: [
     BrowserModule,

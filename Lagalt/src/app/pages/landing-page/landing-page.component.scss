@@ -1,0 +1,53 @@
+
+.page-wr{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+/*--- col 1 ---- */
+
+.col-1{
+    background-color: white;
+    height: 100%;
+    width: 20%;
+}
+
+.col-1 button{
+    font-family: 'Manrope', sans-serif;
+    width: 80%;
+    border: none;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.col-1 .icon{
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.category-btns{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.col-1 button:hover{
+    transform: translateY(-0.25em);
+}
+
+.project-div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* project item */ 
+
+.project-list-wr{
+    width: 100%;
+}

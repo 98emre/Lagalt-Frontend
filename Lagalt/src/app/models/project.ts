@@ -1,4 +1,11 @@
 export type Project = {
-    name: string,
+    id: number,
+    title: string,
+    descriptions: string,
+    gitlink: string,
+    category: string,
+    status: number,
+    commentIds: number[],
+    collaboratorIds: number[]
 }
   

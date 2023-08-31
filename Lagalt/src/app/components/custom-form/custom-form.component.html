@@ -1,0 +1,32 @@
+<!-- A form with fields for every attribute of a new project, and a submission button: -->
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    
+    <h3>Project Title</h3>
+    <input type="text"
+    ngModel
+    name="title"
+    id = "title"
+    required
+    placeholder="Provide your title">
+    <p></p>
+    
+    <h3>Description</h3>
+    <input type="text"
+    ngModel
+    name="description"
+    id = "description"
+    required
+    placeholder="Provide a description of">
+    <p></p>
+
+    <h3>Category</h3>
+    <input type="text"
+    ngModel
+    name="category"
+    id = "category"
+    required
+    placeholder="Provide a category">
+    <p></p>
+    <button type="submit" [disabled]="myForm.form.invalid">Add New Project</button>
+</form>
+<button (click)="onGoBack()">Back To Profile</button>
