@@ -16,17 +16,28 @@
     name="description"
     id = "description"
     required
-    placeholder="Provide a description of">
+    placeholder="Provide a description ">
     <p></p>
 
     <h3>Category</h3>
+    <p> 
+        <input type="radio" ngModel name= "GAME" id = "GAME">
+        <input type="radio" ngModel name= "MUSIC" id = "MUSIC">
+        <input type="radio" ngModel name= "FILM" id = "FILM">
+        <input type="radio" ngModel name= "WEB" id = "WEB">
+    </p>
+    <p></p>
+
+    <h3>GitHub Link</h3>
     <input type="text"
     ngModel
-    name="category"
-    id = "category"
+    name="git"
+    id = "git"
     required
-    placeholder="Provide a category">
+    placeholder="Provide a GitHub Link">
     <p></p>
+
+
     <button type="submit" [disabled]="myForm.form.invalid">Add New Project</button>
 </form>
 <button (click)="onGoBack()">Back To Profile</button>
