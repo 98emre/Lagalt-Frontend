@@ -10,7 +10,11 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit{
-  constructor(private router: Router, private apiHandler:ApiHandlerService) { }
+  
+  userName: String = "";
+
+  constructor(private router: Router, private apiHandler:ApiHandlerService) { 
+  }
 
   // Dummy Data:
   dummyName:String = "Mr Brass-Bilalsson (Billys)"
@@ -30,17 +34,17 @@ export class ProfilePageComponent implements OnInit{
     )
   }
 
-  /**
+    /**
    * onRemoveEvent()
    * An event is passed up from a project item component and in the emitting of that event the corresponding project is passed.
    * Here we 1. Locally remove the project from our list of models and 2. We pass the changes via an API request. 
    */
 
-  onRemoveEvent(project:Project){
-    let index = this.projectModels.indexOf(project)
-    this.projectModels.splice(index, 1)
-    this.apiHandler.deleteProject(project)
-  }
+    onRemoveEvent(project:Project){
+      let index = this.projectModels.indexOf(project)
+      this.projectModels.splice(index, 1)
+      this.apiHandler.deleteProject(project)
+    }
 
   /** 
    * onClickAddProject()
