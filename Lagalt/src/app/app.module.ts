@@ -16,6 +16,7 @@ import { AddProjectPageComponent } from './pages/add-project-page/add-project-pa
 import { CustomFormComponent } from './components/custom-form/custom-form.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
     AddProjectPageComponent,
     CustomFormComponent,
     ProjectPageComponent,
-    CommentSectionComponent
+    CommentSectionComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,
