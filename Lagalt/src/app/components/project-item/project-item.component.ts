@@ -10,21 +10,14 @@ import { Project } from 'src/app/models/project';
 export class ProjectItemComponent implements OnInit{
   constructor(private router: Router) { }
 
-  // Input: When the component is created a project model is passed from its parent:
+  // Input, project model: When the component is created a project model is passed from its parent (which can be Landing Page, Profile Page, etc):
   @Input() projectModel: Project | any;
 
-  // Output: This component (project item) can pass up a remove request:
-  @Output('buttonPressed') buttonPressed: EventEmitter<Project> = new EventEmitter(); 
+  // Input, role: On creation the parent passes a role down to project item, pertaining to if the user is the: Owner, collaborator, or has no relation to the project (Landing Page).
+  @Input() role:String | any
+
   
   ngOnInit(){
-  }
-
-  /**
-   * onRemoveClick()
-   * This function is called on click and it emits a signal with the project up to the parent (profile page), so profile page can remove it.
-   */
-  onRemoveClick(){ 
-    this.buttonPressed.emit(this.projectModel)
   }
 
   /**
