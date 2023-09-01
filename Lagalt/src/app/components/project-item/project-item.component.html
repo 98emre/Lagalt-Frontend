@@ -6,9 +6,8 @@
     <div class="col-2">
     <p class="small-title">{{projectModel?.category}}</p>
     </div>
-    <!--<button *ngIf="projectModel?.owner" (click)= "onRemoveClick()"> Remove Project </button>
-    <button *ngIf="!projectModel?.owner" (click)= "onRemoveClick()"> Leave Project </button>-->
-    <span *ngIf="projectModel?.owner">Owner</span>
+    <span *ngIf="collaborator"> You are a collaborator on this project </span>
+    <span *ngIf="owner"> You are the owner of this project </span>
     <!--<span *ngIf="!projectModel?.owner">Collaborator</span>-->
 </div>
 

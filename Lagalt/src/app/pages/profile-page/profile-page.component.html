@@ -1,11 +1,11 @@
 <!--Welcome the user and output their description-->
-<h1>Welcome, {{userName}}</h1>
+<h1>Welcome, {{user.username}}</h1>
 <p>{{dummyDescription}}</p>
 
 <!-- My Projects has a list of projects (project list), containing project-items. Every such item takes data from the list of project models. -->
 <h2>My Projects</h2>
 <app-project-list class="profile-list">
-    <app-project-item *ngFor="let projectData of projectModels" (buttonPressed)= "onRemoveEvent($event)" [projectModel]="projectData"/>
+    <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
 </app-project-list>
 
 <!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->

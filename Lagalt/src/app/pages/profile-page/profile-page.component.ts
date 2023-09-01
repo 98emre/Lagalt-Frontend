@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Project } from 'src/app/models/project';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-profile-page',
@@ -10,8 +11,6 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit{
-  
-  userName: String = "";
 
   constructor(private router: Router, private apiHandler:ApiHandlerService) { 
   }
@@ -21,9 +20,12 @@ export class ProfilePageComponent implements OnInit{
   dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard. Bruce Willys stars in Die Hard. I pretend am him. In life i am shining star... but on a bright day (sun in my eye). In gaming I play single player games cause they remind me that in real life I am single player. As project I look for frend i can play with. I dont have skills (sadge). Also I dislike spider because have claustrofobia. thx."
   projectModels:Project[] = []
 
+  user:User|any = null;
+
   /**
    * ngOnInit()
    * On init we do a GET request using the apiHandler to set our project models with data from the Backend:
+   * We also initialize a user from the localStorage. 
    */
   ngOnInit(): void {
     this.apiHandler.getProjects().subscribe(
@@ -31,19 +33,9 @@ export class ProfilePageComponent implements OnInit{
         this.projectModels = projects
       }
     )
+    
+    this.user = JSON.parse(localStorage.getItem('user')!) as User
   }
-
-    /**
-   * onRemoveEvent()
-   * An event is passed up from a project item component and in the emitting of that event the corresponding project is passed.
-   * Here we 1. Locally remove the project from our list of models and 2. We pass the changes via an API request. 
-   */
-
-    onRemoveEvent(project:Project){
-      let index = this.projectModels.indexOf(project)
-      this.projectModels.splice(index, 1)
-      this.apiHandler.deleteProject(project)
-    }
 
   /** 
    * onClickAddProject()
