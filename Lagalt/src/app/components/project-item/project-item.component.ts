@@ -32,6 +32,6 @@ export class ProjectItemComponent implements OnInit{
    * This function is called on click and it too emits a signal with the project to the parent (profile page), but for navigational purposes.
    */
   onGotoClick(id:number){
-    this.router.navigate(['/project']);
+    this.router.navigate(['/project', id]);
   }
 }

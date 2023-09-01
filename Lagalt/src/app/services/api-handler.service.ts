@@ -26,6 +26,16 @@ export class ApiHandlerService {
   }
 
   /**
+   * getProjectById()
+   * A function that provides an observable which can then be used outside this service as a subscription to make 
+   * a GET request for a single project by ID.
+   */
+
+  getProjectById(id: number): Observable<Project> {
+    return this.http.get<Project>(PROJECT_API_URL + '/' + id)
+  }
+
+  /**
    * postProject()
    * A function that posts a project to the API, this can be wholly encapsulated in this service (unlike GET)
    * because a post does not need asynchronous setters on our end, for example, if we want to set a list to contain

@@ -30,7 +30,6 @@ export class ProfilePageComponent implements OnInit{
       (projects: Project[]) => {
         this.projectModels = projects
       }
-
     )
   }
 
