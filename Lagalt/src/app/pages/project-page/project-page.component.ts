@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
@@ -8,11 +9,23 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrls: ['./project-page.component.scss']
 })
 export class ProjectPageComponent {
-  constructor(private apiHandler:ApiHandlerService){}
 
-  // TODO: Currently, display the dummy project:
-  project:Project = {id:1, category:"dummy project", descriptions:"dummy project", gitlink:"dummy project", status:0, title:"dummy project", commentIds:[], collaboratorIds:[]}
+  project: Project | null = null ;
+
+  constructor(private apiHandler:ApiHandlerService, private route: ActivatedRoute){}
+
   ngOnInit(): void {
-  
+
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const projectId = Number(params.get('id'));
+
+
+      this.apiHandler.getProjectById(projectId).subscribe((project) => {
+        console.log(project);
+        this.project = project;
+      })
+
+    });
   }
+
 }
