@@ -25,6 +25,7 @@ export class ProfilePageComponent implements OnInit{
   /**
    * ngOnInit()
    * On init we do a GET request using the apiHandler to set our project models with data from the Backend:
+   * We also initialize a user from the localStorage. 
    */
   ngOnInit(): void {
     this.apiHandler.getProjects().subscribe(
@@ -32,9 +33,8 @@ export class ProfilePageComponent implements OnInit{
         this.projectModels = projects
       }
     )
-    const localUser = localStorage.getItem('user')
-    if(localUser != null)
-      this.user = JSON.parse(localUser) as User
+    
+    this.user = JSON.parse(localStorage.getItem('user')!) as User
   }
 
   /** 

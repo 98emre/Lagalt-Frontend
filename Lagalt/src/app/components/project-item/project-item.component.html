@@ -6,7 +6,8 @@
     <div class="col-2">
     <p class="small-title">{{projectModel?.category}}</p>
     </div>
-    <span *ngIf="projectModel?.role">{{projectModel.role}}</span>
+    <span *ngIf="collaborator"> You are a collaborator on this project </span>
+    <span *ngIf="owner"> You are the owner of this project </span>
     <!--<span *ngIf="!projectModel?.owner">Collaborator</span>-->
 </div>
 
