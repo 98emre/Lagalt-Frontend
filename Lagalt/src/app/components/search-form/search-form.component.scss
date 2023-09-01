@@ -1,0 +1,36 @@
+/*form input{
+    width: 50vw;
+    height: 8vh;
+    border-radius: 30px;
+    border: 2px solid rgb(230, 230, 230);
+}*/
+
+form{
+    background-color: white;
+    width: 70vh;
+    height: 8vh;
+    border-radius: 30px;
+    border: 2px solid rgb(230, 230, 230);
+    display: flex;
+    padding: 0rem 2rem;
+    /*align-items: center;
+    gap: 1rem;*/
+    justify-content: space-between;
+}
+
+form div{
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+form input{
+    font-size: 15px;
+    font-family: 'Manrope', sans-serif;
+    border: none;
+    width: 80%;
+}
+
+form input:focus{
+    outline: none;
+}

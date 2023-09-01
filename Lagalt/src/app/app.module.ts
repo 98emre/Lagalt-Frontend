@@ -15,6 +15,7 @@ import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { CustomFormComponent } from './components/custom-form/custom-form.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
     DropDownComponent,
     AddProjectPageComponent,
     CustomFormComponent,
-    ProjectPageComponent
+    ProjectPageComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,
