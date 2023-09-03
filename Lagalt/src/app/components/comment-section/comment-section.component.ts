@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProjectComment } from 'src/app/models/comment';
 
 
 @Component({
@@ -7,5 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./comment-section.component.scss']
 })
 export class CommentSectionComponent {
-  @Input() commentModels:Comment[] = []
+  @Input() commentModels:ProjectComment[] | any
+  
 }

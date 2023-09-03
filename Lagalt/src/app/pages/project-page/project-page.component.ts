@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ProjectComment } from 'src/app/models/comment';
 import { Project } from 'src/app/models/project';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
@@ -10,7 +11,8 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class ProjectPageComponent {
 
-  project: Project | null = null ;
+  project: Project | null = null;
+  commentModels: ProjectComment[] = []
 
   constructor(private apiHandler:ApiHandlerService, private route: ActivatedRoute){}
 

@@ -17,9 +17,6 @@ import { CustomFormComponent } from './components/custom-form/custom-form.compon
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
-import { CommentComponent } from './components/comment/comment.component';
-import { CommentItemComponent } from './models/comment-item/comment-item.component';
-import { ComponentItemComponent } from './components/component-item/component-item.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +31,7 @@ import { ComponentItemComponent } from './components/component-item/component-it
     ProjectPageComponent,
     CommentSectionComponent,
     SearchFormComponent,
-    CommentComponent,
     CommentItemComponent,
-    ComponentItemComponent
   ],
   imports: [
     BrowserModule,
@@ -51,4 +46,5 @@ import { ComponentItemComponent } from './components/component-item/component-it
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}
+}import { CommentItemComponent } from './components/comment-item/comment-item.component';
+

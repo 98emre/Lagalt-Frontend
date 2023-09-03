@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProjectComment } from 'src/app/models/comment';
 
 @Component({
   selector: 'app-comment-item',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./comment-item.component.scss']
 })
 export class CommentItemComponent {
-
+  @Input() commentModel: ProjectComment | any;
 }
