@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of, tap } from "rxjs";
 import { User } from "../models/user";
 import keycloak from 'src/keycloak';
+import { USER_API_URL } from "../utils";
 
 @Injectable({
     providedIn: "root"
@@ -41,7 +42,7 @@ export class UserService {
     //const keyCloakToken = keycloak.token;
     //return this.http.get<User>('/api/verifyOrCreateUser', { headers: { Authorization: `Bearer ${keyCloakToken}` } });
 
-     return this.http.get<User>("http://localhost:8080/api/users/1")
+     return this.http.get<User>(USER_API_URL + "/1")
   }
 
 }
