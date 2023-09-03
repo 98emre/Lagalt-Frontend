@@ -1,3 +1,20 @@
 <div class="comment-section">
+    <h2> Comments </h2>
     <ng-content />
+    <div *ngIf = "user; else loggedOut">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    
+            <h3>Write your own comment:</h3>
+            <input type="text"
+                ngModel
+                name="comment"
+                id = "comment"
+                required
+                placeholder="Leave your comment here!">
+            <button type="submit" [disabled]="myForm.form.invalid">Post</button>
+        </form>
+    </div>
+    <ng-template #loggedOut>
+        <span> You are currently not logged in, to write a comment, please log in first.</span>
+    </ng-template>
 </div>

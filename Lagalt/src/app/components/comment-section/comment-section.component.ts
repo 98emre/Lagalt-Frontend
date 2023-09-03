@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProjectComment } from 'src/app/models/comment';
 import { User } from 'src/app/models/user';
 import { CommentService} from 'src/app/services/comment-service.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -24,5 +25,9 @@ export class CommentSectionComponent implements OnInit{
     if(localStorage.getItem('user') != null){
       this.user = JSON.parse(localStorage.getItem('user')!) as User
     }
+  }
+
+  onSubmit(form:NgForm):void{
+    
   }
 }

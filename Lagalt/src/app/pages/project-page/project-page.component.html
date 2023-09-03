@@ -2,7 +2,6 @@
 <p>About: {{project?.descriptions}}</p>
 <p>Category: {{project?.category}}</p>
 
-<h2>Comments</h2>
 <app-comment-section>
     <app-comment-item *ngFor="let commentData of commentModels" [commentModel]="commentData"/>
 </app-comment-section>
