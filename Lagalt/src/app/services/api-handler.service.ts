@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
-import { PROJECT_API_URL } from '../utils';
+import { COMMENT_API_URL, PROJECT_API_URL } from '../utils';
 import { Observable } from 'rxjs';
+import { ProjectComment } from '../models/comment';
 
 
 @Injectable({
@@ -23,6 +24,15 @@ export class ApiHandlerService {
    */
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(PROJECT_API_URL)
+  }
+
+  /**
+   * getComments()
+   * A function that does the same as getProjects() but for comments instead, directed towards the comment API.
+   * @returns A list of comments that were found in the database.
+   */
+  getComments(): Observable<ProjectComment[]>{
+    return this.http.get<ProjectComment[]>(COMMENT_API_URL)
   }
 
   /**
