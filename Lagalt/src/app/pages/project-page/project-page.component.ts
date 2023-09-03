@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProjectComment } from 'src/app/models/comment';
 import { Project } from 'src/app/models/project';
-import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ProjectService } from 'src/app/services/project-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-project-page',
@@ -14,7 +15,7 @@ export class ProjectPageComponent {
   project: Project | null = null;
   commentModels: ProjectComment[] = []
 
-  constructor(private apiHandler:ApiHandlerService, private route: ActivatedRoute){}
+  constructor(private projectService:ProjectService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
 
@@ -22,7 +23,7 @@ export class ProjectPageComponent {
       const projectId = Number(params.get('id'));
 
 
-      this.apiHandler.getProjectById(projectId).subscribe((project) => {
+      this.projectService.getProjectById(projectId).subscribe((project) => {
         console.log(project);
         this.project = project;
       })

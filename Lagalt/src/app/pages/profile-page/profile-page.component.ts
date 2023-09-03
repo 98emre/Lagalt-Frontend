@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Project } from 'src/app/models/project';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { User } from 'src/app/models/user';
+import { ProjectService } from 'src/app/services/project-service.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,7 +12,7 @@ import { User } from 'src/app/models/user';
 })
 export class ProfilePageComponent implements OnInit{
 
-  constructor(private router: Router, private apiHandler:ApiHandlerService) { 
+  constructor(private router: Router, private projectService:ProjectService) { 
   }
 
   // Dummy Data:
@@ -28,7 +28,7 @@ export class ProfilePageComponent implements OnInit{
    * We also initialize a user from the localStorage. 
    */
   ngOnInit(): void {
-    this.apiHandler.getProjects().subscribe(
+    this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
         this.projectModels = projects
       }

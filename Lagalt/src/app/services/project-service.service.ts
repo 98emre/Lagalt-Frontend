@@ -9,7 +9,7 @@ import { ProjectComment } from '../models/comment';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiHandlerService {
+export class ProjectService {
   constructor(private http: HttpClient) {}
   
   /**

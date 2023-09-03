@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Project } from 'src/app/models/project';
-import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ProjectService } from 'src/app/services/project-service.service';
 import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LandingPageComponent {
   selectedCategory: String = "none";
   allProjects: Project[] = [];
   
-  constructor(private userService: UserService, private apiHandler:ApiHandlerService) {}
+  constructor(private userService: UserService, private projectService:ProjectService) {}
 
   ngOnInit(): void {
 
@@ -25,7 +25,7 @@ export class LandingPageComponent {
       this.userName = user.username;
     }
 
-    this.apiHandler.getProjects().subscribe(
+    this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
           this.projectModels = projects;
           this.allProjects = projects
