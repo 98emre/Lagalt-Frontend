@@ -15,24 +15,14 @@ export class ProjectService {
   /**
    * getProjects()
    * A function that provides an observable which can then be used outside this service as a subscription to make 
-   * a GET request for every project on the backend side. Essentially, what we want to do might be to get all the
-   * projects, which is done in this request, and then any function/page like profile page can use this function
-   * to set a local list of projects. (See, for example, ngOnInit in profile page)
+   * a GET request for every project on the backend side.(See, for example, ngOnInit in profile page)
    *  
    * Important Note: Make sure that the backend side uses @CrossOrigin annotation, else a CORS error will be thrown
-   * @returns An observable on the project URL, 
+   * @returns An observable pertaining to the project URL, 
    */
+
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(PROJECT_API_URL)
-  }
-
-  /**
-   * getComments()
-   * A function that does the same as getProjects() but for comments instead, directed towards the comment API.
-   * @returns A list of comments that were found in the database.
-   */
-  getComments(): Observable<ProjectComment[]>{
-    return this.http.get<ProjectComment[]>(COMMENT_API_URL)
   }
 
   /**
