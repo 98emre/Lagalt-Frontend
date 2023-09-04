@@ -19,6 +19,7 @@ export class CommentSectionComponent implements OnInit{
   ngOnInit(): void {
     this.commentService.getComments().subscribe(
       (comments: ProjectComment[]) => {
+        console.log(comments)
         this.commentModels = comments
       }
     )
@@ -29,7 +30,7 @@ export class CommentSectionComponent implements OnInit{
   }
 
   onSubmit(form:NgForm):void{
-    let newComment:ProjectComment = {id:1, name: this.user.username, text: form.value.text, time:"TIME UNKNOWN", projectId:this.projectId}
+    let newComment:ProjectComment = {id:1, author: this.user.username, text: form.value.text, time:"TIME UNKNOWN", projectId:this.projectId}
     this.commentModels.push(newComment)
     this.commentService.postComment(newComment)
   }
