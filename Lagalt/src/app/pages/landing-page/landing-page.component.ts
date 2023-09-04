@@ -13,6 +13,7 @@ export class LandingPageComponent {
   //public loginBtnClicked = false;
   userName: String = "";
   projectModels:Project[] = [];
+  userModels: User[] = [];
   selectedCategory: String = "none";
   allProjects: Project[] = [];
   
@@ -35,6 +36,18 @@ export class LandingPageComponent {
 
   isLoggedIn(){
     return this.userService.isAuthenticated()
+  }
+
+  // Receives the search input from the child (search-form component)
+  handleSearch(searchTerm: string) {
+    console.log('Received search term:', searchTerm);
+    this.userService.getUsersBySearch(searchTerm).subscribe(
+      (users: User[]) => {
+        console.log(users);
+
+      }
+    )
+    ///this.userService.getUsersBySearch(searchTerm);
   }
 
   onCategoryClicked(category: string){

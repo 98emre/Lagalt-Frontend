@@ -2,7 +2,7 @@
 <!--Search form-->
 <div class="search-section">
     <h1>Browse projects</h1>
-    <app-search-form></app-search-form>
+    <app-search-form (search)="handleSearch($event)"></app-search-form>
 </div>
 
 <!--Side category bar-->

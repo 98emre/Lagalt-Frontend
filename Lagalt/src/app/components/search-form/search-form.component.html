@@ -1,11 +1,14 @@
 
-    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <form #searchForm="ngForm">
         <div>
             <mat-icon>search</mat-icon>
-            <input type="text" placeholder="Type here for search">
+            <input type="text" 
+            placeholder="Type here for search" 
+            name="searchInput"
+            [(ngModel)]="searchTerm">
         </div>
         <div>
-            <button class="btn btn-black">Search</button>
+            <button class="btn btn-black" (click)="onSearch()">Search</button>
         </div>
     </form>
 
