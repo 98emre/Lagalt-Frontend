@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Project } from 'src/app/models/project';
+import { User } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project-service.service';
 import { UserService } from 'src/app/services/user-service.service';
 
