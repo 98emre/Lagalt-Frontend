@@ -14,12 +14,13 @@ export class ProjectItemComponent implements OnInit{
   // Input, project model: When the component is created a project model is passed from its parent (which can be Landing Page, Profile Page, etc):
   @Input() projectModel: Project | any;
   
+  // The relationships that the current user can have to this project, he can have no relationship, or he can be collaborator / owner:
   collaborator:boolean|any = null
   owner:boolean|any = null
 
   /**
    * ngOnInit()
-   * On init this project-item component will attempt to get the user and establish relations regarding ownership of the project encapsulated in project model:
+   * On init this project-item component will attempt to get the logged in user and establish relations regarding ownership of the project, encapsulated in project model:
    */
   ngOnInit(){
     if(localStorage.getItem('user') != null){
@@ -37,7 +38,7 @@ export class ProjectItemComponent implements OnInit{
 
   /**
    * onGotoClick()
-   * This function is called on click and it too emits a signal with the project to the parent (profile page), but for navigational purposes.
+   * This function is called on click and it navigates us to the current project:
    */
   onGotoClick(id:number){
     this.router.navigate(['/project', id]);

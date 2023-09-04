@@ -15,6 +15,7 @@ import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { CustomFormComponent } from './components/custom-form/custom-form.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 
 @NgModule({
@@ -28,7 +29,9 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     AddProjectPageComponent,
     CustomFormComponent,
     ProjectPageComponent,
-    SearchFormComponent
+    CommentSectionComponent,
+    SearchFormComponent,
+    CommentItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,4 +46,5 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}
+}import { CommentItemComponent } from './components/comment-item/comment-item.component';
+

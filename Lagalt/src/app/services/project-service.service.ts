@@ -1,26 +1,26 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
-import { PROJECT_API_URL } from '../utils';
+import { COMMENT_API_URL, PROJECT_API_URL } from '../utils';
 import { Observable } from 'rxjs';
+import { ProjectComment } from '../models/comment';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiHandlerService {
+export class ProjectService {
   constructor(private http: HttpClient) {}
   
   /**
    * getProjects()
    * A function that provides an observable which can then be used outside this service as a subscription to make 
-   * a GET request for every project on the backend side. Essentially, what we want to do might be to get all the
-   * projects, which is done in this request, and then any function/page like profile page can use this function
-   * to set a local list of projects. (See, for example, ngOnInit in profile page)
+   * a GET request for every project on the backend side.(See, for example, ngOnInit in profile page)
    *  
    * Important Note: Make sure that the backend side uses @CrossOrigin annotation, else a CORS error will be thrown
-   * @returns An observable on the project URL, 
+   * @returns An observable pertaining to the project URL, 
    */
+
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(PROJECT_API_URL)
   }
