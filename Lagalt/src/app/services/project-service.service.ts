@@ -4,6 +4,7 @@ import { Project } from '../models/project';
 import { PROJECT_PRIVATE_API_URL, PROJECT_PUBLIC_API_URL } from '../utils';
 import { Observable } from 'rxjs';
 import { ProjectComment } from '../models/comment';
+import keycloak from 'src/keycloak';
 
 
 @Injectable({
@@ -46,8 +47,7 @@ export class ProjectService {
   postProject(project:Project){
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'x-api-key': "yo yo yo",
+        Authorization: `Bearer ${keycloak.token}` 
       }),
     };
     this.http
