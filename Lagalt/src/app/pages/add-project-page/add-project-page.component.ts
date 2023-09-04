@@ -34,7 +34,7 @@ export class AddProjectPageComponent implements OnInit {
    */
 
   addProject(project:Project){
-    let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:"Yo link", category: project.category, status:0, collaboratorIds:[], commentIds:[]}
+    let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:0, collaboratorIds:[], commentIds:[]}
     this.projectService.postProject(insertProject)
     this.projectModels.push(insertProject)
     alert("A new project was added!")
