@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Project } from 'src/app/models/project';
+import { User } from 'src/app/models/user';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { UserService } from 'src/app/services/user-service.service';
 
@@ -13,6 +14,7 @@ export class LandingPageComponent {
   //public loginBtnClicked = false;
   userName: String = "";
   projectModels:Project[] = [];
+  userModels: User[] = [];
   selectedCategory: String = "none";
   allProjects: Project[] = [];
   
@@ -35,6 +37,18 @@ export class LandingPageComponent {
 
   isLoggedIn(){
     return this.userService.isAuthenticated()
+  }
+
+  // Receives the search input from the child (search-form component)
+  handleSearch(searchTerm: string) {
+    console.log('Received search term:', searchTerm);
+    this.userService.getUsersBySearch(searchTerm).subscribe(
+      (users: User[]) => {
+        console.log(users);
+
+      }
+    )
+    ///this.userService.getUsersBySearch(searchTerm);
   }
 
   onCategoryClicked(category: string){
