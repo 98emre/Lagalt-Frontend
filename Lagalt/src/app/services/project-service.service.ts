@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
-import { COMMENT_API_URL, PROJECT_API_URL } from '../utils';
+import { PROJECT_PRIVATE_API_URL, PROJECT_PUBLIC_API_URL } from '../utils';
 import { Observable } from 'rxjs';
 import { ProjectComment } from '../models/comment';
+import keycloak from 'src/keycloak';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class ProjectService {
    */
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(PROJECT_API_URL)
+    return this.http.get<Project[]>(PROJECT_PUBLIC_API_URL)
   }
 
   /**
@@ -32,7 +33,7 @@ export class ProjectService {
    */
 
   getProjectById(id: number): Observable<Project> {
-    return this.http.get<Project>(PROJECT_API_URL + '/' + id)
+    return this.http.get<Project>(PROJECT_PUBLIC_API_URL + '/' + id)
   }
 
   /**
@@ -46,12 +47,11 @@ export class ProjectService {
   postProject(project:Project){
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'x-api-key': "yo yo yo",
+        Authorization: `Bearer ${keycloak.token}` 
       }),
     };
     this.http
-    .post<Project>(PROJECT_API_URL, project, httpOptions)
+    .post<Project>(PROJECT_PRIVATE_API_URL, project, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -70,7 +70,7 @@ export class ProjectService {
       }),
     };
     this.http
-    .delete<Project>(PROJECT_API_URL+"/" + project.id)
+    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + project.id)
     .subscribe({
       error: (error) => {console.log(error)}
     });
