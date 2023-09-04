@@ -3,7 +3,8 @@
 export type ProjectComment = {
     id:number,
     name: string,
+    text: string,
     time: string,
-    projectId: string
+    projectId: number
 
 }

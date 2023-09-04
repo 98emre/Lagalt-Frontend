@@ -1,6 +1,10 @@
 <div class="comment-section">
     <h2> Comments </h2>
-    <ng-content />
+    <div>
+        <app-comment-item *ngFor="let commentData of commentModels" [commentModel]="commentData"/>
+    </div>
+    
+
     <div *ngIf = "user; else loggedOut">
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     

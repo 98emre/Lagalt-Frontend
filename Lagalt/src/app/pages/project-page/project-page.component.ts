@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProjectComment } from 'src/app/models/comment';
 import { Project } from 'src/app/models/project';
+import { CommentService } from 'src/app/services/comment-service.service';
 import { ProjectService } from 'src/app/services/project-service.service';
 import { UserService } from 'src/app/services/user-service.service';
 
@@ -18,16 +19,13 @@ export class ProjectPageComponent {
   constructor(private projectService:ProjectService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
-
     this.route.paramMap.subscribe((params: ParamMap) => {
       const projectId = Number(params.get('id'));
 
 
       this.projectService.getProjectById(projectId).subscribe((project) => {
-        console.log(project);
         this.project = project;
       })
-
     });
   }
 

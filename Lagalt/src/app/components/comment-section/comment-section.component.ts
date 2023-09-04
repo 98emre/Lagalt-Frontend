@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CommentSectionComponent implements OnInit{
   @Input() commentModels:ProjectComment[] | any
+  @Input() projectId:number|any
   constructor(private commentService : CommentService){}
   user:User|any = null
   
@@ -28,6 +29,7 @@ export class CommentSectionComponent implements OnInit{
   }
 
   onSubmit(form:NgForm):void{
-    
+    let newComment:ProjectComment = {id:1, name: this.user.username, text: form.value.text, time:"TIME UNKNOWN", projectId:this.projectId}
+    this.commentModels.push(newComment)
   }
 }
