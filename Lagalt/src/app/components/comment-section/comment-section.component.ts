@@ -31,5 +31,6 @@ export class CommentSectionComponent implements OnInit{
   onSubmit(form:NgForm):void{
     let newComment:ProjectComment = {id:1, name: this.user.username, text: form.value.text, time:"TIME UNKNOWN", projectId:this.projectId}
     this.commentModels.push(newComment)
+    this.commentService.postComment(newComment)
   }
 }
