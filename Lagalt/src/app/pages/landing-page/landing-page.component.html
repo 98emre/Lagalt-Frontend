@@ -9,12 +9,14 @@
 
 <div class="project-section">
     <div class="col-1">
-        <h3>Category</h3>
-        <div class="category-btns">
-            <button (click)="onCategoryClicked('GAME')"><mat-icon class="icon">videogame_asset</mat-icon>Game</button>
-            <button (click)="onCategoryClicked('FILM')"><mat-icon class="icon">local_movies</mat-icon>Film</button>
-            <button (click)="onCategoryClicked('WEB')"><mat-icon class="icon">computer</mat-icon>Web</button>
-            <button (click)="onCategoryClicked('MUSIC')"><mat-icon class="icon">music_note</mat-icon>Music</button>
+        <div class="category-wr">
+            <h3>Category</h3>
+            <div class="category-btns">
+                <button (click)="onCategoryClicked('GAME')"><span class="material-symbols-rounded">sports_esports</span>Game</button>
+                <button (click)="onCategoryClicked('FILM')"><span class="material-symbols-rounded">theaters</span>Film</button>
+                <button (click)="onCategoryClicked('WEB')"><span class="material-symbols-rounded">public</span>Web</button>
+                <button (click)="onCategoryClicked('MUSIC')"><span class="material-symbols-rounded">music_note</span>Music</button>
+            </div>
         </div>
     </div>
 
