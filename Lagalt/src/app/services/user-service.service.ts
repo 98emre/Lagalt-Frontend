@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { USER_API_URL } from '../utils';
+import { USER_PUBLIC_API_URL } from '../utils';
 import { User } from "../models/user";
 import keycloak from 'src/keycloak';
 
@@ -42,13 +42,13 @@ export class UserService {
     //const keyCloakToken = keycloak.token;
     //return this.http.get<User>('/api/verifyOrCreateUser', { headers: { Authorization: `Bearer ${keyCloakToken}` } });
 
-     return this.http.get<User>(USER_API_URL + "/1")
+     return this.http.get<User>(USER_PUBLIC_API_URL + "/1")
   }
 
   // Requests user by fullname 
   /* TO DO: request users by username */
   getUsersBySearch(name: string): Observable<User[]>{
-    return this.http.get<User[]>(USER_API_URL + '/search?name=' + name)
+    return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + name)
   }
 
 }
