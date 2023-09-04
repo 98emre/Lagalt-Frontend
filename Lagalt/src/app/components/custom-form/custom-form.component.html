@@ -20,12 +20,12 @@
     <p></p>
 
     <h3>Category</h3>
-    <p> 
-        <input type="radio" ngModel name= "GAME" id = "GAME">
-        <input type="radio" ngModel name= "MUSIC" id = "MUSIC">
-        <input type="radio" ngModel name= "FILM" id = "FILM">
-        <input type="radio" ngModel name= "WEB" id = "WEB">
-    </p>
+    <select ngModel required name="category" id="category">
+        <option value="GAME">Game</option>
+        <option value="MUSIC">Music</option>
+        <option value="FILM">Film</option>
+        <option value="WEB">Web</option>
+    </select>
     <p></p>
 
     <h3>GitHub Link</h3>
