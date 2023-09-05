@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ProjectComment } from '../models/comment';
 import { COMMENT_PUBLIC_API_URL, COMMENT_PRIVATE_API_URL} from '../utils';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import keycloak from 'src/keycloak';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,16 @@ export class CommentService {
       return this.http.get<ProjectComment[]>(COMMENT_PUBLIC_API_URL)
     }
 
+    /**
+     * postComment()
+     * A function that takes in a comment object and attempts to make a post with it via the API URL.
+     * 
+     * @param comment 
+     */
     postComment(comment:ProjectComment){
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'x-api-key': "yo yo yo",
+          Authorization: `Bearer ${keycloak.token}` 
         }),
       };
       this.http

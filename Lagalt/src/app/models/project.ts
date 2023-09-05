@@ -5,6 +5,7 @@ export type Project = {
     gitlink: string,
     category: string,
     status: number,
+    userId: number,
     commentIds: number[],
     collaboratorIds: number[]
 }
