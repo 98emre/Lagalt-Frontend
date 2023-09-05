@@ -1,6 +1,23 @@
 <div class="dropdown" (click)="closeDropdown($event)">
+  <div (click)="toggleDropdown()" class="dropbtn">
+    <mat-icon class="dotsIcon">more_horiz</mat-icon>
+  </div>
+  <div id="myDropdown" [ngClass]="{'dropdown-content': true, 'show': isDropdownOpen}">
+    <div (click)="onLogOutClick()"><mat-icon>exit_to_app</mat-icon>Log out</div>
+  </div>
+</div>
+
+<!--<div class="dropdown" (click)="closeDropdown($event)">
     <div (click)="toggleDropdown()" class="dropbtn"><mat-icon class="dotsIcon">more_horiz</mat-icon></div>
     <div id="myDropdown" [ngClass]="{'dropdown-content': true, 'show': isDropdownOpen}">
       <div (click)="onLogOutClick()"><mat-icon>exit_to_app</mat-icon>Log out</div>
     </div>
-  </div>
+  </div>-->
+
+  <!--<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" [ngClass]="{'dropdown-content': true, 'show': isDropdownOpen}">
+      <div (click)="onLogOutClick()"><mat-icon>exit_to_app</mat-icon>Log out</div>
+      <a href="#">Link 1</a>
+    </div>
+  </div>-->
