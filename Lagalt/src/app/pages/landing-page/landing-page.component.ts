@@ -11,21 +11,18 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class LandingPageComponent {
 
-  //public loginBtnClicked = false;
-  userName: String = "";
   projectModels:Project[] = [];
   userModels: User[] = [];
-  selectedCategory: String = "none";
   allProjects: Project[] = [];
+
+
+  selectedCategory: String = "none";
+  searchBtnClicked: Boolean = false;
+  searchTerm: string = "";
   
   constructor(private userService: UserService, private projectService:ProjectService) {}
 
   ngOnInit(): void {
-
-    if(this.userService.isAuthenticated()){
-      let user = JSON.parse(localStorage.getItem("user")!)
-      this.userName = user.username;
-    }
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
@@ -39,16 +36,23 @@ export class LandingPageComponent {
     return this.userService.isAuthenticated()
   }
 
-  // Receives the search input from the child (search-form component)
+  // * Receiving the search input from the child (search-form component)
   handleSearch(searchTerm: string) {
-    console.log('Received search term:', searchTerm);
-    this.userService.getUsersBySearch(searchTerm).subscribe(
-      (users: User[]) => {
-        console.log(users);
+    this.searchBtnClicked = true;
+    this.searchTerm = searchTerm;
 
+    this.userService.getUserBySearch(this.searchTerm).subscribe(
+      (users: User[]) => {
+        this.userModels = users;
       }
     )
-    ///this.userService.getUsersBySearch(searchTerm);
+
+    this.projectService.getProjectsBySearch(this.searchTerm).subscribe(
+      (projects: Project[]) => {
+        this.projectModels = projects;
+      }
+    )
+
   }
 
   onCategoryClicked(category: string){

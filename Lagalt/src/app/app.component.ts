@@ -11,6 +11,7 @@ import { filter } from 'rxjs';
 })
 export class AppComponent {
   title = 'Lagalt';
+  userName: String = "";
 
   constructor(private userService: UserService, private readonly router: Router) {}
 
@@ -28,7 +29,7 @@ export class AppComponent {
   homeOnClick(){
 
     window.location.href="";
-    
+
   }
 
   isLoggedIn(){

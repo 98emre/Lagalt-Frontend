@@ -7,6 +7,7 @@
 
 <!--Side category bar-->
 
+<div *ngIf="!this.searchBtnClicked">
 <div class="project-section">
     <div class="col-1">
         <div class="category-wr">
@@ -20,14 +21,10 @@
         </div>
     </div>
 
-<!--Project list -->
+<!--Project list category -->
     <div class="col-2">
         <div class="project-div">
-            <div *ngIf="isLoggedIn()">
-                <p>Inloggad user: {{userName}}</p>
-            </div>
-
-            <h2>All projects</h2>
+            <h2 class="color-gray">All projects</h2>
             <div class="project-list-wr">
                 <app-project-list class="landing-list">
                     <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
@@ -36,4 +33,29 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+
+<!-- Project list search -->
+<div *ngIf="this.searchBtnClicked">
+    <div>
+        <div class="search-filterDiv">
+            <div><button class="btn btn-blue">Users ({{userModels.length}})</button></div>
+            <div><button class="btn btn-blue">Projects({{projectModels.length}})</button></div>
+        </div>
+        <h2>Search results for '{{this.searchTerm}}'</h2>
+    </div>
+
+    <!--Users-->
+    <app-project-list class="landing-list">
+        <app-user-item *ngFor="let userData of userModels" [userModel]="userData" />
+    </app-project-list>
+    <!--Projects -->
+    <div class="project-list-wr">
+        <app-project-list class="landing-list">
+            <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
+                [projectModel]="projectData" />
+        </app-project-list>
+    </div>
+
 </div>

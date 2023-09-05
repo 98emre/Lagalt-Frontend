@@ -36,6 +36,10 @@ export class ProjectService {
     return this.http.get<Project>(PROJECT_PUBLIC_API_URL + '/' + id)
   }
 
+  getProjectsBySearch(searchTerm: string): Observable<Project[]>{
+    return this.http.get<Project[]>(PROJECT_PUBLIC_API_URL + '/search?title=' + searchTerm)
+  }
+
   /**
    * postProject()
    * A function that posts a project to the API, this can be wholly encapsulated in this service (unlike GET)

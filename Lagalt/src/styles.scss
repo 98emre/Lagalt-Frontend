@@ -11,10 +11,9 @@ html{
 }
 
 :root{
-    --primary-blue-color: #3d5afe;
     --primary-dark-gray-color: #808080; 
 
-    --primary-new-color: #25335c;
+    --primary-blue-color: #25335c;
     --secondary-blue-color: #4f91b7;
     --light-blue-color: #f5f9fc;
 }
@@ -40,6 +39,14 @@ h1, h2, h3{
     font-size: smaller;
 }
 
+.color-light-blue{
+    color: var(--secondary-blue-color);
+}
+
+.color-gray{
+    color: #808080;
+}
+
 /*--- icons ---*/
 
 .material-symbols-rounded{
@@ -63,26 +70,25 @@ h1, h2, h3{
     width: 6rem;
     height: 40px;
     font-family: 'Manrope', sans-serif;
+    font-size: 14px;
 }
 
-.btn-black{
-    background-color: black;
-    color: white;
-}
-
-.btn-black:hover{
-    color: black;
-    border: 1px solid black;
+.btn-white{
     background-color: white;
+    color: var(--primary-blue-color);
+    border: 1px solid var(--primary-blue-color);
+}
+
+.btn-white:hover{
+    color: white;
+    border: 1px solid white;
+    background-color: var(--secondary-blue-color);
 }
 
 .btn-blue:hover {
-    /*color: var(--primary-blue-color);*/
     background-color: var(--light-blue-color);
-    border: 1px solid var(--primary-new-color);
-    color: var(--primary-new-color);
-    /*border: 1px solid var(--primary-blue-color);*/
-    /*background-color: white;*/
+    border: 1px solid var(--primary-blue-color);
+    color: var(--primary-blue-color);
 }
 
 header a:visited, header a:active, header a:link{
@@ -124,13 +130,9 @@ header a:visited, header a:active, header a:link{
 
 .landing-item .col-2 p{
     margin: 0;
-    background-color: rgb(207, 207, 207);
-    color: black;
+    background-color: var(--secondary-blue-color);
+    color: white;
     display: inline-block;
     padding: 5px;
     border-radius: 5px;
-}
-
-.landing-item .col-1 h2{
-    color: var(--primary-blue-color);
 }

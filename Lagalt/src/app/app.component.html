@@ -4,12 +4,12 @@
     <h1 class="logo">lagalt</h1>
   </a>
   <div *ngIf="!isLoggedIn()">
-    <button class="btn btn-blue widthIcon" (click)="onLoginClick()"><mat-icon class="btnIcon">lock</mat-icon>Login</button>
+    <button class="btn btn-blue loginBtn" (click)="onLoginClick()"><mat-icon class="btnIcon">lock</mat-icon>Login</button>
   </div>
   <div *ngIf="isLoggedIn()" class="navDiv">
-      <a routerLink="profile" class="widthIcon"><span class="material-symbols-rounded profileIcon">
-        account_circle
-        </span>Profile</a>
+      <a routerLink="profile" class="profileBtn"><span class="material-symbols-rounded profileIcon">
+        person
+        </span>{{this.userName}}</a>
       <app-drop-down></app-drop-down>
   </div>
 </header>
