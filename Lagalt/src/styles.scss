@@ -79,6 +79,11 @@ h1, h2, h3{
     border: 1px solid var(--primary-blue-color);
 }
 
+.btn-gray{
+    background-color: var(--primary-dark-gray-color);
+    color: lightgray;
+}
+
 .btn-white:hover{
     color: white;
     border: 1px solid white;

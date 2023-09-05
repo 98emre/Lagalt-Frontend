@@ -18,18 +18,14 @@ export class AppComponent {
   ngOnInit(){
 
     if(this.userService.isAuthenticated()){
-      //this.userService.getUserDetails().subscribe((user) => {
-      //  console.log(user);
-      //  localStorage.setItem("user", JSON.stringify(user));
-      //})
+      const user = JSON.parse(localStorage.getItem("user")!);
+      this.userName = user.username;
     }
     
   }
 
   homeOnClick(){
-
     window.location.href="";
-
   }
 
   isLoggedIn(){

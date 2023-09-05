@@ -68,17 +68,12 @@ export class UserService {
     keycloak.logout();
   }
 
+  // Checks if authenticated via keycloak 
   isAuthenticated(){
     return this.isLoggedIn;
   }
 
-  // get user from database
-  //getUserDetails(): Observable<User> {
-  //   return this.http.get<User>(USER_PUBLIC_API_URL + "/2")
- // }
-
-  // Requests user by fullname 
-  /* TO DO: request users by username */
+  // get users by search (fullname & username)
   getUserBySearch(searchTerm: string): Observable<User[]>{
     return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + searchTerm)
   }
