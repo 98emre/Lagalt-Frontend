@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+    padding-top: 5rem;
 }
 
 /*--- col 1 ---- */
@@ -79,6 +80,7 @@
 .project-div{
     display: flex;
     flex-direction: column;
+    padding: 0rem 5rem;
 }
 
 
@@ -86,4 +88,14 @@
 
 .project-list-wr{
     width: 100%;
+    margin-top: 3rem;
+}
+
+/* search section */
+
+.search-filterDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
 }

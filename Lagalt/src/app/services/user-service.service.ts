@@ -47,8 +47,12 @@ export class UserService {
 
   // Requests user by fullname 
   /* TO DO: request users by username */
-  getUsersBySearch(name: string): Observable<User[]>{
-    return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + name)
+  getUserBySearch(searchTerm: string): Observable<User[]>{
+    return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + searchTerm)
   }
+
+
+
+
 
 }

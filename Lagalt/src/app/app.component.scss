@@ -33,10 +33,6 @@ header{
     color: white;
 }
 
-.profileIcon:hover{
-    
-}
-
 .logo{
     font-family: 'Paytone One', sans-serif;
     /*color: black;*/
@@ -44,7 +40,7 @@ header{
     margin: 0;
 }
 
-.widthIcon{
+.profileBtn{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,6 +49,13 @@ header{
     color: white;
     font-size: smaller;
     transition: all .5s ease;
+}
+
+.loginBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .widthIcon:hover{
