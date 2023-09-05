@@ -17,10 +17,10 @@ export class AppComponent {
   ngOnInit(){
 
     if(this.userService.isAuthenticated()){
-      this.userService.getUserDetails().subscribe((user) => {
-        console.log(user);
-        localStorage.setItem("user", JSON.stringify(user));
-      })
+      //this.userService.getUserDetails().subscribe((user) => {
+      //  console.log(user);
+      //  localStorage.setItem("user", JSON.stringify(user));
+      //})
     }
     
   }

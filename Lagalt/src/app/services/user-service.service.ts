@@ -12,6 +12,7 @@ import keycloak from 'src/keycloak';
 export class UserService {
 
   public isLoggedIn = false;
+  private user:User|any = null
 
   constructor(private readonly http:HttpClient){
     
@@ -31,7 +32,10 @@ export class UserService {
         .subscribe({
           next: (response) => {
             // Handle the response from the server here
-            console.log('GET request success', response);
+            console.log(response)
+            this.user = response
+            localStorage.setItem("user", JSON.stringify(this.user));
+            console.log("This user: " + this.user)
           },
           error: (getError) => {
             // If there's an error in the GET request, make the POST request
@@ -39,6 +43,8 @@ export class UserService {
               .post('http://localhost:8081/api/users/add-user', {}, httpOptions)
               .subscribe({
                 next: (postResponse) => {
+                  this.user = postResponse
+                  localStorage.setItem("user", JSON.stringify(this.user));
                   // Handle the response from the POST request here
                   console.log('POST request success', postResponse);
                 },
@@ -67,15 +73,9 @@ export class UserService {
   }
 
   // get user from database
-  getUserDetails(): Observable<User> {
-
-    /* TO DO: sending keycloak token */
-
-    //const keyCloakToken = keycloak.token;
-    //return this.http.post<User>('/api/verifyOrCreateUser', { headers: { Authorization: `Bearer ${keyCloakToken}` } });
-
-     return this.http.get<User>(USER_PUBLIC_API_URL + "/2")
-  }
+  //getUserDetails(): Observable<User> {
+  //   return this.http.get<User>(USER_PUBLIC_API_URL + "/2")
+ // }
 
   // Requests user by fullname 
   /* TO DO: request users by username */
