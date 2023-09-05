@@ -38,24 +38,42 @@
 
 <!-- Project list search -->
 <div *ngIf="this.searchBtnClicked">
-    <div>
+    <div class="search-filter-wr">
         <div class="search-filterDiv">
-            <div><button class="btn btn-blue">Users ({{userModels.length}})</button></div>
-            <div><button class="btn btn-blue">Projects({{projectModels.length}})</button></div>
+            <div><button class="btn" 
+                [class.btn-blue]="usersFound" 
+                [class.btn-gray]="!usersFound"
+                (click)="filterUserClick()">
+                Users 
+                ({{userModels.length}})</button>
+            </div>
+            <div><button class="btn" 
+                [class.btn-blue]="projectsFound" 
+                [class.btn-gray]="!projectsFound"
+                (click)="filterProjectClick()">
+                Projects 
+                ({{projectModels.length}})</button>
+            </div>
         </div>
-        <h2>Search results for '{{this.searchTerm}}'</h2>
+        <div>
+            <h3>Search results for '{{this.searchTerm}}'</h3>
+        </div>
     </div>
 
     <!--Users-->
-    <app-project-list class="landing-list">
-        <app-user-item *ngFor="let userData of userModels" [userModel]="userData" />
-    </app-project-list>
-    <!--Projects -->
-    <div class="project-list-wr">
+    <div *ngIf="usersFound && filterUser">
         <app-project-list class="landing-list">
-            <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
-                [projectModel]="projectData" />
+            <app-user-item *ngFor="let userData of userModels" [userModel]="userData" />
         </app-project-list>
+    </div>
+    <!--Projects -->
+    <div *ngIf="projectsFound && !filterUser">
+        <div class="project-list-wr">
+            <app-project-list class="landing-list">
+                <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
+                    [projectModel]="projectData" />
+            </app-project-list>
+        </div>
     </div>
 
 </div>
