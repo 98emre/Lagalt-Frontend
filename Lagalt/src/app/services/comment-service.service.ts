@@ -21,6 +21,12 @@ export class CommentService {
       return this.http.get<ProjectComment[]>(COMMENT_PUBLIC_API_URL)
     }
 
+    /**
+     * postComment()
+     * A function that takes in a comment object and attempts to make a post with it via the API URL.
+     * 
+     * @param comment 
+     */
     postComment(comment:ProjectComment){
       const httpOptions = {
         headers: new HttpHeaders({

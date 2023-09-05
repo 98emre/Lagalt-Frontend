@@ -8,6 +8,7 @@ import { ProjectService } from 'src/app/services/project-service.service';
   styleUrls: ['./comment-item.component.scss']
 })
 export class CommentItemComponent implements OnInit{
+  // Input: Reads in the data content of a project (a model):
   @Input() commentModel: ProjectComment | any;
   constructor(){}
   ngOnInit(): void {
