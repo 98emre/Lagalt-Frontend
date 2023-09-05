@@ -25,9 +25,9 @@ export class CommentSectionComponent {
 
     this.commentService.getComments().subscribe(
       (comments: ProjectComment[]) => {
-        this.commentModels = comments.filter((element) => element.projectId === this.projectId)
-        console.log(this.projectId)
+        console.log("Getting Comments:")
         console.log(JSON.stringify(comments))
+        this.commentModels = comments.filter((element) => element.projectId === this.projectId)
       }
     )
     
@@ -44,6 +44,8 @@ export class CommentSectionComponent {
    */
   onSubmit(form:NgForm):void{
     let newComment:ProjectComment = {id:1, author: this.user.username, text: form.value.text, time:"TIME UNKNOWN", projectId:this.projectId}
+    console.log("Pushing comment:")
+    console.log(JSON.stringify(newComment))
     this.commentModels.push(newComment)
     this.commentService.postComment(newComment)
   }

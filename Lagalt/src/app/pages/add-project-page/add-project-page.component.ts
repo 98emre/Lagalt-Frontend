@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
+import { User } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-add-project-page',
@@ -11,8 +13,8 @@ import { ProjectService } from 'src/app/services/project-service.service';
 export class AddProjectPageComponent implements OnInit {
 
   projectModels:Project[] = []
-  constructor(private router:Router, private projectService:ProjectService){}
-
+  constructor(private router:Router, private projectService:ProjectService, private userService:UserService){}
+  
   /** 
   * ngOnInit()
   * Reads in the projects from the API to be stored locally.   
@@ -34,10 +36,12 @@ export class AddProjectPageComponent implements OnInit {
    */
 
   addProject(project:Project){
-    let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:0, collaboratorIds:[], commentIds:[]}
+    let user = JSON.parse(localStorage.getItem('user')!) as User
+    let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:0, userId:user.id, collaboratorIds:[], commentIds:[]}
     this.projectService.postProject(insertProject)
     this.projectModels.push(insertProject)
     alert("A new project was added!")
+    console.log(JSON.stringify(insertProject))
   }
   
 }
