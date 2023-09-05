@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ProjectComment } from '../models/comment';
 import { COMMENT_PUBLIC_API_URL, COMMENT_PRIVATE_API_URL} from '../utils';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import keycloak from 'src/keycloak';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,7 @@ export class CommentService {
     postComment(comment:ProjectComment){
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'x-api-key': "yo yo yo",
+          Authorization: `Bearer ${keycloak.token}` 
         }),
       };
       this.http

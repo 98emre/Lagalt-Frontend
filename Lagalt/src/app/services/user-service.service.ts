@@ -42,7 +42,7 @@ export class UserService {
     //const keyCloakToken = keycloak.token;
     //return this.http.get<User>('/api/verifyOrCreateUser', { headers: { Authorization: `Bearer ${keyCloakToken}` } });
 
-     return this.http.get<User>(USER_PUBLIC_API_URL + "/1")
+     return this.http.get<User>(USER_PUBLIC_API_URL + "/2")
   }
 
   // Requests user by fullname 

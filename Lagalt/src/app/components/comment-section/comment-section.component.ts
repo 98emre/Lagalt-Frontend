@@ -10,21 +10,24 @@ import { NgForm } from '@angular/forms';
   templateUrl: './comment-section.component.html',
   styleUrls: ['./comment-section.component.scss']
 })
-export class CommentSectionComponent implements OnInit{
-  @Input() commentModels:ProjectComment[] | any
+export class CommentSectionComponent {
   @Input() projectId:number|any
   constructor(private commentService : CommentService){}
   user:User|any = null
+  commentModels:ProjectComment[] = []
   
   /**
-   * ngOnInit()
-   * ngOnInit() for the comment section component will make a POST request and save the comments from the database locally.
-   * Then ngOnInit() will check for a user in the local storage and set the user as well to be stored locally. 
+   * ngOnChanges()
+   * ngOnChanges() for the comment section component will make a GET request and save the comments from the database locally.
+   * Then ngOnChanges() will also check for a user in the local storage and set the user as well to be stored locally. 
    */
-  ngOnInit(): void {
+  ngOnChanges(): void {
+
     this.commentService.getComments().subscribe(
       (comments: ProjectComment[]) => {
-        this.commentModels = comments
+        this.commentModels = comments.filter((element) => element.projectId === this.projectId)
+        console.log(this.projectId)
+        console.log(JSON.stringify(comments))
       }
     )
     

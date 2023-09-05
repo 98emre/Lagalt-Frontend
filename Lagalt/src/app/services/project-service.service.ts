@@ -59,7 +59,7 @@ export class ProjectService {
   
   /**
    * deleteProject()
-   * 
+   * Makes a delete request to the backend to delete a project.
    */
 
   deleteProject(project:Project){
