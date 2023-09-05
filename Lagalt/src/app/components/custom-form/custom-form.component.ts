@@ -22,7 +22,7 @@ export class CustomFormComponent {
     let newTitle = form.value.title
     let newDescription = form.value.description
     let newCategory = form.value.category
-    let newGit = form.value.gitlink
+    let newGit = form.value.git
     let project:Project = {id:1, title:newTitle, descriptions:newDescription, category:newCategory, gitlink: newGit, status:0, commentIds:[], collaboratorIds:[]}
     this.pushToParent(project)
   }
