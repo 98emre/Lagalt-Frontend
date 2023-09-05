@@ -5,6 +5,7 @@ import {LandingPageComponent} from './pages/landing-page/landing-page.component'
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 
 const routes: Routes = [ 
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
 {
   path: 'project/:id',
   component: ProjectPageComponent,
+},
+{
+  path: 'user/:id',
+  component: UserPageComponent,
 },
 {
   path:'', 

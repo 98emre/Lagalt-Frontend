@@ -1,0 +1,16 @@
+.user-list-wr{
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 0.5px solid rgb(230, 230, 230);
+}
+
+.username-wr{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.userIcon{
+    font-size: 2rem;
+}
