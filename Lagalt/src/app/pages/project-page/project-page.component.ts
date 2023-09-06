@@ -29,8 +29,8 @@ export class ProjectPageComponent {
         this.project = project;
       })
     });
-    this.user = JSON.parse(localStorage.getItem('user')!)
-    console.log("test 33: " + this.user.id)
+    if(localStorage.getItem('user') != null)
+      this.user = JSON.parse(localStorage.getItem('user')!)
   }
 
 }
