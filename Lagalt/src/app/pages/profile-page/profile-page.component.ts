@@ -28,13 +28,14 @@ export class ProfilePageComponent implements OnInit{
    * We also initialize a user from the localStorage. 
    */
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user')!) as User
+
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
-        this.projectModels = projects
+        console.log(JSON.stringify(projects))
+        this.projectModels = projects.filter((element) => element.userId === this.user.id)
       }
     )
-    
-    this.user = JSON.parse(localStorage.getItem('user')!) as User
   }
 
   /** 
