@@ -19,14 +19,16 @@ export class CommentSectionComponent {
   /**
    * ngOnChanges()
    * ngOnChanges() for the comment section component will make a GET request and save the comments from the database locally.
-   * Then ngOnChanges() will also check for a user in the local storage and set the user as well to be stored locally. 
+   * Then ngOnChanges() will also check for a user in the local storage and set the user as well to be stored locally.
+   * ngOnChanges is used rather than ngOnInit to resolve the issue pertaining to order of reading in data.
+   * For example, onInit was called before the input to the projectId, but with ngOnChanges the function is called again when
+   * the input is passed down and the value (That due to the timing was null) is corrected for. 
    */
+
   ngOnChanges(): void {
 
     this.commentService.getComments().subscribe(
       (comments: ProjectComment[]) => {
-        console.log("Getting Comments:")
-        console.log(JSON.stringify(comments))
         this.commentModels = comments.filter((element) => element.projectId === this.projectId)
       }
     )
@@ -43,10 +45,10 @@ export class CommentSectionComponent {
    * @param form, a NgForm where the message is recieved onto this function. 
    */
   onSubmit(form:NgForm):void{
-    let newComment:ProjectComment = {id:1, author: this.user.username, text: form.value.text, time:"TIME UNKNOWN", projectId:this.projectId}
+    let newComment:ProjectComment = {id:1, author: this.user.username, text: form.value.text, date:"TIME UNKNOWN", projectId:this.projectId}
     console.log("Pushing comment:")
     console.log(JSON.stringify(newComment))
     this.commentModels.push(newComment)
-    this.commentService.postComment(newComment)
+    this.commentService.postComment(this.projectId, newComment)
   }
 }

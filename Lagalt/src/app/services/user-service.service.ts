@@ -32,10 +32,9 @@ export class UserService {
         .subscribe({
           next: (response) => {
             // Handle the response from the server here
-            console.log(response)
             this.user = response
             localStorage.setItem("user", JSON.stringify(this.user));
-            console.log("This user: " + this.user)
+            console.log("This user: " + JSON.stringify(this.user))
           },
           error: (getError) => {
             // If there's an error in the GET request, make the POST request
@@ -78,8 +77,8 @@ export class UserService {
     return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + searchTerm)
   }
 
-  getUserById(id: number): Observable<User[]>{
-    return this.http.get<User[]>(USER_PUBLIC_API_URL + '/' + id);
+  getUserById(id: number): Observable<User>{
+    return this.http.get<User>(USER_PUBLIC_API_URL + '/' + id);
   }
 
 
