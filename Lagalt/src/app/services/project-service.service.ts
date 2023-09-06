@@ -49,13 +49,22 @@ export class ProjectService {
    * @param project, The project object that we want to post. 
    */
   postProject(project:Project){
+    const postProject:Partial<Project> = 
+    {
+      title:project.title, 
+      descriptions:project.descriptions, 
+      gitlink: project.gitlink,
+      category: project.category,
+      status: project.status  
+    }
+
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${keycloak.token}` 
       }),
     };
     this.http
-    .post<Project>(PROJECT_PRIVATE_API_URL, project, httpOptions)
+    .post<Partial<Project>>(PROJECT_PRIVATE_API_URL, postProject, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -66,7 +75,7 @@ export class ProjectService {
    * Makes a delete request to the backend to delete a project.
    */
 
-  deleteProject(project:Project){
+  deleteProject(project:Project, projectId:number){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -74,7 +83,7 @@ export class ProjectService {
       }),
     };
     this.http
-    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + project.id)
+    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + projectId)
     .subscribe({
       error: (error) => {console.log(error)}
     });

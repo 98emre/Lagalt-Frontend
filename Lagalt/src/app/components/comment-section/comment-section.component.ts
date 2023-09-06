@@ -45,9 +45,8 @@ export class CommentSectionComponent {
    * @param form, a NgForm where the message is recieved onto this function. 
    */
   onSubmit(form:NgForm):void{
-    let newComment:ProjectComment = {id:1, author: this.user.username, text: form.value.text, date:"TIME UNKNOWN", projectId:this.projectId}
-    console.log("Pushing comment:")
-    console.log(JSON.stringify(newComment))
+    let commentDate = new Date()
+    let newComment:ProjectComment = {id:1, text: form.value.text, date:commentDate, projectId:this.projectId, userId:this.user.id}
     this.commentModels.push(newComment)
     this.commentService.postComment(this.projectId, newComment)
   }

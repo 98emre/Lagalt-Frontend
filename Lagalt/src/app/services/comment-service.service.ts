@@ -29,13 +29,20 @@ export class CommentService {
      * @param comment 
      */
     postComment(projectId:number, comment:ProjectComment){
+      const postComment:Partial<ProjectComment> = {
+        text: comment.text,
+        date: comment.date,
+        projectId: comment.projectId,
+        userId: comment.userId
+      }
+      
       const httpOptions = {
         headers: new HttpHeaders({
-          Authorization: `Bearer ${keycloak.token}` 
+          //Authorization: `Bearer ${keycloak.token}` 
         }),
       };
       this.http
-      .post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId, comment, httpOptions)
+      .post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId, postComment, httpOptions)
       .subscribe({
         error: (error) => {console.log(error)}
       });
