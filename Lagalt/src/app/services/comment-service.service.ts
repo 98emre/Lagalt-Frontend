@@ -38,7 +38,7 @@ export class CommentService {
       
       const httpOptions = {
         headers: new HttpHeaders({
-          //Authorization: `Bearer ${keycloak.token}` 
+          Authorization: `Bearer ${keycloak.token}` 
         }),
       };
       this.http

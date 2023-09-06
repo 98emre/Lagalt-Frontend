@@ -1,3 +1,5 @@
+
+
 import { Component } from '@angular/core';
 import { UserService } from './services/user-service.service';
 import keycloak from 'src/keycloak';
@@ -13,16 +15,15 @@ import { User } from './models/user';
 export class AppComponent {
   title = 'Lagalt';
   userName: String = "";
+  user:User|any = null
 
   constructor(private userService: UserService, private readonly router: Router) {}
 
   ngOnInit(){
-
-    if(this.userService.isAuthenticated()){
-      const user = JSON.parse(localStorage.getItem("user")!);
+    this.userService.getUser()
+    this.userService.getUserObservable().subscribe((user) => {
       this.userName = user.username;
-    }
-    
+    });
   }
 
   homeOnClick(){

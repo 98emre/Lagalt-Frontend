@@ -32,7 +32,6 @@ export class ProfilePageComponent implements OnInit{
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
-        console.log(JSON.stringify(projects))
         this.projectModels = projects.filter((element) => element.userId === this.user.id)
       }
     )
