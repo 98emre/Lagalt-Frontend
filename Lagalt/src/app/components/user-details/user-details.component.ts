@@ -9,5 +9,12 @@ import { User } from 'src/app/models/user';
 export class UserDetailsComponent {
 
   @Input() userDetails: User | any;
+  projectIds:number[] = []
+  ngOnChanges(){
+    if(this.userDetails != null){
+      this.projectIds = this.userDetails.projectIds
+      console.log(this.projectIds)
+    }
+  }
 
 }
