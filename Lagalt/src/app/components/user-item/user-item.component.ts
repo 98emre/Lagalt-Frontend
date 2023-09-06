@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -8,10 +9,12 @@ import { User } from 'src/app/models/user';
 })
 export class UserItemComponent {
 
+  constructor(private router: Router) { }
+
   @Input() userModel: User | any;
 
   onGotoClick(id: number){
-    console.log(id);
+    this.router.navigate(['/user', id]);
   }
 
 }

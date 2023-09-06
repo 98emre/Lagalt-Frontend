@@ -6,12 +6,13 @@ header{
     background-color: #25335c;
     /*border-bottom: 0.5px solid #6b6b6b;*/
     height: 5vh;
-    padding: 0.5rem 5rem;
+    padding: 0.5rem 8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 .logo-wr{

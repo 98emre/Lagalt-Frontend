@@ -33,7 +33,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     SearchFormComponent,
     CommentItemComponent,
     UserItemComponent,
-    UserListComponent,
+    UserPageComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,5 +51,6 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 export class AppModule {
 }import { CommentItemComponent } from './components/comment-item/comment-item.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
