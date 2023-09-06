@@ -62,6 +62,7 @@ export class LandingPageComponent {
     this.projectService.getProjectsBySearch(this.searchTerm).subscribe(
       (projects: Project[]) => {
         this.projectModels = projects;
+        console.log(this.projectModels);
         if(this.projectModels.length > 0){
           this.projectsFound = true;
         }else{

@@ -34,6 +34,7 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     CommentItemComponent,
     UserItemComponent,
     UserPageComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,4 +52,5 @@ export class AppModule {
 }import { CommentItemComponent } from './components/comment-item/comment-item.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
