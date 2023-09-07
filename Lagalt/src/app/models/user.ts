@@ -5,4 +5,6 @@ export type User = {
     fullname: String, 
     username: String, 
     description: String
+    skills: String[]
+    projectIds: number[],
 }
