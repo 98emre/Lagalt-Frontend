@@ -8,17 +8,46 @@
         </div>
         <div class="user-details">
             <div class="col">
-                <p class="small-title">Username</p>
+                <p class="small-title color-light-blue">Username</p>
                 <p>{{userDetails?.username}}</p>
             </div>
             <div class="col">
-                <p class="small-title">Projects</p>
-                <p>{{userDetails?.projectsIds ? userDetails.projectsIds.length : 0}}</p>
+                <p class="small-title color-light-blue">Projects</p>
+                <!--<p>{{userDetails?.projectsIds ? userDetails.projectsIds.length : 0}}</p>-->
+                <p>{{this.projectIds?.length}}</p>
             </div>
             <div class="col">
-                <p class="small-title">Skills</p>
+                <p class="small-title color-light-blue">Skills</p>
                 <p>{{userDetails?.skills}}</p>
+            </div>
+            <div>
+                <p class="small-title color-light-blue">About</p>
+                <p>{{userDetails?.description}}</p>
             </div>
         </div>
     </div>
+    <div *ngIf="editBtnVisible()">
+        <button (click)="showEditElem()">Edit</button>
+    </div>
+</div>
+<div *ngIf="editBtnClicked">
+    <div>
+        <!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
+        <h1>Edit My Profile</h1>
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+            <h2>Change about</h2>
+            <input type="text" ngModel name="desc" id="desc" required placeholder="What do you want to do?">
+            <h2>Change skills</h2>
+            <h3>Category</h3>
+            <fieldset>
+                <input type="checkbox" ngModel id="java" name="JAVA"><label for="java">Java</label>
+                <input type="checkbox" ngModel name="JAVASCRIPT"><label for="javascript">Javascript</label>
+                <input type="checkbox" ngModel name="REACT"><label for="react">React</label>
+                <input type="checkbox" ngModel name="ANGULAR"><label for="angular">Angular</label>
+                <input type="checkbox" ngModel name="C"><label for="c">C++</label>
+            </fieldset>
+            <button type="submit" [disabled]="myForm.form.invalid">Submit Change</button>
+        </form>
+    </div>
+
 </div>
