@@ -19,6 +19,11 @@ export class AppComponent {
 
   constructor(private userService: UserService, private readonly router: Router) {}
 
+  /**
+   * ngOnInit()
+   * The ngOnInit() life cycle hook is triggered upon start and immediately it will call the user service to get a user from the API.
+   * ngOnInit() also makes a subscription on the user's value so that when it is ready it will be returned and set for app-component.html to use subsequently.
+   */
   ngOnInit(){
     this.userService.getUser()
     this.userService.getUserObservable().subscribe((user) => {

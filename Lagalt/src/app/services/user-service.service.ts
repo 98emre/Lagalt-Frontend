@@ -16,6 +16,20 @@ export class UserService {
   private userSubject = new Subject<any>
   constructor(private readonly http:HttpClient){}
 
+  /**
+   * getUser()
+   * getUser() is a method that uses the generated keycloak token to try to find a user.
+   * It will send a request to the backend, if that request succeeds, that means we are
+   * logging in as an existing user. If the first call fails, possibly due to error code
+   * 404, (resource can't be found), then this function attempts to create a user via the
+   * add-user API url instead. In a sentence, the function 1. Tries to find a user,
+   * 2. Creates a user if unable to find it.
+   * 
+   * Moreover, the get user function also sets an internal userSubject so that it is set
+   * when a user (either created or found) exists. A function outside can then subscribe
+   * to this value so that they can wait for the async operations to take their course and
+   * then to have the corresponding user value being set. (To avoid timing errors)
+   */
   getUser(){
   if (keycloak.authenticated) {
     this.isLoggedIn = true;
@@ -59,6 +73,15 @@ export class UserService {
     }
   }
   
+  /**
+   * getUserObservable()
+   * getUserObservable is a method that extends the getUser() functionality.
+   * This method is simply a getter for the subject that can be subscribed to and that
+   * sets a value in getUser(). The subscription makes it so methods outside of this
+   * class can obtain the user value the moment that it is available (avoid timing errors).
+   * @returns An observable, pertaining to user. 
+   */
+
   getUserObservable(){
     return this.userSubject.asObservable()
   }

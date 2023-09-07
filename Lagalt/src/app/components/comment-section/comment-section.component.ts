@@ -40,7 +40,9 @@ export class CommentSectionComponent {
   /**
    * onSubmit()
    * onSubmit() handles the form pertaining to posting a comment, which is only visible and accessible if the user is logged in.
-   * The user enters a message through a form and presses the button 'post comment'. 
+   * The user enters a message through a form and presses the button 'post comment'.
+   * This function is invoked to handle that, basically extracting the fields the user had and insert them into a comment that is
+   * later posted in commentService.
    * 
    * @param form, a NgForm where the message is recieved onto this function. 
    */
