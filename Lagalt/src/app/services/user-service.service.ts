@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { USER_PUBLIC_API_URL } from '../utils';
+import { USER_PRIVATE_API_URL, USER_PUBLIC_API_URL } from '../utils';
 import { User } from "../models/user";
 import keycloak from 'src/keycloak';
 
@@ -79,6 +79,19 @@ export class UserService {
 
   getUserById(id: number): Observable<User>{
     return this.http.get<User>(USER_PUBLIC_API_URL + '/' + id);
+  }
+
+  updateUser(id: number, user: Partial<User>){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    this.http
+    .patch<User>(USER_PRIVATE_API_URL + '/' + id, user, httpOptions)
+    .subscribe({
+      error: (error) => {console.log(error)}
+    });
   }
 
 

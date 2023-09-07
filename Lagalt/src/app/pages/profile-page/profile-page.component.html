@@ -1,3 +1,23 @@
+
+<div class="user-page-section">
+    <div class="user-page-wr">
+        <!--User details -->
+        <app-user-details [userDetails]="user"></app-user-details>
+
+        <!--User projects -->
+        <h3 class="color-white">All projects</h3>
+        <app-project-list class="landing-list">
+            <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
+                [projectModel]="projectData" />
+        </app-project-list>
+
+    </div>
+
+</div>
+
+
+
+
 <!--Welcome the user and output their description-->
 <h1>Welcome, {{user.username}}</h1>
 <p>{{dummyDescription}}</p>
@@ -8,18 +28,6 @@
     <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
 </app-project-list>
 
-<!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
-<h1>Edit My Profile</h1>
-<h2>Change Description</h2>
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-    <input type="text"
-    ngModel
-    name="desc"
-    id = "desc"
-    required
-    placeholder="What do you want to do?">
-    <button type="submit" [disabled]="myForm.form.invalid">Submit Change</button>
-</form>
 
 <!-- Add A Project is simply a button that maps to the onClickAddProject function. The idea is that this function should navigate to a new page (see ER). -->
 <h2>Add A Project</h2>

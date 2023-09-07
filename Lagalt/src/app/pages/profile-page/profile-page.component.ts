@@ -28,7 +28,7 @@ export class ProfilePageComponent implements OnInit{
    * We also initialize a user from the localStorage. 
    */
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user')!) as User
+    this.user = JSON.parse(localStorage.getItem('user')!);
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
@@ -47,13 +47,4 @@ export class ProfilePageComponent implements OnInit{
     this.router.navigate(['/add']);
   }
 
-  /**
-   * onSubmit()
-   * When a user enters in the description the form is passed to this function, and here we can extract the text that was written in the textfield.
-   * @param form, a NgForm that is passed in with data from the user.
-   */
-
-  public onSubmit(form: NgForm): void {
-    this.dummyDescription = form.value.desc
-  }
 }
