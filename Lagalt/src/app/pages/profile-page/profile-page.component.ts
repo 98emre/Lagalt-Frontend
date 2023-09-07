@@ -39,7 +39,7 @@ export class ProfilePageComponent implements OnInit{
 
   /** 
    * onClickAddProject()
-   * A button that maps the user the the form for creating a new project.
+   * A method that maps the event of clicking a button to a navigation to the add project page. 
    */
 
   onClickAddProject() {
