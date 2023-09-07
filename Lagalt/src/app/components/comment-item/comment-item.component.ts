@@ -11,14 +11,14 @@ import { UserService } from 'src/app/services/user-service.service';
 export class CommentItemComponent {
   // Input: Reads in the data content of a project (a model):
   @Input() commentModel: ProjectComment | any;
-  author:User|any = null
+  user:User|any = null
 
   constructor(private userService:UserService){}
 
-  ngOnChanges(): void {
+  ngOnInit(): void {
 
     this.userService.getUserById(this.commentModel.userId).subscribe({
-      next: ((response) => { this.author = response.username }),
+      next: ((response) => { this.user = response}),
       error: ((error) => console.error(error))
     }
     )

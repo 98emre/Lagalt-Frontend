@@ -41,7 +41,6 @@ export class AddProjectPageComponent implements OnInit {
     this.projectService.postProject(insertProject)
     this.projectModels.push(insertProject)
     alert("A new project was added!")
-    console.log(JSON.stringify(insertProject))
   }
   
 }

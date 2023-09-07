@@ -3,6 +3,7 @@ import { ProjectComment } from 'src/app/models/comment';
 import { User } from 'src/app/models/user';
 import { CommentService} from 'src/app/services/comment-service.service';
 import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/services/user-service.service';
 
 
 @Component({
@@ -12,17 +13,28 @@ import { NgForm } from '@angular/forms';
 })
 export class CommentSectionComponent {
   @Input() projectId:number|any
-  constructor(private commentService : CommentService){}
+  constructor(private userService:UserService, private commentService : CommentService){}
   user:User|any = null
   commentModels:ProjectComment[] = []
   
+
+  /**
+   * ngOnInit()
+   * The ngOnInit life cycle hook creates a subscription for the user, from the user service. This makes it so that the
+   * data 
+   */
+  
+  ngOnInit(){
+    this.userService.getUserObservable().subscribe((user) => { this.user = user });
+  }
+
   /**
    * ngOnChanges()
    * ngOnChanges() for the comment section component will make a GET request and save the comments from the database locally.
    * Then ngOnChanges() will also check for a user in the local storage and set the user as well to be stored locally.
-   * ngOnChanges is used rather than ngOnInit to resolve the issue pertaining to order of reading in data.
-   * For example, onInit was called before the input to the projectId, but with ngOnChanges the function is called again when
-   * the input is passed down and the value (That due to the timing was null) is corrected for. 
+   * The ngOnChanges lifecycle hook is used rather than ngOnInit to resolve the issue pertaining to order of reading in data.
+   * For example, onInit can be called before the input to the projectId is passed, but with ngOnChanges the function is called 
+   * again when the input is passed down and the projectId (That due to the timing was null) is corrected for. 
    */
 
   ngOnChanges(): void {
