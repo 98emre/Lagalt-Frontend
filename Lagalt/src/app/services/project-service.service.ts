@@ -36,26 +36,42 @@ export class ProjectService {
     return this.http.get<Project>(PROJECT_PUBLIC_API_URL + '/' + id)
   }
 
+  /**
+   * getProjectsBySearch()
+   * A function that conducts a search by making a public API request to the backend with the project title inserted via the URL.
+   * On the backend side, this is caught in a controller that subsequently returns the LIKE sql query to return full matches and partial matches.
+   * @param searchTerm 
+   * @returns 
+   */
   getProjectsBySearch(searchTerm: string): Observable<Project[]>{
     return this.http.get<Project[]>(PROJECT_PUBLIC_API_URL + '/search?title=' + searchTerm)
   }
 
   /**
    * postProject()
-   * A function that posts a project to the API, this can be wholly encapsulated in this service (unlike GET)
-   * because a post does not need asynchronous setters on our end, for example, if we want to set a list to contain
-   * the projects we obtain via the GET request.
+   * A method that posts a project to the API.
+   * Like with postComment(), this method also uses the keyword Partial to make insertion possible while omitting the ID.
+   * (Because IDs are auto generatad anyways on the backend).
    * 
    * @param project, The project object that we want to post. 
    */
   postProject(project:Project){
+    const postProject:Partial<Project> = 
+    {
+      title:project.title, 
+      descriptions:project.descriptions, 
+      gitlink: project.gitlink,
+      category: project.category,
+      status: project.status  
+    }
+
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${keycloak.token}` 
       }),
     };
     this.http
-    .post<Project>(PROJECT_PRIVATE_API_URL, project, httpOptions)
+    .post<Partial<Project>>(PROJECT_PRIVATE_API_URL, postProject, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });

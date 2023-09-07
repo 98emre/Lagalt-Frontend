@@ -37,11 +37,10 @@ export class AddProjectPageComponent implements OnInit {
 
   addProject(project:Project){
     let user = JSON.parse(localStorage.getItem('user')!) as User
-    let insertProject:Project = {id:this.projectModels.length+1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:0, userId:user.id, collaboratorIds:[], commentIds:[]}
+    let insertProject:Project = {id: 1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:0, userId:user.id, collaboratorIds:[], commentIds:[]}
     this.projectService.postProject(insertProject)
     this.projectModels.push(insertProject)
     alert("A new project was added!")
-    console.log(JSON.stringify(insertProject))
   }
   
 }
