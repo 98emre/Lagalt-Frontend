@@ -5,7 +5,10 @@
         <app-user-details [userDetails]="user"></app-user-details>
 
         <!--User projects -->
+        <div class="add-project-wr">
         <h3 class="color-white">All projects</h3>
+        <button class="btn btn-blue" (click)="onClickAddProject()">Create project</button>
+        </div>
         <app-project-list class="landing-list">
             <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
                 [projectModel]="projectData" />
@@ -16,21 +19,11 @@
 </div>
 
 
-
-
-<!--Welcome the user and output their description-->
-<h1>Welcome, {{user.username}}</h1>
-<p>{{dummyDescription}}</p>
-
 <!-- My Projects has a list of projects (project list), containing project-items. Every such item takes data from the list of project models. -->
 <h2>My Projects</h2>
 <app-project-list class="profile-list">
     <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
 </app-project-list>
-
-<h2>Pending Collaboration Requests</h2>
-<app-collaborator-list [collaboratorModels] = "collaboratorModels" [projectModels] = "projectModels">
-</app-collaborator-list>
 
 
 <!-- Add A Project is simply a button that maps to the onClickAddProject function. The idea is that this function should navigate to a new page (see ER). -->

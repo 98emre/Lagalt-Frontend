@@ -11,29 +11,32 @@ import { UserService } from 'src/app/services/user-service.service';
 export class UserDetailsComponent {
 
   @Input() userDetails: User | any;
-  editBtnClicked: boolean = false;
 
+  editBtnClicked: boolean = false;
   newDescription: string = "";
   newSkills: string[] = [];
-
   projectIds:number[] = []
+  loggedInUser: User|any = null;
 
   constructor(private userService : UserService){}
 
+  ngOnInit(){
+
+    this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
+    
+  }
+
   ngOnChanges(){
+
     if(this.userDetails != null){
       this.projectIds = this.userDetails.projectIds
     }
 
   }
 
-  ngOnInit(){
-    this.editBtnVisible()
-  }
-
   editBtnVisible(){
-    const loggedInUser = JSON.parse(localStorage.getItem('user')!);
-    if(this.userDetails.id == loggedInUser.id ){
+
+    if(this.loggedInUser!=null && this.userDetails!=null && this.userDetails.id == this.loggedInUser.id){
       return true;
     }else{
       return false;
@@ -41,7 +44,11 @@ export class UserDetailsComponent {
   }
 
   showEditElem(){
-    this.editBtnClicked = true;
+    if(this.editBtnClicked){
+      this.editBtnClicked = false;
+    }else if(!this.editBtnClicked){
+      this.editBtnClicked = true;
+    }
   }
 
   /**
@@ -51,14 +58,26 @@ export class UserDetailsComponent {
    */
 
   public onSubmit(form: NgForm): void {
+    this.editBtnClicked = false;
     this.newDescription = form.value.desc;
     const skillNames = ['JAVA', 'JAVASCRIPT', 'REACT', 'ANGULAR', 'C'];
     this.newSkills = skillNames.filter(skillName => form.value[skillName]);
+
+    // Checks if description or skills has not been edited, in that case the old values will be inserted. 
+    if(form.value.desc == ""){
+      this.newDescription = this.userDetails.description;
+    }
+    if(this.newSkills.length == 0){
+      this.newSkills = this.userDetails.skills;
+    }
 
     const updatedUser: Partial<User> = {
       description: this.newDescription,
       skills: this.newSkills,
     }
+
+    this.userDetails.description = this.newDescription;
+    this.userDetails.skills = this.newSkills;
 
     this.userService.updateUser(this.userDetails.id, updatedUser)
 
