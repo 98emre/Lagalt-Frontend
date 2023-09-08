@@ -18,11 +18,11 @@ export class ProjectPageComponent {
 
   project: Project | any = null;
   commentModels: ProjectComment[] = []
-  user:User|any = null
+  //user:User|any = null
   collaboratorModels: Collaborator[] = []
   acceptedCollaboratorModels: Collaborator[] = []
 
-  constructor(private projectService:ProjectService, private collaboratorService: CollaboratorService, private route: ActivatedRoute){}
+  constructor(private projectService:ProjectService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -32,13 +32,13 @@ export class ProjectPageComponent {
       this.projectService.getProjectById(projectId).subscribe((project) => { this.project = project })
     });
 
-    this.collaboratorService.getCollaborators().subscribe((collaborators) => {this.collaboratorModels = collaborators})
+    //this.collaboratorService.getCollaborators().subscribe((collaborators) => {this.collaboratorModels = collaborators})
 
-    if(localStorage.getItem('user') != null)
-      this.user = JSON.parse(localStorage.getItem('user')!)
+    /*if(localStorage.getItem('user') != null)
+      this.user = JSON.parse(localStorage.getItem('user')!)*/
   }
 
-  onCollabButton(){
+  /*onCollabButton(){
     let newCollaborator:Collaborator = 
     {
       id: 1,
@@ -49,5 +49,5 @@ export class ProjectPageComponent {
       projectId: this.project.id
     }
     this.collaboratorService.postCollaborator(newCollaborator)
-  }
+  }*/
 }

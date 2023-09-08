@@ -1,0 +1,36 @@
+<div class="project-details-section">
+    <div class="project-details-wr">
+        <div>
+            <span class="material-symbols-rounded codeIcon">code</span>
+        </div>
+        <div>
+            <div class="col-1">
+                <h3>{{projectDetails?.title}}</h3>
+                <p class="category">{{projectDetails?.category}}</p>
+            </div>
+            <div class="project-details">
+                <div class="col">
+                    <p class="small-title color-light-blue">Owner</p>
+                    <p>{{projectDetails?.userId}}</p>
+                </div>
+                <div class="col">
+                    <p class="small-title color-light-blue">Collaborators</p>
+                    <p>0</p>
+                </div>
+                <div class="col">
+                    <p class="small-title color-light-blue">Description</p>
+                    <p>{{projectDetails?.description}}</p>
+                </div>
+                <div>
+                    <p class="small-title color-light-blue">Link</p>
+                    <p>{{projectDetails?.gitlink}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <button class="btn btn-blue" (click)="onCollabButton()">Join project</button>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,13 @@
-<h1>Project: {{project?.title}}</h1>
-<p>About: {{project?.descriptions}}</p>
-<p>Category: {{project?.category}}</p>
-<button (click) = "onCollabButton()" *ngIf="user !== null">Click to Join as collaborator</button>
-<app-comment-section [projectId]="project?.id"></app-comment-section>
+<div class="project-page-section">
+    <div class="project-page-wr">
+        <!--Project details -->
+        <app-project-details [projectDetails]="project"></app-project-details>
+
+        <!--Comment section -->
+        <app-comment-section [projectId]="project?.id"></app-comment-section>
+    </div>
+
+</div>
 
 <!--  To make it so you cant join your own projects: -->
 <!--  && project?.userId !== user?.id -->
