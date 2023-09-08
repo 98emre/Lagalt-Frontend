@@ -28,6 +28,12 @@ export class LandingPageComponent {
   
   constructor(private userService: UserService, private projectService:ProjectService) {}
 
+  /**
+   * ngOnInit()
+   * The ngOnInit lifecycle hook makes a subscription to set the projectModels, which contain
+   * fields for everything that we might need for a project (id, title etc).
+   */
+
   ngOnInit(): void {
 
     this.projectService.getProjects().subscribe(
@@ -42,7 +48,13 @@ export class LandingPageComponent {
     return this.userService.isAuthenticated()
   }
 
-  // * Receiving the search input from the child (search-form component)
+  /**
+   * handleSearch()
+   * handleSearch() is a method that receives the search input from its child (search-form component).
+   * handleSearch() then conducts a getProjectsBySearch() / getUsersBySearch().
+   * These two methods make API requests based on a LIKE query on the backend side. 
+   */
+  
   handleSearch(searchTerm: string) {
     this.searchBtnClicked = true;
     this.searchTerm = searchTerm;
@@ -73,12 +85,23 @@ export class LandingPageComponent {
 
   }
 
+  /**
+   * onCategoryClicked()
+   * This method takes in a category, based on a button click, and then conducts a filter
+   * on a list of every project, where the category would be the predicate for that filter. 
+   * @param category, The category that is inputted and used in the filter.
+   */
+
   onCategoryClicked(category: string){
     this.selectedCategory = category;
     this.projectModels = this.allProjects.filter(project => project.category === category);
 
   }
 
+  /**
+   * filterUserClick()
+   * A method used 
+   */  
   filterUserClick(){
     this.filterUser = true;
     this.filterProject = false;

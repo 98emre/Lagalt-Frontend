@@ -21,9 +21,9 @@ export class CommentSectionComponent {
   /**
    * ngOnInit()
    * The ngOnInit life cycle hook creates a subscription for the user, from the user service. This makes it so that the
-   * data 
+   * data can be used immediately after the userService is done with reading in its values. 
    */
-  
+
   ngOnInit(){
     this.userService.getUserObservable().subscribe((user) => { this.user = user });
   }

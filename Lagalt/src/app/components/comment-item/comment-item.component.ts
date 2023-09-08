@@ -15,6 +15,12 @@ export class CommentItemComponent {
 
   constructor(private userService:UserService){}
 
+  /**
+   * ngOnInit()
+   * ngOnInit() is a method / lifecycle hook that is called immediately and it
+   * gets the user that is connected to the comment via userId.
+   * With the user the comment-item can then populate the HTML.
+   */
   ngOnInit(): void {
 
     this.userService.getUserById(this.commentModel.userId).subscribe({

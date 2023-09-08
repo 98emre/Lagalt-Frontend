@@ -5,6 +5,8 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project-service.service';
 import { UserService } from 'src/app/services/user-service.service';
+import { Collaborator } from 'src/app/models/collaborator';
+import { CollaboratorService } from 'src/app/services/collaborator-service.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -13,10 +15,10 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class ProfilePageComponent implements OnInit{
 
-  constructor(private router: Router, private projectService:ProjectService, private userService: UserService) { 
-  }
-
+  constructor(private router: Router, private projectService:ProjectService, private userService: UserService, private collaboratorService:CollaboratorService) { 
+}
   projectModels:Project[] = []
+  collaboratorModels:Collaborator[] = []
 
   user:User|any = null;
 
@@ -41,15 +43,17 @@ export class ProfilePageComponent implements OnInit{
     console.log("TEST" + this.user.id)
 
     this.projectService.getProjects().subscribe(
-      (projects: Project[]) => {
-        this.projectModels = projects.filter((element) => element.userId === this.user.id)
-      }
+      (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id) }
+    )
+
+    this.collaboratorService.getCollaborators().subscribe(
+      (collaborators:Collaborator[]) => { this.collaboratorModels = collaborators }
     )
   }
 
   /** 
    * onClickAddProject()
-   * A button that maps the user the the form for creating a new project.
+   * A method that maps the event of clicking a button to a navigation to the add project page. 
    */
 
   onClickAddProject() {

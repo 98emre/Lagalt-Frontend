@@ -17,3 +17,21 @@
     </div>
 
 </div>
+
+
+
+
+<!--Welcome the user and output their description-->
+<h1>Welcome, {{user.username}}</h1>
+<p>{{dummyDescription}}</p>
+
+<!-- My Projects has a list of projects (project list), containing project-items. Every such item takes data from the list of project models. -->
+<h2>My Projects</h2>
+<app-project-list class="profile-list">
+    <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
+</app-project-list>
+
+
+<!-- Add A Project is simply a button that maps to the onClickAddProject function. The idea is that this function should navigate to a new page (see ER). -->
+<h2>Add A Project</h2>
+<button (click)="onClickAddProject()"> Create New Project </button>

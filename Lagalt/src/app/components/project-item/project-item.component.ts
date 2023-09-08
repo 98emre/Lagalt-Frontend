@@ -14,7 +14,6 @@ export class ProjectItemComponent implements OnInit{
   // Input, project model: When the component is created a project model is passed from its parent (which can be Landing Page, Profile Page, etc):
   @Input() projectModel: Project | any;
   
-  // The relationships that the current user can have to this project, he can have no relationship, or he can be collaborator / owner:
   collaborator:boolean|any = null
   owner:boolean|any = null
 
@@ -30,8 +29,6 @@ export class ProjectItemComponent implements OnInit{
           this.collaborator = true
           break
         }
-
-        // TODO: OwnerID of project, when we have that in the Backend / data seeding.
       }
     }
   }

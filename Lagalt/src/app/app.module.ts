@@ -35,6 +35,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     UserItemComponent,
     UserPageComponent,
     UserDetailsComponent,
+    CollaboratorListComponent,
+    CollaboratorItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,4 +55,6 @@ export class AppModule {
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { CollaboratorListComponent } from './components/collaborator-list/collaborator-list.component';
+import { CollaboratorItemComponent } from './components/collaborator-item/collaborator-item.component';
 
