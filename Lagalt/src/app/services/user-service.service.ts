@@ -14,7 +14,9 @@ export class UserService {
   public isLoggedIn = false;
   private user:User|any = null
   private userSubject = new Subject<any>
-  constructor(private readonly http:HttpClient){}
+  constructor(private readonly http:HttpClient){
+    this.tokenRefresh();
+  }
 
   /**
    * getUser()
@@ -126,6 +128,25 @@ export class UserService {
   }
 
 
+  // TOKEN REFRESH
+
+  private tokenRefresh(): void {
+    keycloak.onTokenExpired = () => {
+      keycloak.updateToken(30).then(refreshed => {
+        if (!refreshed) {
+          console.error('Token not refreshed, maybe the session has expired?');
+          this.isLoggedIn = false;
+      
+          // Gör så att man hamnar på login sidan om den inte refreshar
+        
+      } else {
+          this.isLoggedIn = true;
+        }
+      }).catch(() => {
+        console.error('Failed to refresh the token, or the session has expired');
+      });
+    };
+  }
 
 
 
