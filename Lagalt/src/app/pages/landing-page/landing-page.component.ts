@@ -19,12 +19,6 @@ export class LandingPageComponent {
   selectedCategory: String = "none";
   searchBtnClicked: boolean = false;
   searchTerm: string = "";
-
-  
-  filterUser: boolean = false;
-  filterProject: boolean = false;
-  usersFound: boolean = false;
-  projectsFound: boolean = false;
   
   constructor(private userService: UserService, private projectService:ProjectService) {}
 
@@ -62,24 +56,12 @@ export class LandingPageComponent {
     this.userService.getUserBySearch(this.searchTerm).subscribe(
       (users: User[]) => {
         this.userModels = users;
-        if(this.userModels.length > 0){
-          this.usersFound = true;
-          this.filterUser = true;
-        }else{
-          this.usersFound = false;
-        }
       }
     )
 
     this.projectService.getProjectsBySearch(this.searchTerm).subscribe(
       (projects: Project[]) => {
         this.projectModels = projects;
-        console.log(this.projectModels);
-        if(this.projectModels.length > 0){
-          this.projectsFound = true;
-        }else{
-          this.projectsFound = false;
-        }
       }
     )
 
@@ -95,21 +77,6 @@ export class LandingPageComponent {
   onCategoryClicked(category: string){
     this.selectedCategory = category;
     this.projectModels = this.allProjects.filter(project => project.category === category);
-
-  }
-
-  /**
-   * filterUserClick()
-   * A method used 
-   */  
-  filterUserClick(){
-    this.filterUser = true;
-    this.filterProject = false;
-  }
-
-  filterProjectClick(){
-    this.filterProject = true;
-    this.filterUser = false;
 
   }
 
