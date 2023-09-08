@@ -18,6 +18,7 @@ export class UserPageComponent {
   constructor(private userService: UserService, private projectService: ProjectService, private route: ActivatedRoute){}
 
   ngOnInit(){
+
     this.route.paramMap.subscribe((params: ParamMap) => {
 
       const userId = Number(params.get('id'));
@@ -29,7 +30,7 @@ export class UserPageComponent {
 
       // get projects
       this.projectService.getProjects().subscribe((projects) => {
-        this.projectModels = projects.filter((element) => element.userId === this.user?.id)
+        this.projectModels = projects.filter((element) => element.userId === userId)
       })
 
     });

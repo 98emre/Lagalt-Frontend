@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { Observable, Subject} from "rxjs";
 import { USER_PRIVATE_API_URL, USER_PUBLIC_API_URL } from '../utils';
 import { User } from "../models/user";
 import keycloak from 'src/keycloak';
@@ -40,7 +40,7 @@ export class UserService {
         Authorization: `Bearer ${keycloak.token}`
       })
     };
-  
+
     this.http
       .get('http://localhost:8081/api/users/public/token/username', httpOptions)
       .subscribe({

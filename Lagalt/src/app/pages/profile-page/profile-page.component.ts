@@ -4,6 +4,7 @@ import { Project } from 'src/app/models/project';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,12 +13,9 @@ import { ProjectService } from 'src/app/services/project-service.service';
 })
 export class ProfilePageComponent implements OnInit{
 
-  constructor(private router: Router, private projectService:ProjectService) { 
+  constructor(private router: Router, private projectService:ProjectService, private userService: UserService) { 
   }
 
-  // Dummy Data:
-  dummyName:String = "Mr Brass-Bilalsson (Billys)"
-  dummyDescription:String = "I work in retail, I am 45 years old but my humor is that of a 15 year old. My motto: Laugh hard. Die Hard. Bruce Willys stars in Die Hard. I pretend am him. In life i am shining star... but on a bright day (sun in my eye). In gaming I play single player games cause they remind me that in real life I am single player. As project I look for frend i can play with. I dont have skills (sadge). Also I dislike spider because have claustrofobia. thx."
   projectModels:Project[] = []
 
   user:User|any = null;
@@ -27,8 +25,20 @@ export class ProfilePageComponent implements OnInit{
    * On init we do a GET request using the apiHandler to set our project models with data from the Backend:
    * We also initialize a user from the localStorage. 
    */
+
+  ngOnChange(){
+
+  }
+
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
+    
+    this.userService.getUserObservable().subscribe((user) => {
+      //this.user = user;
+      //console.log("user from profile PAGE " + JSON.stringify(user));
+    });
+
+    console.log("TEST" + this.user.id)
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => {

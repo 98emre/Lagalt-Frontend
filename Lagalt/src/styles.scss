@@ -71,7 +71,8 @@ h1, h2, h3{
     color: white;
     border: none;
     border-radius: 20px;
-    width: 6rem;
+    padding: 0rem 1rem;
+    /*width: 6rem;*/
     height: 40px;
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
@@ -159,8 +160,4 @@ header a:visited, header a:active, header a:link{
     border: 0.5px solid rgb(230, 230, 230);
     padding: 2rem 5rem;
     height: 100%;
-}
-
-.user-page-wr h3{
-    margin-bottom: 3rem;
 }

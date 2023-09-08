@@ -1,52 +1,62 @@
-<div class="user-details-wr">
-    <div class="">
-        <span class="material-symbols-rounded userIcon">face_6</span>
+<div class="user-details-section">
+    <div class="user-details-wr">
+        <div>
+            <span class="material-symbols-rounded userIcon">face_6</span>
+        </div>
+        <div>
+            <div>
+                <h3>{{userDetails?.fullname}}</h3>
+            </div>
+            <div class="user-details">
+                <div class="col">
+                    <p class="small-title color-light-blue">Username</p>
+                    <p>{{userDetails?.username}}</p>
+                </div>
+                <div class="col">
+                    <p class="small-title color-light-blue">Projects</p>
+                    <!--<p>{{userDetails?.projectsIds ? userDetails.projectsIds.length : 0}}</p>-->
+                    <p>{{this.projectIds?.length}}</p>
+                </div>
+                <div class="col">
+                    <p class="small-title color-light-blue">Skills</p>
+                    <p>{{userDetails?.skills}}</p>
+                </div>
+                <div>
+                    <p class="small-title color-light-blue">About</p>
+                    <p>{{userDetails?.description}}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
-        <div>
-            <h3>{{userDetails?.fullname}}</h3>
+        <div *ngIf="editBtnVisible()">
+            <button class="editBtn" (click)="showEditElem()"><span class="material-symbols-rounded">
+                edit
+                </span>Edit</button>
         </div>
-        <div class="user-details">
-            <div class="col">
-                <p class="small-title color-light-blue">Username</p>
-                <p>{{userDetails?.username}}</p>
-            </div>
-            <div class="col">
-                <p class="small-title color-light-blue">Projects</p>
-                <!--<p>{{userDetails?.projectsIds ? userDetails.projectsIds.length : 0}}</p>-->
-                <p>{{this.projectIds?.length}}</p>
-            </div>
-            <div class="col">
-                <p class="small-title color-light-blue">Skills</p>
-                <p>{{userDetails?.skills}}</p>
-            </div>
-            <div>
-                <p class="small-title color-light-blue">About</p>
-                <p>{{userDetails?.description}}</p>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="editBtnVisible()">
-        <button (click)="showEditElem()">Edit</button>
     </div>
 </div>
 <div *ngIf="editBtnClicked">
-    <div>
+    <div class="form-section">
         <!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
-        <h1>Edit My Profile</h1>
+        <h3>Edit profile</h3>
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-            <h2>Change about</h2>
-            <input type="text" ngModel name="desc" id="desc" required placeholder="What do you want to do?">
-            <h2>Change skills</h2>
-            <h3>Category</h3>
-            <fieldset>
-                <input type="checkbox" ngModel id="java" name="JAVA"><label for="java">Java</label>
-                <input type="checkbox" ngModel name="JAVASCRIPT"><label for="javascript">Javascript</label>
-                <input type="checkbox" ngModel name="REACT"><label for="react">React</label>
-                <input type="checkbox" ngModel name="ANGULAR"><label for="angular">Angular</label>
-                <input type="checkbox" ngModel name="C"><label for="c">C++</label>
-            </fieldset>
-            <button type="submit" [disabled]="myForm.form.invalid">Submit Change</button>
+            <div>
+                <p class="color-light-blue">About</p>
+                <textarea placeholder="Write a description about you" ngModel name="desc" id="desc" rows="4" cols="50" resize="false"></textarea>
+                <!--<input type="textarea" rows="4" cols="50" ngModel name="desc" id="desc" required placeholder="What do you want to do?">-->
+            </div>
+            <div>
+                <p class="color-light-blue">Skills</p>
+                <fieldset>
+                    <input type="checkbox" ngModel id="java" name="JAVA"><label for="java">Java</label>
+                    <input type="checkbox" ngModel name="JAVASCRIPT"><label for="javascript">Javascript</label>
+                    <input type="checkbox" ngModel name="REACT"><label for="react">React</label>
+                    <input type="checkbox" ngModel name="ANGULAR"><label for="angular">Angular</label>
+                    <input type="checkbox" ngModel name="C"><label for="c">C++</label>
+                </fieldset>
+            </div>
+            <button class="btn btn-white"type="submit" [disabled]="myForm.form.invalid">Save</button>
         </form>
     </div>
 
