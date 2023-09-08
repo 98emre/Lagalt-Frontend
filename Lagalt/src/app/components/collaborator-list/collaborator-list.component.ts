@@ -14,7 +14,6 @@ export class CollaboratorListComponent {
   filteredModels:Collaborator[] = []
   hasProject(projectId:number){
     for(let project of this.projectModels!){
-      console.log("test:", project.id, projectId)
       if(project.id === projectId){
         return true
       }

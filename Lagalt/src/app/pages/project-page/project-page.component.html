@@ -4,4 +4,5 @@
 <button (click) = "onCollabButton()" *ngIf="user !== null">Click to Join as collaborator</button>
 <app-comment-section [projectId]="project?.id"></app-comment-section>
 
+<!--  To make it so you cant join your own projects: -->
 <!--  && project?.userId !== user?.id -->
