@@ -29,7 +29,15 @@ export class LandingPageComponent {
    */
 
   ngOnInit(): void {
+    this.getAllProjects()
+  }
 
+  /**
+   * getAllProjects()
+   * A method that makes a subscription to set the projectModels, which contain
+   * fields for everything that we might need for a project (id, title etc).
+   */
+  getAllProjects(){
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => {
           this.projectModels = projects;
@@ -73,7 +81,6 @@ export class LandingPageComponent {
    * on a list of every project, where the category would be the predicate for that filter. 
    * @param category, The category that is inputted and used in the filter.
    */
-
   onCategoryClicked(category: string){
     this.selectedCategory = category;
     this.projectModels = this.allProjects.filter(project => project.category === category);

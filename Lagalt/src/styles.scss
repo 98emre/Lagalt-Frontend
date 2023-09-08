@@ -107,10 +107,14 @@ header a:visited, header a:active, header a:link{
 
 /* --- project list on landing page */ 
 
+.landing-item{
+    width: calc((100% / 3) - 2rem);
+    margin-right: 1rem;
+}
+
 .landing-list .project-list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     /*width: 80%;*/
     margin: auto;
 }
@@ -120,8 +124,9 @@ header a:visited, header a:active, header a:link{
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    height: 20vh;
-    width: 40vh;
+    /*height: 20vh;
+    width: 40vh;*/
+    /*width: calc((100% / 3) - 2rem);*/
     margin-bottom: 2rem;
     padding: 10px;
     justify-content: space-between;
@@ -161,3 +166,12 @@ header a:visited, header a:active, header a:link{
     padding: 2rem 5rem;
     height: 100%;
 }
+
+/* --- user list on search result page */ 
+
+/*.landing-list .project-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+}*/

@@ -22,9 +22,9 @@
 
 <!--Users-->
 <div *ngIf="usersFound && filterUser">
-    <app-project-list class="landing-list">
-        <app-user-item *ngFor="let userData of userModels" [userModel]="userData" />
-    </app-project-list>
+        <div class="user-item-list">
+            <app-user-item *ngFor="let userData of userModels" [userModel]="userData" class="user-item-wr"/>
+        </div>
 </div>
 <!--Projects -->
 <div *ngIf="projectsFound && !usersFound || filterProject">
