@@ -28,6 +28,10 @@
     <app-project-item *ngFor="let projectData of projectModels" [projectModel]="projectData"/>
 </app-project-list>
 
+<h2>Pending Collaboration Requests</h2>
+<app-collaborator-list [collaboratorModels] = "collaboratorModels" [projectModels] = "projectModels">
+</app-collaborator-list>
+
 
 <!-- Add A Project is simply a button that maps to the onClickAddProject function. The idea is that this function should navigate to a new page (see ER). -->
 <h2>Add A Project</h2>

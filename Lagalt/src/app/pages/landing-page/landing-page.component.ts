@@ -89,7 +89,6 @@ export class LandingPageComponent {
    * onCategoryClicked()
    * This method takes in a category, based on a button click, and then conducts a filter
    * on a list of every project, where the category would be the predicate for that filter. 
-   * 
    * @param category, The category that is inputted and used in the filter.
    */
 
@@ -101,7 +100,7 @@ export class LandingPageComponent {
 
   /**
    * filterUserClick()
-   * 
+   * A method used 
    */  
   filterUserClick(){
     this.filterUser = true;

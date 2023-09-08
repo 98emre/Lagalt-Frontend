@@ -22,13 +22,15 @@ export class UserService {
    * It will send a request to the backend, if that request succeeds, that means we are
    * logging in as an existing user. If the first call fails, possibly due to error code
    * 404, (resource can't be found), then this function attempts to create a user via the
-   * add-user API url instead. In a sentence, the function 1. Tries to find a user,
+   * add-user API url instead. In a sentence, the function:
+   * 1. Tries to find a user,
    * 2. Creates a user if unable to find it.
    * 
    * Moreover, the get user function also sets an internal userSubject so that it is set
    * when a user (either created or found) exists. A function outside can then subscribe
    * to this value so that they can wait for the async operations to take their course and
-   * then to have the corresponding user value being set. (To avoid timing errors)
+   * then to have the corresponding user value being set and emitted to them. 
+   * (To avoid timing errors)
    */
   getUser(){
   if (keycloak.authenticated) {

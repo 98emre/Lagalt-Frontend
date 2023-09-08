@@ -14,8 +14,7 @@ export class CommentService {
 
   /**
    * getComments()
-   * A function makes an API request to the backend to obtain every comment.
-   * 
+   * A function makes an API request to the backend to obtain every comment (public data).
    * @returns A list of comments that were found in the database.
    */
     getComments(): Observable<ProjectComment[]>{

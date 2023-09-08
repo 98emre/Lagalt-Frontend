@@ -31,7 +31,6 @@ export class AddProjectPageComponent implements OnInit {
   /**
    * addProject()
    * A function that is triggered by listening to an event, takes in a project and adds it to the users' projects.
-   * 
    * @param project 
    */
 
