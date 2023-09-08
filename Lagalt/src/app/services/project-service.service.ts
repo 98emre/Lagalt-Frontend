@@ -11,7 +11,9 @@ import keycloak from 'src/keycloak';
   providedIn: 'root'
 })
 export class ProjectService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.tokenRefresh();
+  }
   
   /**
    * getProjects()
@@ -95,5 +97,26 @@ export class ProjectService {
       error: (error) => {console.log(error)}
     });
   }
+
+  
+  private tokenRefresh(): void {
+    keycloak.onTokenExpired = () => {
+      keycloak.updateToken(30).then(refreshed => {
+        if (!refreshed) {
+          console.error('Token not refreshed, maybe the session has expired?');  
+      } 
+      
+      
+      else {
+         
+      }
+      }).catch(() => {
+        console.error('Failed to refresh the token, or the session has expired');
+      });
+    };
+
+  }
+
+
 
 }
