@@ -1,0 +1,37 @@
+<div class="search-filter-wr">
+    <div class="search-filterDiv">
+        <div><button class="btn" 
+            [class.btn-blue]="usersFound && filterUser" 
+            [class.btn-gray]="!(usersFound && filterUser)"
+            (click)="filterUserClick()">
+            Users 
+            ({{userModels?.length}})</button>
+        </div>
+        <div><button class="btn" 
+            [class.btn-blue]="projectsFound && !usersFound || filterProject"
+            [class.btn-gray]="!(projectsFound && !usersFound || filterProject)" 
+            (click)="filterProjectClick()">
+            Projects 
+            ({{projectModels?.length}})</button>
+        </div>
+    </div>
+    <div>
+        <h3>Search results for '{{this.searchTerm}}'</h3>
+    </div>
+</div>
+
+<!--Users-->
+<div *ngIf="usersFound && filterUser">
+        <div class="user-item-list">
+            <app-user-item *ngFor="let userData of userModels" [userModel]="userData" class="user-item-wr"/>
+        </div>
+</div>
+<!--Projects -->
+<div *ngIf="projectsFound && !usersFound || filterProject">
+    <div class="project-list-wr">
+        <app-project-list class="landing-list">
+            <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
+                [projectModel]="projectData" />
+        </app-project-list>
+    </div>
+</div>

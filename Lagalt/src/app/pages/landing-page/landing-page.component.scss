@@ -19,33 +19,12 @@ clip-path: polygon(100% 0%, 0% 0% , 0.00% 93.02%, 1.67% 92.57%, 3.33% 92.12%, 5.
 /* --- search result section --- */
 
 .search-result-section{
-    padding: 0rem 10rem;
+    padding: 0rem 10rem 5rem 10rem;
 }
 
 .search-section h1{
     font-size: 2rem;
     color: white;
-}
-
-.search-filter-wr{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-}
-
-.search-filterDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-}
-
-.resultsFound{
-    border: 5px solid red;
 }
 
 /*--- Project section ---*/
@@ -55,6 +34,14 @@ clip-path: polygon(100% 0%, 0% 0% , 0.00% 93.02%, 1.67% 92.57%, 3.33% 92.12%, 5.
     flex-direction: row;
     height: 100%;
     padding-top: 1rem;
+}
+
+.project-section .col-2{
+    width: 100%;
+}
+
+.allProjectsBtn{
+    cursor: pointer;
 }
 
 /*--- col 1 ---- */
