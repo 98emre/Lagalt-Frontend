@@ -40,7 +40,7 @@ export class ProfilePageComponent implements OnInit{
     )
 
     this.collaboratorService.getCollaborators().subscribe(
-      (collaborators:Collaborator[]) => { this.collaboratorModels = collaborators }
+      (collaborators:Collaborator[]) => { this.collaboratorModels = collaborators.filter((collaborator) => collaborator.status == "PENDING") }
     )
   }
 

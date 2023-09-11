@@ -110,6 +110,10 @@ export class UserService {
     return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + searchTerm)
   }
 
+  getAllUsers(){
+    return this.http.get<User[]>(USER_PUBLIC_API_URL)
+  }
+
   getUserById(id: number): Observable<User>{
     return this.http.get<User>(USER_PUBLIC_API_URL + '/' + id);
   }

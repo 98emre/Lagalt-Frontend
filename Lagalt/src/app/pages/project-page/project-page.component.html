@@ -1,7 +1,7 @@
 <div class="project-page-section">
     <div class="project-page-wr">
         <!--Project details -->
-        <app-project-details [projectDetails]="project" [projectOwner]="projectOwner"></app-project-details>
+        <app-project-details [projectDetails]="project" [projectOwner]="projectOwner" [collaboratorLength]="acceptedUserModels.length"></app-project-details>
 
         <!--Comment section -->
         <app-comment-section [projectId]="project?.id"></app-comment-section>
@@ -9,5 +9,10 @@
 
 </div>
 
-<!--  To make it so you cant join your own projects, add this to row 4: -->
+<h2>Collaborators</h2>
+<div *ngFor="let user of acceptedUserModels">
+    {{user.username}}
+</div>
+
+<!--  To make it so you cant join your own projects (Joining own projects is enabled to test functionality) -->
 <!--  && project?.userId !== user?.id -->
