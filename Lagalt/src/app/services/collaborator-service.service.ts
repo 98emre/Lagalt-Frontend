@@ -26,7 +26,7 @@ export class CollaboratorService{
       userId: collaborator.userId,
       projectId: collaborator.projectId
     }
-    
+  
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${keycloak.token}` 

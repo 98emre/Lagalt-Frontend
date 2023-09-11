@@ -38,12 +38,7 @@ export class CommentSectionComponent {
    */
 
   ngOnChanges(): void {
-
-    this.commentService.getComments().subscribe(
-      (comments: ProjectComment[]) => {
-        this.commentModels = comments.filter((element) => element.projectId === this.projectId)
-      }
-    )
+    this.readInComments()
     
     if(localStorage.getItem('user') != null){
       this.user = JSON.parse(localStorage.getItem('user')!) as User
@@ -62,6 +57,16 @@ export class CommentSectionComponent {
     let commentDate = new Date()
     let newComment:ProjectComment = {id:1, text: form.value.text, date:commentDate, projectId:this.projectId, userId:this.user.id}
     this.commentModels.push(newComment)
-    this.commentService.postComment(this.projectId, newComment)
+    this.commentService.postComment(this.projectId, newComment).subscribe(
+      (comment:ProjectComment) => {this.readInComments()}
+    )
+  }
+
+  readInComments(){
+    this.commentService.getComments().subscribe(
+      (comments: ProjectComment[]) => {
+        this.commentModels = comments.filter((element) => element.projectId === this.projectId)
+      }
+    )
   }
 }

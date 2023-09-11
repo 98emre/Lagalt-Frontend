@@ -2,7 +2,7 @@
     <!--Comment list -->
     <h3>Comments</h3>
     <div class="comment-list">
-        <app-comment-item *ngFor="let commentData of commentModels" [commentModel]="commentData"/>
+        <app-comment-item *ngFor="let commentData of commentModels" [commentModel]="commentData" (removeSignal)="readInComments()"/>
     </div>
     
     <!--Write comment-->
