@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Collaborator } from 'src/app/models/collaborator';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
@@ -12,6 +12,7 @@ import { CollaboratorService } from 'src/app/services/collaborator-service.servi
 export class CollaboratorItemComponent {
   @Input() projectModels:Project[]|any = null
   @Input() collaboratorModel:Collaborator|any = null
+  @Output() triggerAPIRequest = new EventEmitter()
   project:Project|any = null
   username:String = ""
   constructor(private collaboratorService:CollaboratorService){}
@@ -51,6 +52,7 @@ export class CollaboratorItemComponent {
     this.collaboratorModel.status = "APPROVED"
     this.collaboratorModel.approvalDate = new Date()
     this.collaboratorService.patchCollaborator(this.collaboratorModel)
+    this.triggerAPIRequest.emit()
   }
 
   /**
@@ -62,5 +64,6 @@ export class CollaboratorItemComponent {
   onDecline(){
     this.collaboratorModel.status = "DECLINED"
     this.collaboratorService.deleteCollaborator(this.collaboratorModel)
+    this.triggerAPIRequest.emit()
   }
 }

@@ -51,8 +51,8 @@ export class ProjectPageComponent {
 
   ngDoCheck(){
     if(this.collaboratorModels.length > 0 && this.project != null){
-      this.acceptedCollaboratorModels = this.collaboratorModels.filter((collaborator) => collaborator.status==="APPROVED")
-      this.acceptedCollaboratorModels = this.acceptedCollaboratorModels.filter((acceptedCollaborator) => acceptedCollaborator.projectId == this.project.id)
+      this.acceptedCollaboratorModels = this.collaboratorModels.filter((collaborator) => collaborator.status==="APPROVED" && collaborator.projectId == this.project.id)
+      //this.acceptedCollaboratorModels = this.acceptedCollaboratorModels.filter((acceptedCollaborator) => acceptedCollaborator.projectId == this.project.id)
     }
 
     this.acceptedUserModels = []
