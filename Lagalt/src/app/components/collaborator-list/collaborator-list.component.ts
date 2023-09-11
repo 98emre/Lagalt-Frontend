@@ -40,14 +40,14 @@ export class CollaboratorListComponent {
   ngDoCheck(){
     this.readFromAPI()
   }
+
   /**
    * readFromAPI()
-   * 
+   * This method reads collaborator data from the API
    */
   readFromAPI(){
     if(this.collaboratorModels != null && this.projectModels != null){
       this.filteredModels = this.collaboratorModels.filter((collaboratorModel) => this.hasProject(collaboratorModel.projectId) && collaboratorModel.status == "PENDING")
-      //console.log("test: " + JSON.stringify(this.collaboratorModels))
     }
   }
 }

@@ -14,10 +14,22 @@ export class CollaboratorService{
     this.tokenRefresh();
    }
 
+  /**
+   * getCollaborators()
+   * getCollaborators() is a method that makes an API request and as such provides for subscription services for whatever
+   * component might want to call this method.
+   * @returns An API request, that is observable so that one can do subscription to it.
+   */ 
   getCollaborators(): Observable<Collaborator[]>{
     return this.http.get<Collaborator[]>(COLL_PUBLIC_API_URL)
   }
 
+  /**
+   * postCollaborator()
+   * postCollaborator() is a method that makes a POST request. 
+   * The method POSTS a collaborator object to the backend.
+   * @param collaborator, the collaborator object to be posted.
+   */
   postCollaborator(collaborator:Collaborator){
     const postCollaborator:Partial<Collaborator> = {
       status: collaborator.status,

@@ -34,6 +34,12 @@ export class CommentItemComponent {
   }
 
 
+  /**
+   * formatDate()
+   * A method that formats the 
+   * @param date 
+   * @returns 
+   */
 
   formatDate(date: string){
 
@@ -53,6 +59,12 @@ export class CommentItemComponent {
     return formattedDateString
   }
 
+  /**
+   * removeComment()
+   * A deleteComment HTTP request is made and a subscription is made to it.
+   * When the comment is deleted, a remove signal is emitted to the parent that
+   * can use that signal to re-render its comment section
+   */
   removeComment(){
     this.commentService.deleteComment(this.commentModel).subscribe({
       next:((response) => this.removeSignal.emit())
