@@ -48,6 +48,9 @@ export class ProjectDetailsComponent {
 
   }
 
+  /**
+   * 
+   */
   onCollabButton(){
     this.isPending = true;
     
