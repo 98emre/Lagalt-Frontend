@@ -1,8 +1,13 @@
 <h1>Project: {{project?.title}}</h1>
 <p>About: {{project?.descriptions}}</p>
 <p>Category: {{project?.category}}</p>
-<button (click) = "onCollabButton()" *ngIf="user !== null">Click to Join as collaborator</button>
-<app-comment-section [projectId]="project?.id"></app-comment-section>
+<button (click) = "onCollabButton()" *ngIf="user !== null">Request to join this project</button>
 
-<!--  To make it so you cant join your own projects, add this to row 4: -->
+<h2>Collaborators</h2>
+<div *ngFor="let user of acceptedUserModels">
+    {{user.username}}
+</div>
+
+<app-comment-section [projectId]="project?.id"></app-comment-section>
+<!--  To make it so you cant join your own projects (Joining own projects is enabled to test functionality) -->
 <!--  && project?.userId !== user?.id -->

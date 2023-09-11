@@ -14,7 +14,6 @@ export class CollaboratorItemComponent {
   @Input() collaboratorModel:Collaborator|any = null
   project:Project|any = null
   username:String = ""
-
   constructor(private collaboratorService:CollaboratorService){}
 
   /**
@@ -44,6 +43,10 @@ export class CollaboratorItemComponent {
     }
   }
 
+  /**
+   * onAccept()
+   * yo yo yo
+   */
   onAccept(){
     this.collaboratorModel.status = "APPROVED"
     this.collaboratorModel.approvalDate = new Date()

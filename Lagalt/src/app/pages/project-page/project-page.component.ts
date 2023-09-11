@@ -21,8 +21,10 @@ export class ProjectPageComponent {
   user:User|any = null
   collaboratorModels: Collaborator[] = []
   acceptedCollaboratorModels: Collaborator[] = []
+  acceptedUserModels:User[] = []
+  allUserModels:User[] = []
 
-  constructor(private projectService:ProjectService, private collaboratorService: CollaboratorService, private route: ActivatedRoute){}
+  constructor(private userService:UserService, private projectService:ProjectService, private collaboratorService: CollaboratorService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -33,9 +35,41 @@ export class ProjectPageComponent {
     });
 
     this.collaboratorService.getCollaborators().subscribe((collaborators) => {this.collaboratorModels = collaborators})
+    this.userService.getAllUsers().subscribe((users) => {this.allUserModels = users})
+
 
     if(localStorage.getItem('user') != null)
       this.user = JSON.parse(localStorage.getItem('user')!)
+  }
+
+  ngDoCheck(){
+    if(this.collaboratorModels.length > 0 && this.user != null){
+      this.acceptedCollaboratorModels = this.collaboratorModels.filter((collaborator) => collaborator.status==="APPROVED")
+    }
+
+    this.acceptedUserModels = []
+    if(this.acceptedCollaboratorModels.length > 0 && this.allUserModels.length > 0){
+      for(let collaborator of this.acceptedCollaboratorModels){
+        this.fillCollabList(collaborator.userId)
+      }
+    }
+  }
+
+  fillCollabList(collabId:number){
+    // Check if the user has already been appended to the acceptedUserModels list:
+    for(let user of this.acceptedUserModels){
+      if(user.id == collabId){
+        return
+      }
+    }
+    
+    // If not, attempt to find the current user and if they are therein, add them:
+    for(let user of this.allUserModels){
+      if(collabId == user.id){
+        this.acceptedUserModels.push(user)
+        break
+      }
+    }
   }
 
   onCollabButton(){
@@ -49,5 +83,6 @@ export class ProjectPageComponent {
       projectId: this.project.id
     }
     this.collaboratorService.postCollaborator(newCollaborator)
+    alert("A collaboration request was sent to the owner of this project!")
   }
 }
