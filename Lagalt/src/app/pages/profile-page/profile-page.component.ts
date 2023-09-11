@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Project } from 'src/app/models/project';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project-service.service';
 import { UserService } from 'src/app/services/user-service.service';
@@ -28,10 +27,6 @@ export class ProfilePageComponent implements OnInit{
    * We also initialize a user from the localStorage. 
    */
 
-  ngOnChange(){
-
-  }
-
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
     
@@ -39,8 +34,6 @@ export class ProfilePageComponent implements OnInit{
       //this.user = user;
       //console.log("user from profile PAGE " + JSON.stringify(user));
     });
-
-    console.log("TEST" + this.user.id)
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id) }

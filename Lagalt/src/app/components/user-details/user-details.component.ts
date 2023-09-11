@@ -20,12 +20,21 @@ export class UserDetailsComponent {
 
   constructor(private userService : UserService){}
 
+  /**
+   * ngOnInit()
+   * On init this life cycle hook reads in a user from the local storage.
+   */
   ngOnInit(){
 
     this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
     
   }
 
+  /**
+   * ngOnChanges()
+   * When a change occurs to the input variable, then this method is inwoked.
+   * The inputted project ids are written to this object's project ids.
+   */
   ngOnChanges(){
 
     if(this.userDetails != null){
@@ -34,6 +43,11 @@ export class UserDetailsComponent {
 
   }
 
+  /**
+   * editBtnVisible()
+   * 
+   * @returns 
+   */
   editBtnVisible(){
 
     if(this.loggedInUser!=null && this.userDetails!=null && this.userDetails.id == this.loggedInUser.id){
