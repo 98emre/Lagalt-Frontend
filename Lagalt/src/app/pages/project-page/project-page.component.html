@@ -1,7 +1,7 @@
 <div class="project-page-section">
     <div class="project-page-wr">
         <!--Project details -->
-        <app-project-details [projectDetails]="project"></app-project-details>
+        <app-project-details [projectDetails]="project" [projectOwner]="projectOwner"></app-project-details>
 
         <!--Comment section -->
         <app-comment-section [projectId]="project?.id"></app-comment-section>
