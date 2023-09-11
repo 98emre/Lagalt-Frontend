@@ -13,17 +13,16 @@ export class ProjectDetailsComponent {
 
   @Input() projectDetails: Project | any;
   @Input() projectOwner: User | any;
-
+  @Input() collaboratorModels: Collaborator[] = [];
   @Input() collaboratorLength:number|any;
 
   user:User|any = null
-  collaboratorModels: Collaborator[] = []
+  isCollaborator: boolean = false;
+  isPending: boolean = false;
 
   constructor(private collaboratorService: CollaboratorService){}
 
   ngOnInit(){
-    this.collaboratorService.getCollaborators().subscribe((collaborators) => {
-      this.collaboratorModels = collaborators}) 
 
     if(localStorage.getItem('user') != null){
       this.user = JSON.parse(localStorage.getItem('user')!) 
@@ -31,7 +30,25 @@ export class ProjectDetailsComponent {
 
   }
 
+  ngOnChanges(){
+
+    // checks if this project id and logged in user id is in the list
+    const filterCollab = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "APPROVED")
+    const filterPending = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "PENDING")
+
+    if(filterCollab.length > 0){
+      this.isCollaborator = true;
+    }
+
+    if(filterPending.length > 0){
+      this.isPending = true;
+    }
+
+  }
+
   onCollabButton(){
+    this.isPending = true;
+    
     let newCollaborator:Collaborator = 
     {
       id: 1,
