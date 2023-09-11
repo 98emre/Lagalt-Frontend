@@ -15,6 +15,8 @@ export class ProjectDetailsComponent {
   @Input() projectDetails: Project | any;
   @Input() projectOwner: User | any;
 
+  @Input() collaboratorLength:number|any;
+
   user:User|any = null
   collaboratorModels: Collaborator[] = []
 
@@ -39,6 +41,7 @@ export class ProjectDetailsComponent {
       approvalDate: null,
       projectId: this.projectDetails.id
     }
+
     this.collaboratorService.postCollaborator(newCollaborator)
   }
 

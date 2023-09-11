@@ -33,6 +33,7 @@ export class ProjectPageComponent {
       this.projectService.getProjectById(projectId).subscribe((project) => {
         this.project = project 
 
+        console.log(JSON.stringify(project))
         this.userService.getUserById(project.userId).subscribe((projectOwner) => {
           this.projectOwner = projectOwner;
         })
@@ -49,8 +50,9 @@ export class ProjectPageComponent {
   }
 
   ngDoCheck(){
-    if(this.collaboratorModels.length > 0 && this.user != null){
+    if(this.collaboratorModels.length > 0 && this.user != null && this.project != null){
       this.acceptedCollaboratorModels = this.collaboratorModels.filter((collaborator) => collaborator.status==="APPROVED")
+      this.acceptedCollaboratorModels = this.acceptedCollaboratorModels.filter((acceptedCollaborator) => acceptedCollaborator.projectId == this.project.id)
     }
 
     this.acceptedUserModels = []
@@ -76,19 +78,5 @@ export class ProjectPageComponent {
         break
       }
     }
-  }
-
-  onCollabButton(){
-    let newCollaborator:Collaborator = 
-    {
-      id: 1,
-      userId: this.user.id,
-      status: "PENDING", 
-      requestDate: new Date(),
-      approvalDate: null,
-      projectId: this.project.id
-    }
-    this.collaboratorService.postCollaborator(newCollaborator)
-    alert("A collaboration request was sent to the owner of this project!")
   }
 }
