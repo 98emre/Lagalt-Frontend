@@ -36,4 +36,17 @@ export class CollaboratorService{
       error: (error) => {console.log(error)}
     });
   }
+
+  deleteCollaborator(collaborator:Collaborator){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    this.http
+    .delete<Collaborator>(COLL_PRIVATE_API_URL + "/" + collaborator.id , httpOptions).subscribe({
+      error:(error) => console.log(error)
+    })
+  }
+
 }
