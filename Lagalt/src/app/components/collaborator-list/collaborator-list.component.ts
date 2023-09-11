@@ -38,8 +38,12 @@ export class CollaboratorListComponent {
    * A filter is applied to extract only collaborators that have atleast one project.
    */
   ngDoCheck(){
+    this.readFromAPI()
+  }
+
+  readFromAPI(){
     if(this.collaboratorModels != null && this.projectModels != null){
-      this.filteredModels = this.collaboratorModels.filter((collaboratorModel) => this.hasProject(collaboratorModel.projectId))
+      this.filteredModels = this.collaboratorModels.filter((collaboratorModel) => this.hasProject(collaboratorModel.projectId) && collaboratorModel.status == "PENDING")
     }
   }
 }

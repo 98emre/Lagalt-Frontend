@@ -1,4 +1,4 @@
 <!-- A list that is populated with project items -->
 <div class="collaborator-list">
-    <app-collaborator-item *ngFor="let collaboratorData of filteredModels" [projectModels] = "projectModels" [collaboratorModel]="collaboratorData"/>
+    <app-collaborator-item *ngFor="let collaboratorData of filteredModels" [projectModels] = "projectModels" [collaboratorModel]="collaboratorData" (triggerAPIRequest)="readFromAPI()"/>
 </div>
