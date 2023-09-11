@@ -31,6 +31,8 @@ export class ProjectDetailsComponent {
   }
 
   ngOnChanges(){
+    if(this.projectDetails == null)
+      return
 
     // checks if this project id and logged in user id is in the list
     const filterCollab = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "APPROVED")

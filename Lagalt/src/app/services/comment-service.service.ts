@@ -33,7 +33,7 @@ export class CommentService {
      *
      * @param comment, The comment as a whole that comes in to the post method. 
      */
-    postComment(projectId:number, comment:ProjectComment){
+    postComment(projectId:number, comment:ProjectComment):Observable<ProjectComment>{
       const postComment:Partial<ProjectComment> = {
         text: comment.text,
         date: comment.date,
@@ -46,11 +46,17 @@ export class CommentService {
           Authorization: `Bearer ${keycloak.token}` 
         }),
       };
-      this.http
-      .post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId, postComment, httpOptions)
-      .subscribe({
-        error: (error) => {console.log(error)}
-      });
+
+      return this.http.post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId, postComment, httpOptions)
+    }
+
+    deleteComment(comment:ProjectComment): Observable<ProjectComment>{
+      const httpOptions = {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${keycloak.token}` 
+        }),
+      };
+      return this.http.delete<ProjectComment>(COMMENT_PRIVATE_API_URL + "/" + comment.id, httpOptions)
     }
 
     private tokenRefresh(): void {

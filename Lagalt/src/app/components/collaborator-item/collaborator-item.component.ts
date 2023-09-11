@@ -46,7 +46,9 @@ export class CollaboratorItemComponent {
 
   /**
    * onAccept()
-   * yo yo yo
+   * The onAccept() method is inwoked when the user clicks accept on a project.
+   * A patch request is then made to the API.
+   * Also a signal is emitted to the parent to make a new fetch of projects.
    */
   onAccept(){
     this.collaboratorModel.status = "APPROVED"
@@ -59,7 +61,8 @@ export class CollaboratorItemComponent {
    * onDecline()
    * If the event is triggered for when the user presses the decline button, then this method
    * is inwoked. This method in turn will inwoke the delete method from the collaborator
-   * service to remove this specific instance of a collaborator. 
+   * service to remove this specific instance of a collaborator.
+   * Like with onAccept(), a signal is emitted to the parent to make a new fetch.
    */
   onDecline(){
     this.collaboratorModel.status = "DECLINED"

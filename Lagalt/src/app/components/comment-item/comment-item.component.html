@@ -8,3 +8,4 @@
     </div>
     <p class="small-title"><i>{{formatDate(commentModel?.date)}}</i></p>
 </div>
+<button (click) = "removeComment()" *ngIf="commentModel?.userId == user?.id && userService.isAuthenticated()"> remove</button>

@@ -27,6 +27,12 @@ export class ProjectPageComponent {
 
   constructor(private userService:UserService, private projectService:ProjectService, private collaboratorService: CollaboratorService, private route: ActivatedRoute){}
 
+  /**
+ * ngOnInit()
+ * The ngOnInit() method in the project page will extract an ID from the URL and use that as 
+ * an index to acquire a project page from the database. Global constants such as the owner
+ * of the project is set here. 
+ */
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const projectId = Number(params.get('id'));
@@ -42,7 +48,6 @@ export class ProjectPageComponent {
 
     this.collaboratorService.getCollaborators().subscribe((collaborators) => {
       this.collaboratorModels = collaborators
-      console.log(this.collaboratorModels);
     })
     this.userService.getAllUsers().subscribe((users) => {this.allUserModels = users})
 
@@ -51,6 +56,12 @@ export class ProjectPageComponent {
       this.user = JSON.parse(localStorage.getItem('user')!)
   }
 
+  /**
+   * ngDoCheck()
+   * If there are collaborators and the project is not null, then acceptedCollaboratorModels will be set as the models were the id for that collaborator matches with
+   * the project AND where the status is set to be APPROVED. The fillCollabList() is a help function that fills a list of users corresponding to those who are 
+   * collaborators on this project (So that their names etc can be displayed).
+   */
   ngDoCheck(){
     if(this.collaboratorModels.length > 0 && this.project != null){
       this.acceptedCollaboratorModels = this.collaboratorModels.filter((collaborator) => collaborator.status==="APPROVED" && collaborator.projectId == this.project.id)
@@ -65,15 +76,21 @@ export class ProjectPageComponent {
     }
   }
 
+  /**
+   * fillCollabList()
+   * fillCollabList() is a helper method that basically reads in users from the allUserModels and for each user therein, it adds a user to the array acceptedUserModels
+   * if they are not already in the list.
+   * @param collabId, The ID of the collaborator that we are looking to add.
+   */
   fillCollabList(collabId:number){
-    // Check if the user has already been appended to the acceptedUserModels list:
+    // 1. Check if the user has already been appended to the acceptedUserModels list:
     for(let user of this.acceptedUserModels){
       if(user.id == collabId){
         return
       }
     }
     
-    // If not, attempt to find the current user and if they are therein, add them:
+    // 2. If not, attempt to find the current user and if they are therein, add them:
     for(let user of this.allUserModels){
       if(collabId == user.id){
         this.acceptedUserModels.push(user)
