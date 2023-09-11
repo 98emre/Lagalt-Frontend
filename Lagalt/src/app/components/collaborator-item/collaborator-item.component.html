@@ -1,6 +1,6 @@
-<h3>Collaboration Request</h3>
-<p>
-    {{this.username}} Wants to join your project: {{project.title}}
-    <button (click) = "onAccept()"> Accept  </button>
-    <button (click) = "onDecline()">  Decline </button>
-</p>
+<p>{{this.username}} wants to join your project: <b class="color-light-blue">{{project.title}}</b></p>
+<div class="btn-div">
+    <button class="requestBtn"(click) = "onAccept()"> Accept  </button>
+    <button class="requestBtn" (click) = "onDecline()">Decline</button>
+</div>
+

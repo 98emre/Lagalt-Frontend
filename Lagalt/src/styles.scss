@@ -117,6 +117,7 @@ header a:visited, header a:active, header a:link{
     flex-wrap: wrap;
     /*width: 80%;*/
     margin: auto;
+    flex-direction: row;
 }
 
 .landing-item .test{
@@ -161,7 +162,7 @@ header a:visited, header a:active, header a:link{
 }
 
 .user-page-wr{
-    background-color: #25335c;
+    background-color: white;
     border-radius: 8px;
     border: 0.5px solid rgb(230, 230, 230);
     padding: 2rem 5rem;
