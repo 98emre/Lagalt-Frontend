@@ -29,8 +29,14 @@
         </div>
     </div>
     <div>
-        <div>
+        <div *ngIf="!isCollaborator && !isPending">
             <button class="btn btn-blue" (click)="onCollabButton()">Join project</button>
+        </div> 
+        <div *ngIf="isCollaborator && !isPending">
+            <button class="btn btn-gray">Collaborator</button>
+        </div>
+        <div *ngIf="isPending">
+            <button class="btn btn-gray">Pending request</button>
         </div>
     </div>
 </div>

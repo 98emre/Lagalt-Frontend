@@ -33,7 +33,6 @@ export class ProjectPageComponent {
       this.projectService.getProjectById(projectId).subscribe((project) => {
         this.project = project 
 
-        console.log(JSON.stringify(project))
         this.userService.getUserById(project.userId).subscribe((projectOwner) => {
           this.projectOwner = projectOwner;
         })
@@ -41,7 +40,10 @@ export class ProjectPageComponent {
 
     });
 
-    this.collaboratorService.getCollaborators().subscribe((collaborators) => {this.collaboratorModels = collaborators})
+    this.collaboratorService.getCollaborators().subscribe((collaborators) => {
+      this.collaboratorModels = collaborators
+      console.log(this.collaboratorModels);
+    })
     this.userService.getAllUsers().subscribe((users) => {this.allUserModels = users})
 
 
