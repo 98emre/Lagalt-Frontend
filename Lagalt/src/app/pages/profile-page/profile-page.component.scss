@@ -7,10 +7,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .collab-wr{
-    padding-bottom: 2rem;
-    border-bottom: 1px solid white;
+    padding: 1rem;
+    /*padding-bottom: 2rem;
+    padding-top: 0.1rem;*/
+    background-color: #f5f9fc;
+    border-radius: 8px;
 }

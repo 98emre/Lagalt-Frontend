@@ -2,14 +2,14 @@
     <div class="search-filterDiv">
         <div><button class="btn" 
             [class.btn-blue]="usersFound && filterUser" 
-            [class.btn-gray]="!(usersFound && filterUser)"
+            [class.btn-white]="!(usersFound && filterUser)"
             (click)="filterUserClick()">
             Users 
             ({{userModels?.length}})</button>
         </div>
         <div><button class="btn" 
             [class.btn-blue]="projectsFound && !usersFound || filterProject"
-            [class.btn-gray]="!(projectsFound && !usersFound || filterProject)" 
+            [class.btn-white]="!(projectsFound && !usersFound || filterProject)" 
             (click)="filterProjectClick()">
             Projects 
             ({{projectModels?.length}})</button>
