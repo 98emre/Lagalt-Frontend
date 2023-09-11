@@ -39,7 +39,6 @@ export class CollaboratorService{
     });
   }
 
-<<<<<<< HEAD
   deleteCollaborator(collaborator:Collaborator){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -64,7 +63,6 @@ export class CollaboratorService{
     })
   }
 
-=======
 
   private tokenRefresh(): void {
     keycloak.onTokenExpired = () => {
@@ -81,5 +79,4 @@ export class CollaboratorService{
       });
     };
   }
->>>>>>> 0e9dec36028aae5a5b348d5d070dfe7fd0419383
 }
