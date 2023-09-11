@@ -4,6 +4,12 @@
         <!--User details -->
         <app-user-details [userDetails]="user"></app-user-details>
 
+        <!--Collaborations -->
+        <div class="collab-wr">
+            <h3 class="color-white">Collaboration Requests</h3>
+            <app-collaborator-list [projectModels]="projectModels"
+                [collaboratorModels]="collaboratorModels"></app-collaborator-list>
+        </div>
         <!--User projects -->
         <div class="add-project-wr">
         <h3 class="color-white">All projects</h3>
@@ -17,7 +23,3 @@
     </div>
 
 </div>
-
-
-<h2>Collaboration Requests</h2>
-<app-collaborator-list [projectModels] = "projectModels" [collaboratorModels] = "collaboratorModels"></app-collaborator-list>

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import {User} from 'src/app/models/user'
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-project-item',
@@ -9,7 +10,7 @@ import {User} from 'src/app/models/user'
   styleUrls: ['./project-item.component.scss']
 })
 export class ProjectItemComponent implements OnInit{
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService : UserService) { }
 
   // Input, project model: When the component is created a project model is passed from its parent (which can be Landing Page, Profile Page, etc):
   @Input() projectModel: Project | any;
