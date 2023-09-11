@@ -1,21 +1,20 @@
 <div class="comment-section">
-    <h2> Comments </h2>
-    <div>
+    <!--Comment list -->
+    <h3>Comments</h3>
+    <div class="comment-list">
         <app-comment-item *ngFor="let commentData of commentModels" [commentModel]="commentData"/>
     </div>
     
-
-    <div *ngIf = "user; else loggedOut">
+    <!--Write comment-->
+    <div *ngIf="user; else loggedOut" class="textfield-section">
+        <div class="comment-user">
+            <span class="material-symbols-rounded userIcon">face_6</span>
+            <h4>{{user?.username}}</h4>
+        </div>
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-    
-            <h3>Write your own comment:</h3>
-            <input type="text"
-                ngModel
-                name="text"
-                id = "text"
-                required
-                placeholder="Leave your comment here!">
-            <button type="submit" [disabled]="myForm.form.invalid">Post</button>
+            <textarea ngModel name="text" id="text" required placeholder="Leave a comment" resize="false">
+            </textarea>
+            <button class="btn btn-blue" type="submit" [disabled]="myForm.form.invalid">Post</button>
         </form>
     </div>
     <ng-template #loggedOut>

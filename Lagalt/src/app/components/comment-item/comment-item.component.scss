@@ -1,0 +1,29 @@
+.comment-item{
+    border-radius: 8px;
+    background-color: #f5f9fc;
+    border: 0.5px solid rgb(230, 230, 230);
+    padding: 1.5rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.comment-user{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.col-1{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+
+.col-1 h4{
+    margin: 0;
+}
+
+.col-1 p{
+    margin: 0;
+}

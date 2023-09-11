@@ -3,7 +3,6 @@ import { Collaborator } from 'src/app/models/collaborator';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
 import { CollaboratorService } from 'src/app/services/collaborator-service.service';
-import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-project-details',
@@ -20,10 +19,11 @@ export class ProjectDetailsComponent {
   user:User|any = null
   collaboratorModels: Collaborator[] = []
 
-  constructor(private collaboratorService: CollaboratorService, private userService: UserService){}
+  constructor(private collaboratorService: CollaboratorService){}
 
   ngOnInit(){
-    this.collaboratorService.getCollaborators().subscribe((collaborators) => {this.collaboratorModels = collaborators}) 
+    this.collaboratorService.getCollaborators().subscribe((collaborators) => {
+      this.collaboratorModels = collaborators}) 
 
     if(localStorage.getItem('user') != null){
       this.user = JSON.parse(localStorage.getItem('user')!) 

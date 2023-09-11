@@ -1,3 +1,10 @@
-<p>{{user?.username}} says:</p>
-<p>Date: {{commentModel?.date}}</p>
-<p>{{commentModel?.text}}</p>
+<div class="comment-item">
+    <div class="col-1">
+        <div class="comment-user">
+            <span class="material-symbols-rounded userIcon">face_6</span>
+            <h4>{{user?.username}}</h4>
+        </div>
+        <p>{{commentModel?.text}}</p>
+    </div>
+    <p class="small-title"><i>{{formatDate(commentModel?.date)}}</i></p>
+</div>
