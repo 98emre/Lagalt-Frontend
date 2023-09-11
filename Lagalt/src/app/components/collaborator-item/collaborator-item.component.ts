@@ -46,7 +46,8 @@ export class CollaboratorItemComponent {
 
   onAccept(){
     this.collaboratorModel.status = "APPROVED"
-    //this.collaboratorService
+    this.collaboratorModel.approvalDate = new Date()
+    this.collaboratorService.patchCollaborator(this.collaboratorModel)
   }
 
   /**

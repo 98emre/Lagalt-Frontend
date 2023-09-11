@@ -44,7 +44,19 @@ export class CollaboratorService{
       }),
     };
     this.http
-    .delete<Collaborator>(COLL_PRIVATE_API_URL + "/" + collaborator.id , httpOptions).subscribe({
+    .delete<Collaborator>(COLL_PRIVATE_API_URL + "/" + collaborator.id, httpOptions).subscribe({
+      error:(error) => console.log(error)
+    })
+  }
+
+  patchCollaborator(collaborator:Collaborator){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    this.http
+    .patch<Collaborator>(COLL_PRIVATE_API_URL + "/" + collaborator.id, collaborator, httpOptions).subscribe({
       error:(error) => console.log(error)
     })
   }
