@@ -10,7 +10,9 @@ import keycloak from 'src/keycloak';
 })
 export class CollaboratorService{
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.tokenRefresh();
+   }
 
   getCollaborators(): Observable<Collaborator[]>{
     return this.http.get<Collaborator[]>(COLL_PUBLIC_API_URL)
@@ -37,6 +39,7 @@ export class CollaboratorService{
     });
   }
 
+<<<<<<< HEAD
   deleteCollaborator(collaborator:Collaborator){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -61,4 +64,22 @@ export class CollaboratorService{
     })
   }
 
+=======
+
+  private tokenRefresh(): void {
+    keycloak.onTokenExpired = () => {
+      keycloak.updateToken(30).then(refreshed => {
+        if (!refreshed) {
+          console.error('Token not refreshed, maybe the session has expired?');  
+      } 
+      
+      else {
+         
+      }
+      }).catch(() => {
+        console.error('Failed to refresh the token, or the session has expired');
+      });
+    };
+  }
+>>>>>>> 0e9dec36028aae5a5b348d5d070dfe7fd0419383
 }
