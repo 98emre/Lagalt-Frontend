@@ -22,9 +22,9 @@ Here is an example of how the application can look like, in going to localhost:4
 ![frontend drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4386af79-56a7-4d0e-b9bd-b32ee1cdc3f8)
 
 ## Models
-|Model | Yo Yo yo|
+|Model | Data |
 |------|---------|
-|Project| yo yo yo|
+|Project| id, title, descriptions, gitlink, category, status, userId, commentIds, collaboratorIds|
 |ProjectComment| yo yo yo|
 |Collaborator| yo yo yo|
 |User| yo yo yo|
