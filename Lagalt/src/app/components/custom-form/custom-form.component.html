@@ -1,7 +1,7 @@
 <!-- A form with fields for every attribute of a new project, and a submission button: -->
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     
-    <h3>Project Title</h3>
+    <p class="color-light-blue small-title">Project Title</p>
     <input type="text"
     ngModel
     name="title"
@@ -10,16 +10,12 @@
     placeholder="Provide your title">
     <p></p>
     
-    <h3>Description</h3>
-    <input type="text"
-    ngModel
-    name="description"
-    id = "description"
-    required
-    placeholder="Provide a description ">
+    <p class="color-light-blue small-title">Description</p>
+    <textarea ngModel name="description" id="description" required placeholder="Provide a description ">
+    </textarea>
     <p></p>
 
-    <h3>Category</h3>
+    <p class="color-light-blue small-title">Category</p>
     <select ngModel required name="category" id="category">
         <option value="GAME">Game</option>
         <option value="MUSIC">Music</option>
@@ -28,7 +24,7 @@
     </select>
     <p></p>
 
-    <h3>GitHub Link</h3>
+    <p class="color-light-blue small-title">Github link</p>
     <input type="text"
     ngModel
     name="git"
@@ -38,6 +34,8 @@
     <p></p>
 
 
-    <button type="submit" [disabled]="myForm.form.invalid">Add New Project</button>
+    <div class="btn-wr">
+        <button class="btn btn-blue" type="submit" [disabled]="myForm.form.invalid">Add project</button>
+        <button class="btn btn-white" (click)="onGoBack()">Cancel</button>
+    </div>
 </form>
-<button (click)="onGoBack()">Back To Profile</button>

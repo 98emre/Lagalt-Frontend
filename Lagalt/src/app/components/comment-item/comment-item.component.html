@@ -1,11 +1,17 @@
 <div class="comment-item">
-    <div class="col-1">
-        <div class="comment-user">
-            <span class="material-symbols-rounded userIcon">face_6</span>
-            <h4>{{user?.username}}</h4>
+    <div>
+        <div class="col-1">
+            <div class="comment-user">
+                <span class="material-symbols-rounded userIcon">face_6</span>
+                <h4>{{user?.username}}</h4>
+            </div>
+            <p>{{commentModel?.text}}</p>
         </div>
-        <p>{{commentModel?.text}}</p>
+        <p class="small-title"><i>{{formatDate(commentModel?.date)}}</i></p>
     </div>
-    <p class="small-title"><i>{{formatDate(commentModel?.date)}}</i></p>
+
+    <button class="removeBtn" (click)="removeComment()" *ngIf="commentModel?.userId == user?.id && userService.isAuthenticated()">
+        <span class="material-symbols-rounded">delete</span>
+        Delete
+    </button>
 </div>
-<button (click) = "removeComment()" *ngIf="commentModel?.userId == user?.id && userService.isAuthenticated()"> remove</button>

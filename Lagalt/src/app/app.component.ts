@@ -29,6 +29,10 @@ export class AppComponent {
     this.userService.getUserObservable().subscribe((user) => {
       this.userName = user.username;
     });
+
+    if(!this.userService.isAuthenticated()){
+      localStorage.removeItem('user');
+    }
   }
 
   /**

@@ -7,8 +7,14 @@
 
         <!--Collaborators-->
         <h3>Collaborators</h3>
-        <div *ngFor="let user of acceptedUserModels">
-            {{user.username}}
+        <div *ngIf="acceptedUserModels.length < 1" class="collab-div">
+            <p>No collaborators on this project</p>
+        </div>
+        <div *ngIf="acceptedUserModels.length > 0">
+            <div class="collab-div collab" *ngFor="let user of acceptedUserModels">
+                <span class="material-symbols-rounded userIcon">face_6</span>
+                {{user.username}}
+            </div>
         </div>
 
         <!--Comment section -->
@@ -17,9 +23,6 @@
 
 </div>
 
-<div class="delete-div">
+<div class="delete-div" *ngIf="this.projectOwner?.id != null && this.user?.id != null && this.projectOwner?.id == this.user?.id">
     <button class="btn deleteBtn" (click)="removeProject()">Delete project</button>
 </div>
-
-<!--  To make it so you cant join your own projects (Joining own projects is enabled to test functionality) -->
-<!--  && project?.userId !== user?.id -->
