@@ -41,22 +41,25 @@
         <!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
         <h3>Edit profile</h3>
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-            <div>
-                <p class="color-light-blue">About</p>
-                <textarea placeholder="Write a description about you" ngModel name="desc" id="desc" rows="4" cols="50" resize="false"></textarea>
-                <!--<input type="textarea" rows="4" cols="50" ngModel name="desc" id="desc" required placeholder="What do you want to do?">-->
+            <div class="form-inputs">
+                <div>
+                    <p class="color-light-blue">About</p>
+                    <textarea placeholder="Write a description about you" ngModel name="desc" id="desc" rows="4"
+                        cols="50" resize="false"></textarea>
+                    <!--<input type="textarea" rows="4" cols="50" ngModel name="desc" id="desc" required placeholder="What do you want to do?">-->
+                </div>
+                <div>
+                    <p class="color-light-blue">Skills</p>
+                    <fieldset>
+                        <input type="checkbox" ngModel id="java" name="JAVA"><label for="java">Java</label>
+                        <input type="checkbox" ngModel name="JAVASCRIPT"><label for="javascript">Javascript</label>
+                        <input type="checkbox" ngModel name="REACT"><label for="react">React</label>
+                        <input type="checkbox" ngModel name="ANGULAR"><label for="angular">Angular</label>
+                        <input type="checkbox" ngModel name="C"><label for="c">C</label>
+                    </fieldset>
+                </div>
             </div>
-            <div>
-                <p class="color-light-blue">Skills</p>
-                <fieldset>
-                    <input type="checkbox" ngModel id="java" name="JAVA"><label for="java">Java</label>
-                    <input type="checkbox" ngModel name="JAVASCRIPT"><label for="javascript">Javascript</label>
-                    <input type="checkbox" ngModel name="REACT"><label for="react">React</label>
-                    <input type="checkbox" ngModel name="ANGULAR"><label for="angular">Angular</label>
-                    <input type="checkbox" ngModel name="C"><label for="c">C++</label>
-                </fieldset>
-            </div>
-            <button class="btn btn-white"type="submit" [disabled]="myForm.form.invalid">Save</button>
+            <button class="btn btn-white" type="submit" [disabled]="myForm.form.invalid">Save</button>
         </form>
     </div>
 
