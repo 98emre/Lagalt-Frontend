@@ -1,7 +1,15 @@
 <div class="project-page-section">
     <div class="project-page-wr">
         <!--Project details -->
-        <app-project-details [projectDetails]="project" [projectOwner]="projectOwner" [collaboratorLength]="acceptedUserModels.length" [collaboratorModels]="collaboratorModels"></app-project-details>
+        <app-project-details [projectDetails]="project" [projectOwner]="projectOwner"
+            [collaboratorLength]="acceptedUserModels.length"
+            [collaboratorModels]="collaboratorModels"></app-project-details>
+
+        <!--Collaborators-->
+        <h3>Collaborators</h3>
+        <div *ngFor="let user of acceptedUserModels">
+            {{user.username}}
+        </div>
 
         <!--Comment section -->
         <app-comment-section [projectId]="project?.id"></app-comment-section>
@@ -9,9 +17,8 @@
 
 </div>
 
-<h2>Collaborators</h2>
-<div *ngFor="let user of acceptedUserModels">
-    {{user.username}}
+<div class="delete-div">
+    <button class="btn deleteBtn" (click)="removeProject()">Delete project</button>
 </div>
 
 <!--  To make it so you cant join your own projects (Joining own projects is enabled to test functionality) -->
