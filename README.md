@@ -23,7 +23,7 @@ Here is an example of how the application can look like, in going to localhost:4
 
 ## Models
 |Model | Yo Yo yo|
----------------------
+|------|---------|
 |Project| yo yo yo|
 --------------------
 ## Authors
