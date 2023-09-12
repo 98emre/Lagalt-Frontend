@@ -25,6 +25,11 @@ export class ProjectItemComponent implements OnInit{
   ngOnInit(){
     if(localStorage.getItem('user') != null){
       let user:User = JSON.parse(localStorage.getItem('user')!) as User
+      if(this.projectModel.userId == user.id){
+        this.owner = true;
+        return
+      }
+
       for(let collabID of this.projectModel.collaboratorIds){
         if(collabID == user.id){
           this.collaborator = true
