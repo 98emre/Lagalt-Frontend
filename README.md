@@ -20,7 +20,12 @@ To run the project, follow these steps down below:
 When the user goes to localhost:4200, they are directed to the landing page. Here the user can search for projects, go to the projects (by clicking them), filter based on category. Moreover the user can also log in as seen in the commented screenshot below.
 
 <img width="600" alt="1" src="https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/3cd623e4-e775-404b-b8b9-26c723ccf3fe">
-   
+
+### Login Page (Keycloak)
+If the user presses on the login button they are navigated to the key cloak login page that authenticates a user. 
+
+<img width="600" alt="2" src="https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4053aaa0-bc95-4b03-a360-502ff89d9438">
+
 ## Component Tree
 ![frontend drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4386af79-56a7-4d0e-b9bd-b32ee1cdc3f8)
 
