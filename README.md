@@ -21,6 +21,11 @@ Here is an example of how the application can look like, in going to localhost:4
 ## Component Tree
 ![frontend drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4386af79-56a7-4d0e-b9bd-b32ee1cdc3f8)
 
+## Models
+|Model | Yo Yo yo|
+---------------------
+|Project| yo yo yo|
+--------------------
 ## Authors
 Emre Demirel ([emre98](https://github.com/98emre))
 
