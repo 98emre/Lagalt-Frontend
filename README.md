@@ -22,4 +22,4 @@ Emre Demirel ([emre98](https://github.com/98emre))
 
 Vendela Österman ([Vosterman](https://github.com/Vendelaosterman))
 
-August Danell Håkansson ([AugustDanell](https://github.com/AugustDanell)https://github.com/AugustDanell)
+August Danell Håkansson ([AugustDanell](https://github.com/AugustDanell))
