@@ -25,11 +25,8 @@ Here is an example of how the application can look like, in going to localhost:4
 |Model | Yo Yo yo|
 |------|---------|
 |Project| yo yo yo|
---------------------
 |ProjectComment| yo yo yo|
---------------------
 |Collaborator| yo yo yo|
---------------------
 |User| yo yo yo|
 --------------------
 ## Authors
