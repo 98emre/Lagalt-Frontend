@@ -31,14 +31,26 @@ export class AppComponent {
     });
   }
 
+  /**
+   * homeOnClick()
+   * A method that returns the user back to the landing page onClick.
+   */
   homeOnClick(){
     window.location.href="";
   }
 
+  /**
+   * isLoggedIn()
+   * @returns, The boolean value pertaining to if the user is logged in or not.
+   */
   isLoggedIn(){
     return this.userService.isAuthenticated();
   }
 
+  /**
+   * onLoginClick()
+   * Trigger the keycloak form onClick.
+   */
   onLoginClick() {
     this.userService.keyCloakLogin();
   }

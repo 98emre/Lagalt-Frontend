@@ -97,6 +97,10 @@ export class ProjectService {
     });
   }
 
+   /**
+   * tokenRefresh()
+   * A method that updates the keycloak Token.
+   */
   
   private tokenRefresh(): void {
     keycloak.onTokenExpired = () => {

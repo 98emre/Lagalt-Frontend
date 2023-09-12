@@ -13,6 +13,12 @@ export class UserItemComponent {
 
   @Input() userModel: User | any;
 
+  /**
+   * onGotoClick()
+   * When the logged in user clicks on a user item, he is to be navigated to their page.
+   * This method takes care of that.
+   * @param id, The id of the user page to navigate to.
+   */
   onGotoClick(id: number){
     this.router.navigate(['/user', id]);
   }

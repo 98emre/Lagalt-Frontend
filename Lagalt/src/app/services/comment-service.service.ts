@@ -50,6 +50,16 @@ export class CommentService {
       return this.http.post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId, postComment, httpOptions)
     }
 
+    /**
+     * deleteComment()
+     * A method that makes a delete HTTP request to the backend.
+     * Unlike other methods that do the same functionality in other services, this method
+     * is observable. The reason for this is so that event can be emitted outside this method
+     * for when the comment has been deleted (To trigger a re-rendering).
+     * 
+     * @param comment, the comment to be deleted.
+     * @returns A deleteRequest to subscribe to. 
+     */
     deleteComment(comment:ProjectComment): Observable<ProjectComment>{
       const httpOptions = {
         headers: new HttpHeaders({
@@ -59,6 +69,10 @@ export class CommentService {
       return this.http.delete<ProjectComment>(COMMENT_PRIVATE_API_URL + "/" + comment.id, httpOptions)
     }
 
+    /**
+     * tokenRefresh()
+     * A method that updates the keycloak Token.
+     */
     private tokenRefresh(): void {
       keycloak.onTokenExpired = () => {
         keycloak.updateToken(30).then(refreshed => {

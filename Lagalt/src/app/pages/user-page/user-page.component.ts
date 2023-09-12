@@ -17,18 +17,25 @@ export class UserPageComponent {
 
   constructor(private userService: UserService, private projectService: ProjectService, private route: ActivatedRoute){}
 
+  /**
+   * ngOnInit()
+   * ngOnInit is a method that extracts things like the ID from the URL when invoked.
+   * It also makes API requests, to acquire the project corresponding to the ID provided
+   * and obtain user details.
+   */
+
   ngOnInit(){
 
     this.route.paramMap.subscribe((params: ParamMap) => {
 
       const userId = Number(params.get('id'));
 
-      // get userdetails
+      // get userdetails:
       this.userService.getUserById(userId).subscribe((user) => {
         this.user = user;
       })
 
-      // get projects
+      // get projects:
       this.projectService.getProjects().subscribe((projects) => {
         this.projectModels = projects.filter((element) => element.userId === userId)
       })

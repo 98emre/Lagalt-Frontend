@@ -14,10 +14,22 @@ export class CollaboratorService{
     this.tokenRefresh();
    }
 
+  /**
+   * getCollaborators()
+   * getCollaborators() is a method that makes an API request and as such provides for subscription services for whatever
+   * component might want to call this method.
+   * @returns An API request, that is observable so that one can do subscription to it.
+   */ 
   getCollaborators(): Observable<Collaborator[]>{
     return this.http.get<Collaborator[]>(COLL_PUBLIC_API_URL)
   }
 
+  /**
+   * postCollaborator()
+   * postCollaborator() is a method that makes a POST request. 
+   * The method POSTS a collaborator object to the backend.
+   * @param collaborator, the collaborator object to be posted.
+   */
   postCollaborator(collaborator:Collaborator){
     const postCollaborator:Partial<Collaborator> = {
       status: collaborator.status,
@@ -39,6 +51,12 @@ export class CollaboratorService{
     });
   }
 
+  /**
+   * deleteCollaborator()
+   * A method that deletes a collaborator in the backend.
+   * This method is called when a user wants to decline a collaboration request.
+   * @param collaborator, The item to be deleted. 
+   */
   deleteCollaborator(collaborator:Collaborator){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -51,6 +69,12 @@ export class CollaboratorService{
     })
   }
 
+  /**
+   * patchCollaborator()
+   * A method that updates a collaborator.
+   * This method is invoked when a user wants to grant a collaboration request (accept it).
+   * @param collaborator, The collaborator item to be updated. 
+   */
   patchCollaborator(collaborator:Collaborator){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -63,7 +87,10 @@ export class CollaboratorService{
     })
   }
 
-
+   /**
+   * tokenRefresh()
+   * A method that updates the keycloak Token.
+   */
   private tokenRefresh(): void {
     keycloak.onTokenExpired = () => {
       keycloak.updateToken(30).then(refreshed => {

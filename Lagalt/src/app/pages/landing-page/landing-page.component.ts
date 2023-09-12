@@ -46,6 +46,12 @@ export class LandingPageComponent {
     )
   }
 
+  /**
+   * isLoggedIn()
+   * A method that invokes userService to validate authentication of the current user.
+   * @returns, The boolean value to the question: Is the current user authenticated?
+   */
+
   isLoggedIn(){
     return this.userService.isAuthenticated()
   }

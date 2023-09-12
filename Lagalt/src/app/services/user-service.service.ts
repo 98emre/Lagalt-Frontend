@@ -53,7 +53,6 @@ export class UserService {
           this.user = response
           localStorage.setItem("user", JSON.stringify(this.user));
           this.userSubject.next(response)
-          //console.log("This user: " + JSON.stringify(this.user))
         },
         error: (getError) => {
           // If there's an error in the GET request, make the POST request
@@ -69,7 +68,7 @@ export class UserService {
               },
               error: (postError) => {
                 // Handle errors from the POST request here
-                console.error('POST request error', postError);
+                console.log('POST request error', postError);
               }
             });
         }
@@ -90,34 +89,66 @@ export class UserService {
     return this.userSubject.asObservable()
   }
 
-  // Keycloak login 
+  /**
+   * keyCloakLogin()
+   * Triggers the keyCloak login form.
+   */
   keyCloakLogin(): void {
     keycloak.login();
   }
 
-  // Keycloak logout 
+  /**
+   * keyCloakLogOut()
+   * Logs out an authenticated user from key cloak.
+   */ 
   keyCloakLogOut(): void {
     keycloak.logout();
   }
 
-  // Checks if authenticated via keycloak 
+  /**
+   * isAuthenticated()
+   * @returns The boolean value for if the current user is authenticated.
+   */
   isAuthenticated(){
     return this.isLoggedIn;
   }
 
-  // get users by search (fullname & username)
+  /**
+   * getUserBySearch()
+   * A method that does a HTTP request to the backend, which in turn returns a 
+   * LIKE query.
+   * @param searchTerm, The search term used for the query. 
+   * @returns An observable for functions outside the service to subscribe to.
+   */
   getUserBySearch(searchTerm: string): Observable<User[]>{
     return this.http.get<User[]>(USER_PUBLIC_API_URL + '/search?name=' + searchTerm)
   }
 
+  /**
+   * getAllUsers()
+   * A method that does a HTTP request to the backend to get every user.
+   * @returns An observable on all users.
+   */
   getAllUsers(){
     return this.http.get<User[]>(USER_PUBLIC_API_URL)
   }
 
+  /**
+   * getUserById()
+   * A method that acquires a specific user, on an ID passed as an URL.
+   * @param id 
+   * @returns An observable pertaining to a specific user.  
+   */
   getUserById(id: number): Observable<User>{
     return this.http.get<User>(USER_PUBLIC_API_URL + '/' + id);
   }
 
+  /**
+   * updateUser()
+   * A method that does an update HTTP request.
+   * @param id 
+   * @param user 
+   */
   updateUser(id: number, user: Partial<User>){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -132,7 +163,10 @@ export class UserService {
   }
 
 
-  // TOKEN REFRESH
+  /**
+   * tokenRefresh()
+   * A method that updates the keycloak Token.
+   */
 
   private tokenRefresh(): void {
     keycloak.onTokenExpired = () => {
