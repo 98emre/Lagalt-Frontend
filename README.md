@@ -15,6 +15,11 @@ To run the project, follow these steps down below:
 6. Navigate to the Lagalt Folder (cd) and run: ```ng serve```  to start a development server 
 7. If no error occurs, go to localhost:4200 as displayed in the terminal. 
 
+## Example Run (Commented Screenshots) 
+1. When the user goes to localhost:4200, they are directed to the landing page. Here the user can search for projects, go to the projects (by clicking them), filter based on category. Moreover the user can also log in as seen in the commented screenshot below.
+
+<img width="824" alt="1" src="https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/3cd623e4-e775-404b-b8b9-26c723ccf3fe">
+   
 ## Component Tree
 ![frontend drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4386af79-56a7-4d0e-b9bd-b32ee1cdc3f8)
 
