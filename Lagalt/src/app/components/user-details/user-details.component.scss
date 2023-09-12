@@ -27,6 +27,12 @@
     width: 10vw;
 }
 
+.skill-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 p{
     margin: 0;
 }
