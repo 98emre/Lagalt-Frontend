@@ -69,6 +69,10 @@ export class CommentService {
       return this.http.delete<ProjectComment>(COMMENT_PRIVATE_API_URL + "/" + comment.id, httpOptions)
     }
 
+    /**
+     * tokenRefresh()
+     * A method that updates the keycloak Token.
+     */
     private tokenRefresh(): void {
       keycloak.onTokenExpired = () => {
         keycloak.updateToken(30).then(refreshed => {

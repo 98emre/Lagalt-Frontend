@@ -51,6 +51,12 @@ export class CollaboratorService{
     });
   }
 
+  /**
+   * deleteCollaborator()
+   * A method that deletes a collaborator in the backend.
+   * This method is called when a user wants to decline a collaboration request.
+   * @param collaborator, The item to be deleted. 
+   */
   deleteCollaborator(collaborator:Collaborator){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -63,6 +69,12 @@ export class CollaboratorService{
     })
   }
 
+  /**
+   * patchCollaborator()
+   * A method that updates a collaborator.
+   * This method is invoked when a user wants to grant a collaboration request (accept it).
+   * @param collaborator, The collaborator item to be updated. 
+   */
   patchCollaborator(collaborator:Collaborator){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -75,7 +87,10 @@ export class CollaboratorService{
     })
   }
 
-
+   /**
+   * tokenRefresh()
+   * A method that updates the keycloak Token.
+   */
   private tokenRefresh(): void {
     keycloak.onTokenExpired = () => {
       keycloak.updateToken(30).then(refreshed => {
