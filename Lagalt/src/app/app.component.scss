@@ -5,7 +5,7 @@ header{
     /*background-color: white;*/
     background-color: #25335c;
     /*border-bottom: 0.5px solid #6b6b6b;*/
-    height: 5vh;
+    height: 6vh;
     padding: 0.5rem 8rem;
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@ header{
 }
 
 .profileIcon{
-    font-size: 45px;
+    font-size: 40px;
     color: white;
 }
 
@@ -67,4 +67,5 @@ header{
 .navDiv{
     display: flex;
     gap: 1rem;
+    align-items:flex-start;
 }
