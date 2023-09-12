@@ -45,7 +45,8 @@ export class UserDetailsComponent {
 
   /**
    * editBtnVisible()
-   * 
+   * editBtnVisible() is a method that governs the visibility of the edit button to be shown only when
+   * editing is possible, i.e, when 
    * @returns 
    */
   editBtnVisible(){
