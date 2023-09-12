@@ -25,6 +25,8 @@ export class ProjectPageComponent {
   allUserModels:User[] = []
   user:User|any = null
 
+  isOwner: boolean = false;
+
   constructor(private userService:UserService, private projectService:ProjectService, private collaboratorService: CollaboratorService, private route: ActivatedRoute){}
 
   /**
@@ -96,6 +98,17 @@ export class ProjectPageComponent {
         break
       }
     }
+  }
+
+  checkIfOwner(){
+    console.log("projectowner" + this.projectOwner.id);
+    console.log("user" + this.user.id)
+    if(this.projectOwner.id != null && this.user.id != null && this.projectOwner.id == this.user.id){
+      return true
+    }else{
+      return false
+    }
+    
   }
 
   removeProject(){
