@@ -22,7 +22,7 @@ When the user goes to localhost:4200, they are directed to the landing page. Her
 <img width="844" alt="1" src="https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/3cd623e4-e775-404b-b8b9-26c723ccf3fe">
 
 ### 2. Login Page (Keycloak)
-If the user presses on the login button they are navigated to the key cloak login page that authenticates a user. However, before logging in the user can as a guest search for projects/users, filter them etc, as seen in the first image. Logging in opens up new ways of interacting with the pages (leave comments, request to join projects etc), as well as open up the profile page where a user can change their own user settings.
+If the user presses on the login button they are navigated to the key cloak login page that authenticates a user. However, before logging in the user can as a guest search for projects/users, filter them etc, as seen in the first image. Logging in opens up new ways of interaction, especially with the profile page. 
 
 <img width="844" alt="2" src="https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4053aaa0-bc95-4b03-a360-502ff89d9438">
 
