@@ -1,0 +1,36 @@
+
+select{
+    width: 100px;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #808080;
+}
+
+option{
+    font-family: 'Manrope', sans-serif;
+    width: 100%;
+}
+
+input, textarea{
+    width: 100%;
+    font-family: 'Manrope', sans-serif;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #808080;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+.btn-wr{
+    margin-top: 5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+

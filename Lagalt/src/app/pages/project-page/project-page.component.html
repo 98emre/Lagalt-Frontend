@@ -7,8 +7,14 @@
 
         <!--Collaborators-->
         <h3>Collaborators</h3>
-        <div *ngFor="let user of acceptedUserModels">
-            {{user.username}}
+        <div *ngIf="acceptedUserModels.length < 1" class="collab-div">
+            <p>No collaborators on this project</p>
+        </div>
+        <div *ngIf="acceptedUserModels.length > 0">
+            <div class="collab-div collab" *ngFor="let user of acceptedUserModels">
+                <span class="material-symbols-rounded userIcon">face_6</span>
+                {{user.username}}
+            </div>
         </div>
 
         <!--Comment section -->

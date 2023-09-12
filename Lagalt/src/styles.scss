@@ -115,7 +115,6 @@ header a:visited, header a:active, header a:link{
 .landing-list .project-list{
     display: flex;
     flex-wrap: wrap;
-    /*width: 80%;*/
     margin: auto;
     flex-direction: row;
 }
@@ -125,9 +124,6 @@ header a:visited, header a:active, header a:link{
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    /*height: 20vh;
-    width: 40vh;*/
-    /*width: calc((100% / 3) - 2rem);*/
     margin-bottom: 2rem;
     padding: 10px;
     justify-content: space-between;
@@ -136,7 +132,6 @@ header a:visited, header a:active, header a:link{
 
 .landing-item .test:hover{
     cursor: pointer;
-    /*box-shadow: -1px 9px 36px 1px rgba(130,130,130,0.34);*/
 }
 
 .landing-item .col-2{
