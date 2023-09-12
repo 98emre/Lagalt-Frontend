@@ -11,3 +11,20 @@
     padding: 2rem 5rem;
     height: 100%;
 }
+
+.delete-div{
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.deleteBtn{
+    border: 1px solid white;
+    background-color: red;
+    color: white;
+}
+
+.deleteBtn:hover{
+    border: 1px solid red;
+    color: black;
+    background-color: white;
+}
