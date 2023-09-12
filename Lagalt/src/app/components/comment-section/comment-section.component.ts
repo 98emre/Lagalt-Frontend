@@ -16,7 +16,7 @@ export class CommentSectionComponent {
   constructor(private userService:UserService, private commentService : CommentService){}
   user:User|any = null
   commentModels:ProjectComment[] = []
-  
+  canComment:boolean = false
 
   /**
    * ngOnInit()
@@ -26,6 +26,7 @@ export class CommentSectionComponent {
 
   ngOnInit(){
     this.userService.getUserObservable().subscribe((user) => { this.user = user });
+    this.canComment = this.userService.isAuthenticated()
   }
 
   /**

@@ -15,6 +15,9 @@ To run the project, follow these steps down below:
 6. Navigate to the Lagalt Folder (cd) and run: ```ng serve```  to start a development server 
 7. If no error occurs, go to localhost:4200 as displayed in the terminal. 
 
+## Example Run (Trailer) 
+Here is an example of how the application can look like, in going to localhost:4200 while the backend is also running (and serving our API requests):
+
 ## Component Tree
 ![frontend drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4386af79-56a7-4d0e-b9bd-b32ee1cdc3f8)
 

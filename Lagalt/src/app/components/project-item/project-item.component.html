@@ -1,17 +1,20 @@
 <div (click)="onGotoClick(projectModel.id)" class="test">
     <!-- Render a title and a description: -->
     <div class="col-1">
-        <h2 class="color-light-blue">{{projectModel?.title}}</h2>
+            <h2 class="color-light-blue">{{projectModel?.title}}</h2>
         <p>{{projectModel?.descriptions}}</p>
     </div>
     
     <!-- Render the category: -->
     <div class="col-2">
-        <p class="small-title">{{projectModel?.category}}</p>
+        <p class="small-title category-title">{{projectModel?.category}}</p>
+        <span *ngIf="collaborator">
+            <p class="small-title collab-title">Collaborator</p>
+        </span>
+
+        <span *ngIf="owner">
+            <p class="small-title collab-title">Owner</p>
+        </span>
     </div>
-    
-    <!-- Do some conditional rendering, depending on collaborator/owner relationships: -->
-    <span *ngIf="collaborator"> You are a collaborator on this project </span>
-    <span *ngIf="owner"> You are the owner of this project </span>
 </div>
 

@@ -141,11 +141,14 @@ header a:visited, header a:active, header a:link{
 
 .landing-item .col-2 p{
     margin: 0;
-    background-color: var(--secondary-blue-color);
     color: white;
     display: inline-block;
     padding: 5px;
     border-radius: 5px;
+}
+
+.landing-item .col-2 .category-title{
+    background-color: var(--secondary-blue-color);
 }
 
 /* --- User page section --- */ 
