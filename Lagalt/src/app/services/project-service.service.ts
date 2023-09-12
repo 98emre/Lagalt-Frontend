@@ -84,15 +84,14 @@ export class ProjectService {
    * Makes a delete request to the backend to delete a project.
    */
 
-  deleteProject(project:Project){
+  deleteProject(id: number){
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'x-api-key': "yo yo yo",
+        Authorization: `Bearer ${keycloak.token}` 
       }),
     };
     this.http
-    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + project.id)
+    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + id, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });

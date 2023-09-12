@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap} from '@angular/router';
 import { ProjectComment } from 'src/app/models/comment';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
@@ -97,5 +97,10 @@ export class ProjectPageComponent {
         break
       }
     }
+  }
+
+  removeProject(){
+    this.projectService.deleteProject(this.project.id);
+    window.location.href="/profile";
   }
 }
