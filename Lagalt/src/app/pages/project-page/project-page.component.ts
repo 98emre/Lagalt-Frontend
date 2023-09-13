@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute, ParamMap, Router} from '@angular/router';
 import { ProjectComment } from 'src/app/models/comment';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
@@ -25,7 +25,11 @@ export class ProjectPageComponent {
   allUserModels:User[] = []
   user:User|any = null
 
-  constructor(private userService:UserService, private projectService:ProjectService, private collaboratorService: CollaboratorService, private route: ActivatedRoute){}
+  constructor(private userService:UserService, 
+    private projectService:ProjectService, 
+    private collaboratorService: CollaboratorService, 
+    private route: ActivatedRoute,
+    private router:Router){}
 
   /**
  * ngOnInit()
@@ -36,14 +40,21 @@ export class ProjectPageComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const projectId = Number(params.get('id'));
-      this.projectService.getProjectById(projectId).subscribe((project) => {
-        this.project = project 
-
-        this.userService.getUserById(project.userId).subscribe((projectOwner) => {
-          this.projectOwner = projectOwner;
-        })
-      })
-
+      this.projectService.getProjectById(projectId).subscribe(
+        (project) => {
+          this.project = project;
+      
+          this.userService.getUserById(project.userId).subscribe(
+            (projectOwner) => {
+              this.projectOwner = projectOwner;
+            }
+          );
+        },
+        (error) => {
+          // Navigate to not found page if project id not found 
+          this.router.navigate(['/not-found']);
+        }
+      );
     });
 
     this.collaboratorService.getCollaborators().subscribe((collaborators) => {
