@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project-service.service';
@@ -15,7 +15,10 @@ export class UserPageComponent {
   user: User | null = null;
   projectModels: Project[] = []
 
-  constructor(private userService: UserService, private projectService: ProjectService, private route: ActivatedRoute){}
+  constructor(private userService: UserService, 
+    private projectService: ProjectService, 
+    private route: ActivatedRoute,
+    private router: Router){}
 
   /**
    * ngOnInit()
@@ -33,7 +36,11 @@ export class UserPageComponent {
       // get userdetails:
       this.userService.getUserById(userId).subscribe((user) => {
         this.user = user;
-      })
+      },
+      (error) => {
+        // Navigate to error page if user id not found 
+        this.router.navigate(['/not-found']);
+      });
 
       // get projects:
       this.projectService.getProjects().subscribe((projects) => {

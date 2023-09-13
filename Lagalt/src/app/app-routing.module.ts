@@ -6,6 +6,7 @@ import { AddProjectPageComponent } from './pages/add-project-page/add-project-pa
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [ 
   {
@@ -30,6 +31,15 @@ const routes: Routes = [
   path:'', 
   component: LandingPageComponent,
   pathMatch:"full"
+},
+{
+  path:'not-found',
+  component: NotFoundComponent
+},
+{
+  path: '**',
+  redirectTo: 'not-found', 
+  pathMatch: 'full'
 },
 
 ];

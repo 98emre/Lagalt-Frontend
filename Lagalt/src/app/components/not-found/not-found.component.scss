@@ -1,0 +1,33 @@
+.not-found-wr{
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-found-box{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4f91b7;
+    width: 100%;
+}
+
+.big-title{
+    font-size: 4rem;
+}
+
+.not-found-wr h1{
+    font-family: "Paytone One", sans-serif;
+    color: #4f91b7;
+}
+
+.not-found-wr h2{
+    color: white
+}
+
+.sadIcon{
+    color: white;
+    font-size: 8rem;
+}
