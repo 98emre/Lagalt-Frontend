@@ -162,6 +162,21 @@ export class UserService {
     });
   }
 
+  /**
+   * customUpdateUser()
+   * A method that does returns an observable for the HTTP UPDATE request.
+   * The idea is simply that we should be able to do something after we 
+   * get a response back from the backend.
+   */
+
+  customUpdateUser(id: number, user: Partial<User>){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    return this.http.patch<User>(USER_PRIVATE_API_URL + '/' + id, user, httpOptions)
+  }
 
   /**
    * tokenRefresh()

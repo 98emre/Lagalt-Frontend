@@ -55,7 +55,6 @@ export class ProjectDetailsComponent {
     if(filterPending.length > 0){
       this.isPending = true;
     }
-
   }
 
   /**
