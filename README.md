@@ -19,12 +19,13 @@ To run the project, follow these steps down below:
 Here is an example of how the application can look like, in going to localhost:4200 while the backend is also running (and serving our API requests):
 
 ## Component Tree
-![frontend drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/4386af79-56a7-4d0e-b9bd-b32ee1cdc3f8)
+![frontend drawio (1)](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/e4321abb-ce68-4fb9-91a5-469f38260564)
+
 
 ## Models
 |Model | Data |
 |------|---------|
-|Project| id, title, descriptions, gitlink, category, status, userId, commentIds, collaboratorIds|
+|Project| id (num), title (str), descriptions (str), gitlink (str), category (Enum str), status (Enum str), userId (Num arr), commentIds (Num arr), collaboratorIds (Num arr)|
 |ProjectComment| yo yo yo|
 |Collaborator| yo yo yo|
 |User| yo yo yo|
