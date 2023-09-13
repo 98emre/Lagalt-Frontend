@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user-service.service';
 export class UserDetailsComponent {
 
   @Input() userDetails: User | any;
+  @Input() projectAmount : Number | any;
 
   editBtnClicked: boolean = false;
   newDescription: string = "";

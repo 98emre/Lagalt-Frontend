@@ -31,8 +31,7 @@ export class ProfilePageComponent implements OnInit{
     this.user = JSON.parse(localStorage.getItem('user')!);
     
     //this.userService.getUserObservable().subscribe((user) => {
-      //this.user = user;
-      //console.log("user from profile PAGE " + JSON.stringify(user));
+    //  this.user = user;
     //});
 
     this.projectService.getProjects().subscribe(
