@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user-service.service';
 export class UserDetailsComponent {
 
   @Input() userDetails: User | any;
+  @Input() projectAmount : Number | any;
 
   editBtnClicked: boolean = false;
   newDescription: string = "";
@@ -46,7 +47,7 @@ export class UserDetailsComponent {
   /**
    * editBtnVisible()
    * editBtnVisible() is a method that governs the visibility of the edit button to be shown only when
-   * editing is possible, i.e, when 
+   * editing is possible, i.e, when the user is logged in and authenticated. 
    * @returns 
    */
   editBtnVisible(){
@@ -58,6 +59,10 @@ export class UserDetailsComponent {
     }
   }
 
+  /**
+   * showEditElem()
+   * When a user presses the edit button (and is eligble to do so) divs should appear and drop down.
+   */
   showEditElem(){
     if(this.editBtnClicked){
       this.editBtnClicked = false;
@@ -94,8 +99,15 @@ export class UserDetailsComponent {
     this.userDetails.description = this.newDescription;
     this.userDetails.skills = this.newSkills;
 
-    this.userService.updateUser(this.userDetails.id, updatedUser)
-
+    // old code: this.userService.updateUser(this.userDetails.id, updatedUser)
+    this.userService.customUpdateUser(this.userDetails.id, updatedUser).subscribe({
+      next: (response) => {
+        this.userService.getUserById(this.userDetails.id).subscribe({
+          next: (userObject) => {
+            localStorage.setItem('user', JSON.stringify(userObject))
+          }
+        })
+      }
+    })
   }
-
 }

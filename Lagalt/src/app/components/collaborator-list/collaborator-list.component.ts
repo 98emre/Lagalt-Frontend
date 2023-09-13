@@ -43,7 +43,10 @@ export class CollaboratorListComponent {
 
   /**
    * readFromAPI()
-   * This method reads collaborator data from the API
+   * This method reads collaborator data from the API.
+   * The idea is that this method can be called whenever a cha ge is made so that the data
+   * can be re-read into the list of collaborators whenever accept / decline is made.
+   * (Governed by the TriggerAPIRequest event passed down) 
    */
   readFromAPI(){
     if(this.collaboratorModels != null && this.projectModels != null){

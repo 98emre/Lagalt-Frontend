@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Project } from 'src/app/models/project';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-form',
@@ -30,6 +30,7 @@ export class CustomFormComponent {
   /**
    * pushToParent()
    * A helper function that onSubmit() uses to make it clear what happens: The new project is pushed up to the parent.
+   * The parent (Add Project Page) will then catch the signal and add the project to the API.
    * @param project 
    */
   pushToParent(project:Project){

@@ -109,6 +109,10 @@ export class ProjectPageComponent {
     }
   }
 
+  /**
+   * removeProject()
+   * Makes a DELETE HTTP request and then navigates back to the profile of the user who comissioned the DELETE.
+   */
   removeProject(){
     this.projectService.deleteProject(this.project.id);
     window.location.href="/profile";

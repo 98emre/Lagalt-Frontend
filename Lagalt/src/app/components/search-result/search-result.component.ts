@@ -18,6 +18,12 @@ export class SearchResultComponent {
   usersFound: boolean = false;
   projectsFound: boolean = false;
 
+  /**
+   * ngOnChanges()
+   * As a child, this component takes in projectModels and userModels via the input.
+   * To see that they are updated properly the ngOnChanges() method is then inwoked.
+   * The Boolean flag is set to filter on users by default if it finds users.
+   */
   ngOnChanges(){
     if (this.userModels != null && this.userModels.length > 0) {
       this.usersFound = true;
@@ -34,12 +40,23 @@ export class SearchResultComponent {
     }
 
   }
-
+  /**
+   * filterUserClick()
+   * There are two buttons that filter on user and filter on projects.
+   * Clicking one will disable the results of the other.
+   * That is what filterUserClick() does, it disables the flag for projects
+   * and enables the flag for users.
+   */
   filterUserClick(){
     this.filterUser = true;
     this.filterProject = false;
   }
 
+  /**
+   * filterProjectClick()
+   * This method does exactly the same but inversed.
+   * It enables the project flag and disables the user flag.
+   */
   filterProjectClick(){
     this.filterProject = true;
     this.filterUser = false;

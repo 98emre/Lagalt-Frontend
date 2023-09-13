@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/models/project';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -29,11 +29,6 @@ export class ProfilePageComponent implements OnInit{
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
-    
-    //this.userService.getUserObservable().subscribe((user) => {
-      //this.user = user;
-      //console.log("user from profile PAGE " + JSON.stringify(user));
-    //});
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id) }

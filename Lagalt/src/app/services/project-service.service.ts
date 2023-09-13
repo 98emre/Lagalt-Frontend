@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
 import { PROJECT_PRIVATE_API_URL, PROJECT_PUBLIC_API_URL } from '../utils';
 import { Observable } from 'rxjs';
-import { ProjectComment } from '../models/comment';
 import keycloak from 'src/keycloak';
 
 
@@ -79,6 +78,33 @@ export class ProjectService {
     });
   }
   
+  /**
+   * customPostProject()
+   * A method that works just like postProject() but returns an observable so that
+   * some kind of action can be performed only after the post has been made.
+   * (and a response returned)
+   * @param project, The project object to post.
+   * @returns An observable. 
+   */
+   customPostProject(project:Project){
+    const postProject:Partial<Project> = 
+    {
+      title:project.title, 
+      descriptions:project.descriptions, 
+      gitlink: project.gitlink,
+      category: project.category,
+      status: project.status  
+    }
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    
+    return this.http.post<Partial<Project>>(PROJECT_PRIVATE_API_URL, postProject, httpOptions)
+  }
+
   /**
    * deleteProject()
    * Makes a delete request to the backend to delete a project.
