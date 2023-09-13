@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
 import { PROJECT_PRIVATE_API_URL, PROJECT_PUBLIC_API_URL } from '../utils';
 import { Observable } from 'rxjs';
-import { ProjectComment } from '../models/comment';
 import keycloak from 'src/keycloak';
 
 

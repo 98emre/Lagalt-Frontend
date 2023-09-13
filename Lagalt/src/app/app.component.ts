@@ -1,10 +1,6 @@
-
-
 import { Component } from '@angular/core';
 import { UserService } from './services/user-service.service';
-import keycloak from 'src/keycloak';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Router } from '@angular/router';
 import { User } from './models/user';
 
 @Component({
