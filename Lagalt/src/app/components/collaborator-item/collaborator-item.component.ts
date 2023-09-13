@@ -3,6 +3,7 @@ import { Collaborator } from 'src/app/models/collaborator';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
 import { CollaboratorService } from 'src/app/services/collaborator-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-collaborator-item',
@@ -15,7 +16,34 @@ export class CollaboratorItemComponent {
   @Output() triggerAPIRequest = new EventEmitter()
   project:Project|any = null
   username:String = ""
-  constructor(private collaboratorService:CollaboratorService){}
+  users:User[] = []
+  constructor(private collaboratorService:CollaboratorService, private userService:UserService){}
+
+
+  /**
+   * setUsername()
+   * The method setUsername() is called to match the collaborator with a user to get their name.
+   * Then, the name of said user is stored in this.username (and displayed via HTML).
+   * @param collabId, The collaborator ID that we want to match with a user.
+   */
+  setUsername(collabId:number){
+    for(let user of this.users){
+      if (user.id == collabId){
+        this.username = user.username
+        break
+      }
+    }
+  }
+
+  /**
+   * ngOnInit()
+   * ngOnInit() will make an API request to get every user so we can use them later.
+   */
+  ngOnInit(){
+    this.userService.getAllUsers().subscribe({
+      next: (incomingUsers) => {this.users = incomingUsers}
+    })
+  }
 
   /**
    * getProject()
@@ -40,7 +68,8 @@ export class CollaboratorItemComponent {
   ngDoCheck(){
     if(this.projectModels != null && this.collaboratorModel != null){
       this.project = this.getProject()
-      this.username = (JSON.parse(localStorage.getItem('user')!) as User).username
+      this.setUsername(this.collaboratorModel.userId);
+      (JSON.parse(localStorage.getItem('user')!) as User).username
     }
   }
 
