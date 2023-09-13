@@ -47,7 +47,7 @@ export class UserDetailsComponent {
   /**
    * editBtnVisible()
    * editBtnVisible() is a method that governs the visibility of the edit button to be shown only when
-   * editing is possible, i.e, when 
+   * editing is possible, i.e, when the user is logged in and authenticated. 
    * @returns 
    */
   editBtnVisible(){
@@ -59,6 +59,10 @@ export class UserDetailsComponent {
     }
   }
 
+  /**
+   * showEditElem()
+   * When a user presses the edit button (and is eligble to do so) divs should appear and drop down.
+   */
   showEditElem(){
     if(this.editBtnClicked){
       this.editBtnClicked = false;
@@ -98,5 +102,4 @@ export class UserDetailsComponent {
     this.userService.updateUser(this.userDetails.id, updatedUser)
 
   }
-
 }

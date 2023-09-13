@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProjectComment } from 'src/app/models/comment';
 import { User } from 'src/app/models/user';
 import { CommentService} from 'src/app/services/comment-service.service';
