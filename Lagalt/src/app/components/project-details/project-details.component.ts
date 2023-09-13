@@ -22,6 +22,10 @@ export class ProjectDetailsComponent {
 
   constructor(private collaboratorService: CollaboratorService){}
 
+  /**
+   * ngOnInit()
+   * When project details is first run, it reads in the user from the local storage.
+   */
   ngOnInit(){
 
     if(localStorage.getItem('user') != null){
@@ -30,11 +34,17 @@ export class ProjectDetailsComponent {
 
   }
 
+  /**
+   * ngOnChanges()
+   * To handle input, the ngOnChanges() method is called for when the colaboratorModels are read in.
+   * When this happens, collaborators are filtered on those who are APPROVED and those who are PENDING.
+   */
+
   ngOnChanges(){
     if(this.projectDetails == null)
       return
 
-    // checks if this project id and logged in user id is in the list
+    // checks if this project id and logged in user id is in the list:
     const filterCollab = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "APPROVED")
     const filterPending = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "PENDING")
 
@@ -49,7 +59,10 @@ export class ProjectDetailsComponent {
   }
 
   /**
-   * 
+   * onCollabButton()
+   * onCollabButton() is a method that is invoked once the logged in user presses to join a project.
+   * A new collaborator object is then created and subsequently passed to collaboratorService to be
+   * posted to the API.
    */
   onCollabButton(){
     this.isPending = true;

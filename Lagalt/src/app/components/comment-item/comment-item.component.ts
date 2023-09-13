@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ProjectComment } from 'src/app/models/comment';
 import { User } from 'src/app/models/user';
 import { CommentService } from 'src/app/services/comment-service.service';
@@ -10,7 +10,6 @@ import { UserService } from 'src/app/services/user-service.service';
   styleUrls: ['./comment-item.component.scss']
 })
 export class CommentItemComponent {
-  // Input: Reads in the data content of a project (a model):
   @Input() commentModel: ProjectComment | any;
   @Output() removeSignal = new EventEmitter()
   user:User|any = null
