@@ -19,7 +19,11 @@
                 </div>
                 <div class="col">
                     <p class="small-title color-light-blue">Skills</p>
-                    <p>{{userDetails?.skills}}</p>
+                    <div class="skill-div">
+                        <p *ngFor="let skill of this.userDetails.skills">
+                            {{skill}},&nbsp;
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <p class="small-title color-light-blue">About</p>

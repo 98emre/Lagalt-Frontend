@@ -15,12 +15,6 @@ export class DropDownComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  closeDropdown(event: Event) {
-    if (!(event.target as HTMLElement).classList.contains('dropbtn')) {
-      this.isDropdownOpen = false;
-    }
-  }
-
   onLogOutClick(){
     this.userService.keyCloakLogOut();
     localStorage.removeItem('user');

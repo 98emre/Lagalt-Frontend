@@ -16,7 +16,7 @@ export class UserDetailsComponent {
   editBtnClicked: boolean = false;
   newDescription: string = "";
   newSkills: string[] = [];
-  projectIds:number[] = []
+  projectIds:number[] = [];
   loggedInUser: User|any = null;
 
   constructor(private userService : UserService){}
@@ -28,7 +28,7 @@ export class UserDetailsComponent {
   ngOnInit(){
 
     this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
-    
+
   }
 
   /**

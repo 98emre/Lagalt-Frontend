@@ -4,8 +4,8 @@
     border: 0.5px solid rgb(230, 230, 230);
     padding: 1.5rem 2rem 1rem;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    align-items: last baseline;
+    justify-content: space-between;
 }
 .comment-user{
     display: flex;
@@ -26,4 +26,20 @@
 
 .col-1 p{
     margin: 0;
+}
+
+.removeBtn{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: black;
+    background-color: #f5f9fc;
+    border: none;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.removeBtn:hover{
+    color: #4f91b7;
 }

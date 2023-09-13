@@ -7,6 +7,9 @@
         <!--Collaborations -->
         <div class="collab-wr">
             <h3>Collaboration Requests</h3>
+            <div *ngIf="collaboratorModels.length < 1">
+                <p>No collaboration requests</p>
+            </div>
             <app-collaborator-list [projectModels]="projectModels"
                 [collaboratorModels]="collaboratorModels"></app-collaborator-list>
         </div>
