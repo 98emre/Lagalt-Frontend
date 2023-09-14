@@ -30,12 +30,14 @@ export class CollaboratorService{
    * @param collaborator, the collaborator object to be posted.
    */
   postCollaborator(collaborator:Collaborator){
+    
     const postCollaborator:Partial<Collaborator> = {
       status: collaborator.status,
       requestDate: collaborator.requestDate,
       approvalDate: collaborator.approvalDate,
       userId: collaborator.userId,
-      projectId: collaborator.projectId
+      projectId: collaborator.projectId,
+      motivation: collaborator.motivation
     }
   
     const httpOptions = {

@@ -90,6 +90,15 @@ export class UserDetailsComponent {
   }
 
   /**
+   * toLowercase()
+   * A method that convert a skill to lowercase. 
+   * The method is called for each skill in the html template of the component
+   */
+  toLowerCase(skill: string){
+    return skill.toLowerCase();
+  }
+
+  /**
    * onSubmit()
    * When a user enters in the description or choose skills the form is passed to this function, and here we can extract the data the user want to change.
    * @param form, a NgForm that is passed in with data from the user.

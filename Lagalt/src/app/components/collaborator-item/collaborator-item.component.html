@@ -1,6 +1,12 @@
-<p>{{this.username}} wants to join your project: <b class="color-light-blue">{{project.title}}</b></p>
+<div class="collab-request-div">
+    <p class="m-0">{{this.username}} wants to join your project: <b class="color-light-blue">{{project.title}}</b></p>
+    <div class="motivation-div">
+        <span class="material-symbols-rounded mailIcon">mail</span>
+        <p class="m-0">{{collaboratorModel.motivation}}</p>
+    </div>
+</div>
 <div class="btn-div">
-    <button class="requestBtn"(click) = "onAccept()"> Accept  </button>
-    <button class="requestBtn" (click) = "onDecline()">Decline</button>
+    <button class="requestBtn" (click)="onAccept()"> Accept </button>
+    <button class="requestBtn" (click)="onDecline()">Decline</button>
 </div>
 

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Collaborator } from 'src/app/models/collaborator';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
@@ -20,6 +21,9 @@ export class ProjectDetailsComponent {
   user:User|any = null
   isCollaborator: boolean = false;
   isPending: boolean = false;
+  motivation: string = "";
+
+  collabClicked: boolean = false;
 
   constructor(private collaboratorService: CollaboratorService, private userService: UserService){}
 
@@ -59,13 +63,14 @@ export class ProjectDetailsComponent {
   }
 
   /**
-   * onCollabButton()
-   * onCollabButton() is a method that is invoked once the logged in user presses to join a project.
+   * onCollabSubmit()
+   * onCollabSubmit() is a method that is invoked once the logged in user presses to join a project.
    * A new collaborator object is then created and subsequently passed to collaboratorService to be
    * posted to the API.
    */
-  onCollabButton(){
+  onCollabSubmit(form: NgForm){
     this.isPending = true;
+    this.collabClicked = false;
     
     let newCollaborator:Collaborator = 
     {
@@ -74,7 +79,8 @@ export class ProjectDetailsComponent {
       status: "PENDING", 
       requestDate: new Date(),
       approvalDate: null,
-      projectId: this.projectDetails.id
+      projectId: this.projectDetails.id,
+      motivation: form.value.motivation
     }
 
     this.collaboratorService.postCollaborator(newCollaborator)
