@@ -86,6 +86,7 @@ export class UserDetailsComponent {
     }else if(!this.editBtnClicked){
       this.editBtnClicked = true;
     }
+    this.userService.tokenRefresh()
   }
 
   /**
@@ -126,5 +127,6 @@ export class UserDetailsComponent {
         })
       }
     })
+    this.userService.tokenRefresh()
   }
 }

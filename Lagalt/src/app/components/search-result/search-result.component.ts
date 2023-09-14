@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-search-result',
@@ -8,7 +9,9 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./search-result.component.scss']
 })
 export class SearchResultComponent {
+  constructor(private userService:UserService){
 
+  }
   @Input() userModels:User[]|null = null
   @Input() projectModels:Project[]|null = null
   @Input() searchTerm: string = "";
@@ -50,6 +53,7 @@ export class SearchResultComponent {
   filterUserClick(){
     this.filterUser = true;
     this.filterProject = false;
+    this.userService.tokenRefresh()
   }
 
   /**
@@ -60,6 +64,7 @@ export class SearchResultComponent {
   filterProjectClick(){
     this.filterProject = true;
     this.filterUser = false;
+    this.userService.tokenRefresh()
   }
 
 }

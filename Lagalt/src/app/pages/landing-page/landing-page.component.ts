@@ -30,6 +30,7 @@ export class LandingPageComponent {
 
   ngOnInit(): void {
     this.getAllProjects()
+    this.userService.tokenRefresh()
   }
 
   /**
@@ -90,7 +91,7 @@ export class LandingPageComponent {
   onCategoryClicked(category: string){
     this.selectedCategory = category;
     this.projectModels = this.allProjects.filter(project => project.category === category);
-
+    this.userService.tokenRefresh()
   }
 
 }

@@ -11,7 +11,6 @@ import keycloak from 'src/keycloak';
 export class CollaboratorService{
 
   constructor(private http:HttpClient) {
-    this.tokenRefresh();
    }
 
   /**
@@ -87,23 +86,4 @@ export class CollaboratorService{
     })
   }
 
-   /**
-   * tokenRefresh()
-   * A method that updates the keycloak Token.
-   */
-  private tokenRefresh(): void {
-    keycloak.onTokenExpired = () => {
-      keycloak.updateToken(30).then(refreshed => {
-        if (!refreshed) {
-          console.error('Token not refreshed, maybe the session has expired?');  
-      } 
-      
-      else {
-         
-      }
-      }).catch(() => {
-        console.error('Failed to refresh the token, or the session has expired');
-      });
-    };
-  }
 }

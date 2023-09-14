@@ -48,7 +48,7 @@ export class UserPageComponent {
       })
 
     });
-
+    this.userService.tokenRefresh()
   }
 
 }

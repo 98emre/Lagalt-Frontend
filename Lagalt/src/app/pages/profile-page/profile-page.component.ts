@@ -29,6 +29,7 @@ export class ProfilePageComponent implements OnInit{
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
+    this.userService.tokenRefresh()
 
     this.projectService.getProjects().subscribe(
       (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id) }

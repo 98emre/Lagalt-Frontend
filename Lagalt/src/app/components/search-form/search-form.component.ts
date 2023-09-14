@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-search-form',
@@ -6,7 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent {
+  constructor(private userService:UserService){
 
+  }
   searchTerm = '';
   @Output() search = new EventEmitter<string>();
 
@@ -18,6 +21,7 @@ export class SearchFormComponent {
    */
   onSearch():void{
     this.search.emit(this.searchTerm);
+    this.userService.tokenRefresh()
   }
 
 

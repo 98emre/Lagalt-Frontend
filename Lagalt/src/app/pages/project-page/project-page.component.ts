@@ -63,8 +63,10 @@ export class ProjectPageComponent {
     this.userService.getAllUsers().subscribe((users) => {this.allUserModels = users})
 
 
-    if(localStorage.getItem('user') != null)
+    if(localStorage.getItem('user') != null){
       this.user = JSON.parse(localStorage.getItem('user')!)
+      this.userService.tokenRefresh()
+    }
   }
 
   /**
@@ -115,6 +117,7 @@ export class ProjectPageComponent {
    */
   removeProject(){
     this.projectService.deleteProject(this.project.id);
+    this.userService.tokenRefresh()
     window.location.href="/profile";
   }
 }
