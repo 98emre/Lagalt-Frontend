@@ -12,12 +12,15 @@
             <h4>{{user?.username}}</h4>
         </div>
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-            <textarea ngModel name="text" id="text" required placeholder="Leave a comment" resize="false">
+            <textarea [(ngModel)]="comment" name="text" id="text" required placeholder="Leave a comment" resize="false" maxlength="250">
             </textarea>
+            <div *ngIf="comment.length > 249" class="character-limit-exceeded">
+                <p class="small-title">Character limit exceeded (max 250 characters).</p>
+              </div>
             <button class="btn btn-blue" type="submit" [disabled]="myForm.form.invalid">Post</button>
         </form>
     </div>
     <ng-template #loggedOut>
-        <span> You are currently not logged in, to write a comment, please log in first.</span>
+        <span> Login to write a comment</span>
     </ng-template>
 </div>

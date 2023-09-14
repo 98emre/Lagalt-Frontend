@@ -18,6 +18,8 @@ export class CommentSectionComponent {
   commentModels:ProjectComment[] = []
   canComment:boolean = false
 
+  comment: string = "";
+
   /**
    * ngOnInit()
    * The ngOnInit life cycle hook creates a subscription for the user, from the user service. This makes it so that the
