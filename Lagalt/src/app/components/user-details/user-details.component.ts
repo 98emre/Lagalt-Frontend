@@ -19,6 +19,8 @@ export class UserDetailsComponent {
   projectIds:number[] = [];
   loggedInUser: User|any = null;
 
+  description: string =  '';
+
   constructor(private userService : UserService){}
 
   /**

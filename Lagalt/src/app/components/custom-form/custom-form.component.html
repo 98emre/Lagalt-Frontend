@@ -3,17 +3,22 @@
     
     <p class="color-light-blue small-title">Project Title</p>
     <input type="text"
-    ngModel
+    [(ngModel)]="title"
     name="title"
     id = "title"
     required
-    placeholder="Provide your title">
-    <p></p>
+    placeholder="Provide your title"
+    maxlength="100">
+    <div *ngIf="title.length > 99" class="character-limit-exceeded">
+        <p class="small-title">Character limit exceeded (max 100 characters).</p>
+      </div>
     
     <p class="color-light-blue small-title">Description</p>
-    <textarea ngModel name="description" id="description" required placeholder="Provide a description ">
+    <textarea [(ngModel)]="description" maxlength="250" name="description" id="description" required placeholder="Provide a description ">
     </textarea>
-    <p></p>
+    <div *ngIf="description.length > 249" class="character-limit-exceeded">
+        <p class="small-title">Character limit exceeded (max 250 characters).</p>
+      </div>
 
     <p class="color-light-blue small-title">Category</p>
     <select ngModel required name="category" id="category">
