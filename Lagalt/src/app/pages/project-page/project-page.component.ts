@@ -57,6 +57,7 @@ export class ProjectPageComponent {
       );
     });
 
+    // Get the collaborators from backend:
     this.getCollaborators()
     this.userService.getAllUsers().subscribe((users) => {this.allUserModels = users})
 
