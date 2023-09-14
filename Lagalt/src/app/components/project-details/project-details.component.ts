@@ -137,6 +137,9 @@ export class ProjectDetailsComponent {
     if(form.value.link == ""){
       this.newLink = this.projectDetails.description;
     }
+    if(form.value.status == ""){
+      this.newStatus = this.projectDetails.status
+    }
 
     const updatedProject: Partial<Project> = {
       descriptions: this.newDescription,
@@ -145,12 +148,12 @@ export class ProjectDetailsComponent {
     }
 
     this.projectDetails.description = this.newDescription;
-    this.projectDetails.link = this.newLink;
+    this.projectDetails.gitlink = this.newLink;
     this.projectDetails.status = this.newStatus;
 
     this.projectService.updateProject(this.projectDetails.id, updatedProject)
     
-    //this.userService.tokenRefresh()
+    this.userService.tokenRefresh()
   }
 
 }
