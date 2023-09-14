@@ -68,6 +68,16 @@ export class CollaboratorService{
     })
   }
 
+  /**
+   * customDeleteCollaboratorOnId()
+   * A method that deletes a collaborator in the backend.
+   * The custom prefix here means that we simply return an observable
+   * and then functionality outside of this class can do anything they
+   * want after the HTTP request is successfully completed.
+   * @param id, the id of the collaborator to be removed.
+   * @returns An observable, pertaining to the DELETE of the collaborator
+   * on the ID passed in.
+   */
   customDeleteCollaboratorOnId(id:number){
     const httpOptions = {
       headers: new HttpHeaders({

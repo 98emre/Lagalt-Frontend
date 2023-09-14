@@ -26,6 +26,7 @@ export class ProjectItemComponent{
    * The reason for this is because a project have collaborators but we need to convert
    * every collaborator ID into a user object, to be able to compare our user ID to
    * the collaborators (made into users) of this project. 
+   * At the same time we also have to check that the specific collaborator is approved.
    */
   ngOnInit(){
     this.collaboratorService.getCollaborators().subscribe({
@@ -45,12 +46,15 @@ export class ProjectItemComponent{
     })
   }
 
+  /**
+   * ngOnChanges()
+   * Potentially sets the owner flag depending on the logged in user. 
+   */
   ngOnChanges(){
     if(localStorage.getItem('user') != null){
       let user:User = JSON.parse(localStorage.getItem('user')!) as User
       if(this.projectModel.userId == user.id){
         this.owner = true;
-        return
       }
     }
   }

@@ -88,8 +88,12 @@ export class ProjectPageComponent {
 
   /**
    * fillCollabList()
-   * fillCollabList() is a helper method that basically reads in users from the allUserModels and for each user therein, it adds a user to the array acceptedUserModels
-   * if they are not already in the list.
+   * fillCollabList() is a helper method that basically reads in users from the allUserModels and for each user therein, 
+   * it adds an augmented user to the array acceptedUserModels if they are not already in the list.
+   * An augmentedUser is a "superclass" of a user. It holds everything that a user would hold
+   * but it also holds a collaboratorId, corresponding to the SPECIFIC collaborator instance,
+   * this is so that we know which collaborator object to remove. 
+   * 
    * @param collabId, The ID of the collaborator that we are looking to add.
    */
   fillCollabList(collabUserId:number, collabId:number){
@@ -110,6 +114,14 @@ export class ProjectPageComponent {
     }
   }
 
+  /**
+   * removeCollaborator()
+   * removeCollaborator() is a method that makes a HTTP DELETE request to collaborator service.
+   * Also, the method will make sure to update the current collaborators after that request is
+   * made. P.S: Only the project owner or the collaborator can remove the collaborator.
+   *
+   * @param collaboratorId, The id of the collaborator to remove.
+   */
   removeCollaborator(collaboratorId:number){
     this.collaboratorService.customDeleteCollaboratorOnId(collaboratorId).subscribe({
       complete: () =>{this.getCollaborators()}
@@ -126,10 +138,17 @@ export class ProjectPageComponent {
     window.location.href="/profile";
   }
 
+  /**
+   * getCollaborators()
+   * A method that makes a HTTP request to the collaborators and re-renders them.
+   * To have this functionality encapsulated into a method is useful because we
+   * want to remove collaborators sometimes and after that removal is done we want
+   * the list of collaborators to be updated. We can do this by invoking this method
+   * after a removal. 
+   */
   getCollaborators(){
     this.collaboratorService.getCollaborators().subscribe((collaborators) => {
       this.collaboratorModels = collaborators
-      console.log("yo")
     })
   }
 }
