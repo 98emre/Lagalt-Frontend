@@ -19,7 +19,12 @@ export class UserDetailsComponent {
   projectIds:number[] = [];
   loggedInUser: User|any = null;
 
-  description: string =  '';
+  description: string = "";
+  java = false; // Initialize checkbox states
+  javascript = false;
+  react = false;
+  angular = false;
+  c = false; 
 
   constructor(private userService : UserService){}
 
@@ -30,6 +35,16 @@ export class UserDetailsComponent {
   ngOnInit(){
 
     this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
+
+    // Set the default value of the edit form to the description of the user
+    this.description = this.userDetails.description;
+
+    // Set the default value of the checkboxes to the skills of the user 
+    this.java = this.userDetails.skills.includes('JAVA');
+    this.javascript = this.userDetails.skills.includes('JAVASCRIPT');
+    this.react = this.userDetails.skills.includes('REACT');
+    this.angular = this.userDetails.skills.includes('ANGULAR');
+    this.c = this.userDetails.skills.includes('C');
 
   }
 
