@@ -35,7 +35,7 @@ export class ProjectItemComponent{
           let user:User = JSON.parse(localStorage.getItem('user')!) as User
           for(let collabIdProject of this.projectModel.collaboratorIds){
             for(let collaborator of this.collaborators){
-              if(collaborator.id == collabIdProject && collaborator.userId == user.id){
+              if(collaborator.id == collabIdProject && collaborator.userId == user.id && collaborator.status == "APPROVED"){
                 this.collaborator = true
               }
             }
