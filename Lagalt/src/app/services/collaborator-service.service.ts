@@ -68,6 +68,15 @@ export class CollaboratorService{
     })
   }
 
+  customDeleteCollaboratorOnId(id:number){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    return this.http.delete<Collaborator>(COLL_PRIVATE_API_URL + "/" + id, httpOptions)
+  }
+
   /**
    * patchCollaborator()
    * A method that updates a collaborator.

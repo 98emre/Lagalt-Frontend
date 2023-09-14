@@ -186,7 +186,6 @@ export class UserService {
     {
       return
     }
-    alert("token was refreshed")
     keycloak.onTokenExpired = () => {
       keycloak.updateToken(1).then(refreshed => {
         if (!refreshed) {

@@ -39,6 +39,7 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     SearchResultComponent,
     ProjectDetailsComponent,
     NotFoundComponent,
+    AcceptedCollaboratorItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,4 +63,5 @@ import { CollaboratorItemComponent } from './components/collaborator-item/collab
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AcceptedCollaboratorItemComponent } from './components/accepted-collaborator-item/accepted-collaborator-item.component';
 

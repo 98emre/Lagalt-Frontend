@@ -14,6 +14,8 @@
             <div class="collab-div collab" *ngFor="let user of acceptedUserModels">
                 <span class="material-symbols-rounded userIcon">face_6</span>
                 {{user.username}}
+                <button (click) ="removeCollaborator(user.collaboratorId)"> Remove </button>
+                <!--<app-accepted-collaborator-item [acceptedCollaborator] = "user" (removeSignal)="getCollaborators()"></app-accepted-collaborator-item> -->
             </div>
         </div>
 
