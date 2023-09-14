@@ -48,9 +48,12 @@
             <div class="form-inputs">
                 <div>
                     <p class="color-light-blue">About</p>
-                    <textarea placeholder="Write a description about you" ngModel name="desc" id="desc" rows="4"
-                        cols="50" resize="false"></textarea>
-                    <!--<input type="textarea" rows="4" cols="50" ngModel name="desc" id="desc" required placeholder="What do you want to do?">-->
+                    <textarea placeholder="Write a description about you" [(ngModel)]="description" name="desc" id="desc" rows="4"
+                        cols="50" resize="false" maxlength="200"></textarea>
+
+                        <div *ngIf="description.length > 199" class="character-limit-exceeded">
+                            <p class="small-title">Character limit exceeded (max 200 characters).</p>
+                          </div>
                 </div>
                 <div>
                     <p class="color-light-blue">Skills</p>

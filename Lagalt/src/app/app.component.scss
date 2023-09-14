@@ -2,11 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 header{
-    /*background-color: white;*/
     background-color: #25335c;
-    /*border-bottom: 0.5px solid #6b6b6b;*/
-    height: 6vh;
-    padding: 0.5rem 8rem;
+    /*height: 6vh;*/
+    padding: 1rem 8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +21,6 @@ header{
 }
 
 .donutIcon{
-    /*color: #3d5afe;*/
     color: #4f91b7;
     font-size: 40px;
     height: 40px;
@@ -37,7 +34,6 @@ header{
 
 .logo{
     font-family: 'Paytone One', sans-serif;
-    /*color: black;*/
     color: white;
     margin: 0;
 }

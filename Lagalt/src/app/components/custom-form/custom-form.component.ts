@@ -13,6 +13,9 @@ export class CustomFormComponent {
 
   @Output('pushProject') buttonPressed: EventEmitter<Project> = new EventEmitter(); 
 
+  description: string = "";
+  title: string = "";
+
   /**
    * onSubmit()
    * A form is inserted as an argument and relevant data is extracted to create a new project and push it up to the parent.
