@@ -48,7 +48,7 @@
             <div class="form-inputs">
                 <div>
                     <p class="color-light-blue">About</p>
-                    <textarea placeholder="Write a description about you" [(ngModel)]="description" name="desc" id="desc" rows="4"
+                    <textarea [(ngModel)]="description" name="desc" id="desc" rows="4"
                         cols="50" resize="false" maxlength="200"></textarea>
 
                         <div *ngIf="description.length > 199" class="character-limit-exceeded">
@@ -58,11 +58,11 @@
                 <div>
                     <p class="color-light-blue">Skills</p>
                     <fieldset>
-                        <input type="checkbox" ngModel id="java" name="JAVA"><label for="java">Java</label>
-                        <input type="checkbox" ngModel name="JAVASCRIPT"><label for="javascript">Javascript</label>
-                        <input type="checkbox" ngModel name="REACT"><label for="react">React</label>
-                        <input type="checkbox" ngModel name="ANGULAR"><label for="angular">Angular</label>
-                        <input type="checkbox" ngModel name="C"><label for="c">C</label>
+                        <input type="checkbox" [(ngModel)]="java" id="java" name="JAVA"><label for="java">Java</label>
+                        <input type="checkbox" [(ngModel)]="javascript" name="JAVASCRIPT"><label for="javascript">Javascript</label>
+                        <input type="checkbox" [(ngModel)]="react" name="REACT"><label for="react">React</label>
+                        <input type="checkbox" [(ngModel)]="angular" name="ANGULAR"><label for="angular">Angular</label>
+                        <input type="checkbox" [(ngModel)]="c" name="C"><label for="c">C</label>
                     </fieldset>
                 </div>
             </div>

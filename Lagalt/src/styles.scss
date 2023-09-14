@@ -20,7 +20,6 @@ html{
 
 body{
     margin: 0;
-    /*background-color: rgb(240, 239, 239);*/
     background-color: var(--light-blue-color);
     font-family: 'Manrope', sans-serif !important;
     height: 100%;
@@ -61,7 +60,6 @@ h1, h2, h3{
 /*--- buttons ---*/ 
 
 .btn-blue{
-    /*background-color: var(--primary-blue-color);*/
     background-color: var(--secondary-blue-color);
     font-size: 14px;
 }
@@ -72,7 +70,6 @@ h1, h2, h3{
     border: none;
     border-radius: 20px;
     padding: 0rem 1rem;
-    /*width: 6rem;*/
     height: 40px;
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
@@ -166,12 +163,3 @@ header a:visited, header a:active, header a:link{
     padding: 2rem 5rem;
     height: 100%;
 }
-
-/* --- user list on search result page */ 
-
-/*.landing-list .project-list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
-}*/
