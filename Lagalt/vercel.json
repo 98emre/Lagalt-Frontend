@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://lemur-8.cloud-iam.com/; script-src 'self'"
+        }
+      ]
+    }
+  ]
+}

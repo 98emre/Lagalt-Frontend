@@ -33,6 +33,7 @@ export class UserService {
    * (To avoid timing errors)
    */
   getUser(){
+  console.log("Hello debug")
   if (keycloak.authenticated) {
     this.isLoggedIn = true;
     const keyCloakToken = keycloak.token;
