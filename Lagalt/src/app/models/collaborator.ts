@@ -4,5 +4,6 @@ export type Collaborator = {
     requestDate: Date,
     approvalDate: Date|any,
     userId:number,
-    projectId:number
+    projectId:number,
+    motivation: string
 }

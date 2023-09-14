@@ -30,7 +30,7 @@
     </div>
     <div>
         <div *ngIf="!isCollaborator && !isPending && projectDetails?.userId !== user?.id && user != null">
-            <button class="btn btn-blue" (click)="onCollabButton()">Join project</button>
+            <button class="btn btn-blue" (click)="collabClicked=true">Join project</button>
         </div> 
         <div *ngIf="isCollaborator && !isPending">
             <button class="btn btn-gray">Collaborator</button>
@@ -39,4 +39,22 @@
             <button class="btn btn-gray">Pending request</button>
         </div>
     </div>
+</div>
+
+<div *ngIf="collabClicked" class="motivation-div">
+    <form #myForm="ngForm" (ngSubmit)="onCollabSubmit(myForm)">
+        <div class="col-1">
+            <p class="color-light-blue">Enter a motivation:</p>
+            <textarea [(ngModel)]="motivation" name="motivation" id="motivation" rows="8" cols="80" resize="false"
+                maxlength="200" required></textarea>
+                <div *ngIf="motivation.length > 199" class="character-limit-exceeded">
+                    <p class="small-title">Character limit exceeded (max 200 characters).</p>
+                  </div>
+        </div>
+        <div class="btn-wr">
+            <button type="submit" class="btn" [class.btn-gray]="myForm.form.invalid" [class.btn-blue]="!myForm.form.invalid" type="submit" [disabled]="myForm.form.invalid">Send request</button>
+            <button class="btn btn-white" (click)="collabClicked=false">Cancel</button>
+        </div>
+    </form>
+
 </div>
