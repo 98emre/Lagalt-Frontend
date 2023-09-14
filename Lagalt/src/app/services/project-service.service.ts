@@ -122,4 +122,23 @@ export class ProjectService {
     });
   }
 
+   /**
+   * updateProject()
+   * A method that does an update HTTP request.
+   * @param id 
+   * @param user 
+   */
+   updateProject(id: number, project: Partial<Project>){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    this.http
+    .patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id, project, httpOptions)
+    .subscribe({
+      error: (error) => {console.log(error)}
+    });
+  }
+
 }

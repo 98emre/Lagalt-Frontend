@@ -36,7 +36,7 @@ export class AddProjectPageComponent implements OnInit {
 
   addProject(project:Project){
     let user = JSON.parse(localStorage.getItem('user')!) as User
-    let insertProject:Project = {id: 1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:0, userId:user.id, collaboratorIds:[], commentIds:[]}
+    let insertProject:Project = {id: 1, title: project.title, descriptions:project.descriptions, gitlink:project.gitlink, category: project.category, status:"NOT_STARTED", userId:user.id, collaboratorIds:[], commentIds:[]}
     this.projectService.customPostProject(insertProject).subscribe({
       next:(response) => {this.router.navigate(['/profile'])}
     })

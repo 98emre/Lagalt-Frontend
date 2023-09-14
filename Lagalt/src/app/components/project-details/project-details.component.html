@@ -21,11 +21,22 @@
                     <p class="small-title color-light-blue">Description</p>
                     <p>{{projectDetails?.descriptions}}</p>
                 </div>
-                <div>
+                <div class="col">
                     <p class="small-title color-light-blue">Link</p>
                     <p>{{projectDetails?.gitlink}}</p>
                 </div>
+                <div class="col">
+                    <p class="small-title color-light-blue">Status</p>
+                    <p>{{convertProgress(projectDetails?.status)}}</p>
+                </div>
             </div>
+        </div>
+    </div>
+    <div>
+        <div *ngIf="projectDetails?.userId == user?.id">
+            <button class="editBtn" (click)="showEditElem()"><span class="material-symbols-rounded">
+                edit
+                </span>Edit</button>
         </div>
     </div>
     <div>
@@ -40,6 +51,47 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="editBtnClicked">
+    <div class="form-section">
+        <!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
+        <h3>Edit project</h3>
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+            <p class="color-light-blue">Description</p>
+            
+            <textarea [(ngModel)]="description" name="desc" id="desc" rows="4" cols="50" resize="false"
+                maxlength="200"></textarea>
+        
+            <div *ngIf="description.length > 199" class="character-limit-exceeded">
+                <p class="small-title">Character limit exceeded (max 200 characters).</p>
+            </div>
+
+            <p class="color-light-blue">Status</p>
+            <select ngModel required name="status" id="status">
+                <option value="NOT_STARTED">Founding</option>
+                <option value="IN_PROGRESS">In progress</option>
+                <option value="COMPLETED">Completed</option>
+            </select>
+
+            <p class="color-light-blue">Gitlink</p>
+            <input type="text" ngModel id="link" name="link">
+
+            <button class="btn btn-blue" type="submit">Save</button>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 <div *ngIf="collabClicked" class="motivation-div">
     <form #myForm="ngForm" (ngSubmit)="onCollabSubmit(myForm)">

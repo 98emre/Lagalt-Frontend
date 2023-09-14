@@ -4,7 +4,7 @@ export type Project = {
     descriptions: string,
     gitlink: string,
     category: string,
-    status: number,
+    status: string,
     userId: number,
     commentIds: number[],
     collaboratorIds: number[]
