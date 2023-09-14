@@ -40,7 +40,7 @@
 
 
     <div class="btn-wr">
-        <button class="btn btn-blue" type="submit" [disabled]="myForm.form.invalid">Add project</button>
+        <button class="btn" [class.btn-gray]="myForm.form.invalid" [class.btn-blue]="!myForm.form.invalid" type="submit" [disabled]="myForm.form.invalid">Add project</button>
         <button class="btn btn-white" (click)="onGoBack()">Cancel</button>
     </div>
 </form>
