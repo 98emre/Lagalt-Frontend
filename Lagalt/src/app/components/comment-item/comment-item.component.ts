@@ -68,5 +68,6 @@ export class CommentItemComponent {
     this.commentService.deleteComment(this.commentModel).subscribe({
       next:((response) => this.removeSignal.emit())
     })
+    this.userService.tokenRefresh()
   }
 }

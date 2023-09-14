@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Project } from 'src/app/models/project';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-custom-form',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./custom-form.component.scss']
 })
 export class CustomFormComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService:UserService) { }
 
   @Output('pushProject') buttonPressed: EventEmitter<Project> = new EventEmitter(); 
 
@@ -25,6 +26,7 @@ export class CustomFormComponent {
     let newGit = form.value.git
     let project:Project = {id:1, title:newTitle, descriptions:newDescription, category:newCategory, gitlink: newGit, status:0, userId:0, commentIds:[], collaboratorIds:[]}
     this.pushToParent(project)
+    this.userService.tokenRefresh()
   }
 
   /**

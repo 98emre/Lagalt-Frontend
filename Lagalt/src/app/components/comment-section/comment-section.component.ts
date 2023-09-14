@@ -61,6 +61,7 @@ export class CommentSectionComponent {
     this.commentService.postComment(this.projectId, newComment).subscribe(
       (comment:ProjectComment) => {this.readInComments()}
     )
+    this.userService.tokenRefresh()
   }
 
   readInComments(){

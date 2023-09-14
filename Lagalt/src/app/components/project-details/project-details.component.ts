@@ -3,6 +3,7 @@ import { Collaborator } from 'src/app/models/collaborator';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
 import { CollaboratorService } from 'src/app/services/collaborator-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-project-details',
@@ -20,7 +21,7 @@ export class ProjectDetailsComponent {
   isCollaborator: boolean = false;
   isPending: boolean = false;
 
-  constructor(private collaboratorService: CollaboratorService){}
+  constructor(private collaboratorService: CollaboratorService, private userService: UserService){}
 
   /**
    * ngOnInit()
@@ -44,7 +45,6 @@ export class ProjectDetailsComponent {
     if(this.projectDetails == null || this.user == null)
       return
 
-    console.log(this.collaboratorModels)
     // checks if this project id and logged in user id is in the list:
     const filterCollab = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "APPROVED")
     const filterPending = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "PENDING")
@@ -78,6 +78,7 @@ export class ProjectDetailsComponent {
     }
 
     this.collaboratorService.postCollaborator(newCollaborator)
+    this.userService.tokenRefresh()
   }
 
 }

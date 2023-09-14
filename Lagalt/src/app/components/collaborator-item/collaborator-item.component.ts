@@ -84,6 +84,7 @@ export class CollaboratorItemComponent {
     this.collaboratorModel.approvalDate = new Date()
     this.collaboratorService.patchCollaborator(this.collaboratorModel)
     this.triggerAPIRequest.emit()
+    this.userService.tokenRefresh()
   }
 
   /**
@@ -97,5 +98,6 @@ export class CollaboratorItemComponent {
     this.collaboratorModel.status = "DECLINED"
     this.collaboratorService.deleteCollaborator(this.collaboratorModel)
     this.triggerAPIRequest.emit()
+    this.userService.tokenRefresh()
   }
 }

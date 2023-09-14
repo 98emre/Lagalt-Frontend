@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-not-found',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
-
+  constructor(private userService:UserService){}
+  ngOnInit(){
+    this.userService.tokenRefresh()
+  }
 }
