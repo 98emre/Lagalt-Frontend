@@ -8,6 +8,10 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class NotFoundComponent {
   constructor(private userService:UserService){}
+  /**
+   * ngOnInit()
+   * Does nothing other than the general refresh token
+   */
   ngOnInit(){
     this.userService.tokenRefresh()
   }

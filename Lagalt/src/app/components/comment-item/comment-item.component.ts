@@ -35,9 +35,9 @@ export class CommentItemComponent {
 
   /**
    * formatDate()
-   * A method that formats the 
-   * @param date 
-   * @returns 
+   * A method that parses relevant data and formats the date into a format that we want.
+   * @param date, An incoming date from a created comment. 
+   * @returns formattedDateString, the format that we want the date to be presented as. 
    */
 
   formatDate(date: string){

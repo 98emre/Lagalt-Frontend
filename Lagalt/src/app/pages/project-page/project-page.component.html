@@ -11,9 +11,10 @@
             <p>No collaborators on this project</p>
         </div>
         <div *ngIf="acceptedUserModels.length > 0">
-            <div class="collab-div collab" *ngFor="let user of acceptedUserModels">
+            <div class="collab-div collab" *ngFor="let acceptedUser of acceptedUserModels">
                 <span class="material-symbols-rounded userIcon">face_6</span>
-                {{user.username}}
+                {{acceptedUser.username}}
+                <button *ngIf="user.id == acceptedUser.id || user.id == projectOwner.id" (click) ="removeCollaborator(acceptedUser.collaboratorId)"> Remove </button>
             </div>
         </div>
 

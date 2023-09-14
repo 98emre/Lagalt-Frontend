@@ -66,6 +66,12 @@ export class CommentSectionComponent {
     this.userService.tokenRefresh()
   }
 
+  /**
+   * readInComments()
+   * A method that reads in every comment and filters them based on the current projectId.
+   * This method is useful since it can be called multiple times, for example, to fix the
+   * timing-related issue pertaining to input variables. 
+   */
   readInComments(){
     this.commentService.getComments().subscribe(
       (comments: ProjectComment[]) => {
