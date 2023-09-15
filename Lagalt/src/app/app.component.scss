@@ -64,3 +64,11 @@ header{
     gap: 1rem;
     align-items:flex-start;
 }
+
+/* --- Media queries --- */
+
+@media only screen and (max-width: 375px) {
+    header{
+        padding: 1rem 2rem;
+    }
+}

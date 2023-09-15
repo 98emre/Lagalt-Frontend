@@ -30,3 +30,14 @@
     margin-bottom: 2rem;
     margin-right: 1rem;
 }
+
+/* --- Media queries --- */
+
+@media only screen and (max-width: 375px) {
+    .user-item-list{
+        flex-direction: column;
+    }
+    .user-item-wr{
+        width: auto;
+    }
+}

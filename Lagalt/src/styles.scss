@@ -163,3 +163,32 @@ header a:visited, header a:active, header a:link{
     padding: 2rem 5rem;
     height: 100%;
 }
+
+/* --- Media queries --- */
+
+/* --- Landing page --- */
+
+@media only screen and (max-width: 375px) {
+    .project-div{
+        padding: 0rem 3rem;
+    }
+  .landing-list .project-list{
+    display:block;
+  }
+
+  /* --- User page --- */
+
+  .user-page-section{
+    padding: 1rem 1rem;
+    height: auto;
+  }
+
+  .user-page-wr{
+    padding: 1rem 1rem;
+  }
+
+}
+
+
+
+
