@@ -5,8 +5,16 @@ Lagalt is a project management tool. A user can register themselves / log in to 
 ### Link To Backend
 [Backend Link](https://github.com/98emre/Lagalt-Backend)
 
+### Deployment To Vercel
+Down below is a link to the deployment in Vercel:
+
+https://lagat-frontend.vercel.app/
+
+### Example Run (Trailer) 
+Here is an example of how the application can look like, in running the application via the deployment to Vercel, while the backend is also running (and serving our API requests):
+
 ## Installation Guide
-To run the project, follow these steps down below:
+To run the project locally, follow these steps down below:
 1. Install NPM and Git Bash if you haven't already.
 2. Install Angular globally: ```npm install -g @angular/cli```
 3. Install Angular Material Dependency:```ng add @angular/material```
@@ -14,9 +22,6 @@ To run the project, follow these steps down below:
 5. Clone down this folder: ```git clone <ssh link>```
 6. Navigate to the Lagalt Folder (cd) and run: ```ng serve```  to start a development server 
 7. If no error occurs, go to localhost:4200 as displayed in the terminal. 
-
-## Example Run (Trailer) 
-Here is an example of how the application can look like, in going to localhost:4200 while the backend is also running (and serving our API requests):
 
 ## Component Tree
 ![frontend drawio (1)](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/e4321abb-ce68-4fb9-91a5-469f38260564)
