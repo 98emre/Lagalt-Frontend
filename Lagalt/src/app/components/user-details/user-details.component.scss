@@ -117,3 +117,37 @@ textarea{
 .character-limit-exceeded{
     color: red;
 }
+
+@media only screen and (max-width: 375px) {
+    .userIcon{
+        display: none;
+    }
+
+    .user-details-section{
+        flex-direction: column;
+    }
+
+    .user-details-wr{
+        gap: 0rem;
+    }
+
+    .user-details{
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .user-details .col{
+        width: auto;
+        padding-right: 0.5rem;
+        border: none;
+    }
+
+    .form-inputs{
+        flex-direction: column;
+    }
+
+    textarea{
+        width: 80%;
+    }
+
+}

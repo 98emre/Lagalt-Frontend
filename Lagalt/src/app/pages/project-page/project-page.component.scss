@@ -37,3 +37,15 @@
     color: black;
     background-color: white;
 }
+
+@media only screen and (max-width: 375px) {
+
+    .project-page-section{
+        padding: 1rem 1rem;
+        height: auto;
+      }
+
+    .project-page-wr{
+        padding: 1rem 1rem;
+    }  
+}

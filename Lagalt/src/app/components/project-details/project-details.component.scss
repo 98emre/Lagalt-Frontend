@@ -160,3 +160,50 @@ gap: 2rem;
     color: red;
 }
 
+@media only screen and (max-width: 375px) {
+
+    .codeIcon{
+        display: none;
+    }
+    
+    .project-details-section{
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+    
+    .project-details-wr{
+        gap: 0rem;
+    }
+    
+    .project-details{
+        gap: 1rem;
+        flex-direction: column;
+    }
+    
+    .project-details .col{
+        width: auto;
+        padding-right: 0.5rem;
+        border: none;
+    }
+
+    .motivation-div{
+        top: 20%;
+        left: 15%;
+        padding: 2rem;
+    }
+
+    .motivation-div textarea{
+        width: 100%;
+    }
+
+    .form-section .col-1{
+        flex-direction: column;
+    }
+
+    .form-section textarea{
+        width: 80%;
+    }
+}
+
+
+

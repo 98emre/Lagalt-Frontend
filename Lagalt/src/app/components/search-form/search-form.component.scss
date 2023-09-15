@@ -25,3 +25,15 @@ form input{
 form input:focus{
     outline: none;
 }
+
+/* --- Media queries --- */
+
+@media only screen and (max-width: 375px) {
+    form{
+        width: 50vw;
+    }
+
+    .btn-white{
+        display: none;
+    }
+}

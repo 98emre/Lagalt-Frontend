@@ -51,7 +51,8 @@ export class AppComponent {
    * onLoginClick()
    * Trigger the keycloak form onClick.
    */
+
   onLoginClick() {
-    this.userService.keyCloakLogin();
+  this.userService.keyCloakLogin();
   }
 }
