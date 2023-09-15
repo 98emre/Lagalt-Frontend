@@ -6,9 +6,7 @@ Lagalt is a project management tool. A user can register themselves / log in to 
 [Backend Link](https://github.com/98emre/Lagalt-Backend)
 
 ### Deployment To Vercel
-Down below is a link to the deployment in Vercel:
-
-https://lagat-frontend.vercel.app/
+Here is a link to the deployment in Vercel: [Vercel Deployment](https://lagat-frontend.vercel.app/)
 
 ### Example Run (Trailer) 
 Here is an example of how the application can look like, in running the application via the deployment to Vercel, while the backend is also running (and serving our API requests):
