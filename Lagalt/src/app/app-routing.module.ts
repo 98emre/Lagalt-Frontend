@@ -7,6 +7,8 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
 import { AuthGuard } from './guards/auth.guard';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MessagePageComponent } from './pages/message-page/message-page.component';
+import { AddMessagePageComponent } from './pages/add-message-page/add-message-page.component';
 
 const routes: Routes = [ 
   {
@@ -20,12 +22,20 @@ const routes: Routes = [
   canActivate: [AuthGuard]
 },
 {
+  path:"add-message",
+  component:AddMessagePageComponent
+},
+{
   path: 'project/:id',
   component: ProjectPageComponent,
 },
 {
   path: 'user/:id',
   component: UserPageComponent,
+},
+{
+  path: 'message/:id',
+  component: MessagePageComponent,
 },
 {
   path:'', 

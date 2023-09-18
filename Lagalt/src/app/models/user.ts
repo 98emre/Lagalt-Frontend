@@ -1,3 +1,4 @@
+import { Message } from "./message"
 
 export type User = {
     id: number, 
@@ -7,4 +8,6 @@ export type User = {
     description: String
     skills: String[]
     projectIds: number[],
+    sentMessages: Message[],
+    receivedMessages: Message[]
 }

@@ -45,7 +45,7 @@ export class UserService {
     };
 
     this.http
-      .get('http://localhost:8081/api/users/public/token/username', httpOptions)
+      .get('http://localhost:8080/api/users/public/token/username', httpOptions)
       .subscribe({
         next: (response) => {
           // Handle the response from the server here
@@ -56,7 +56,7 @@ export class UserService {
         error: (getError) => {
           // If there's an error in the GET request, make the POST request
           this.http
-            .post('http://localhost:8081/api/users/add-user', {}, httpOptions)
+            .post('http://localhost:8080/api/users/add-user', {}, httpOptions)
             .subscribe({
               next: (postResponse) => {
                 this.user = postResponse
@@ -155,7 +155,7 @@ export class UserService {
       }),
     };
     this.http
-    .patch<User>(USER_PRIVATE_API_URL + '/' + id, user, httpOptions)
+    .patch<User>(USER_PRIVATE_API_URL + '/' + id+"/update", user, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });

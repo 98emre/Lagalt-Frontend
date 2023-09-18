@@ -1,0 +1,10 @@
+<div>
+
+    <p>message-list sent!</p>
+    <app-message-item *ngFor="let sentMessage of sentMessages" [MessageModel]="sentMessage"></app-message-item>
+   
+    <p>message-list received!</p>
+    <app-message-item *ngFor="let receivedMessage of receivedMessages" [MessageModel]="receivedMessage"></app-message-item>
+    <br/>
+
+</div>

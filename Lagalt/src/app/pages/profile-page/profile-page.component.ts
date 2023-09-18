@@ -49,4 +49,12 @@ export class ProfilePageComponent implements OnInit{
     this.router.navigate(['/add']);
   }
 
+  onClickMessagePage(){
+    this.router.navigate(['/message/'+this.user.id])
+  }
+
+  onClickAddMessage(){
+    this.router.navigate(['/add-message'])
+  }
+
 }
