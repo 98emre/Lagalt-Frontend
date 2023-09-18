@@ -24,6 +24,7 @@ export class ProjectPageComponent {
   acceptedUserModels:any[] = []
   allUserModels:User[] = []
   user:User|any = null
+  deleteBtnClicked: boolean = false;
 
   constructor(private userService:UserService, 
     private projectService:ProjectService, 
