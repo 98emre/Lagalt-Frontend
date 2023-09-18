@@ -16,10 +16,21 @@ export class ProfilePageComponent implements OnInit{
 
   constructor(private router: Router, private projectService:ProjectService, private userService: UserService, private collaboratorService:CollaboratorService) { 
 }
+  allProjects:Project[] = []
   projectModels:Project[] = []
   collaboratorModels:Collaborator[] = []
-
+  collaboratorProjects:Project[] = []
   user:User|any = null;
+
+
+  overlappingId(project:Project){
+    for(let collabId of this.user.collaboratorIds){
+      if(project.collaboratorIds.includes(collabId)){
+        return true
+      }
+    }
+    return false
+  }
 
   /**
    * ngOnInit()
@@ -32,11 +43,17 @@ export class ProfilePageComponent implements OnInit{
     this.userService.tokenRefresh()
 
     this.projectService.getProjects().subscribe(
-      (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id || element.collaboratorIds.includes(this.user.id)) }
+      (projects: Project[]) => { 
+        this.projectModels = projects.filter((element) => element.userId === this.user.id)
+        this.collaboratorProjects = projects.filter((element) => this.overlappingId(element))
+        
+      }
     )
 
     this.collaboratorService.getCollaborators().subscribe(
-      (collaborators:Collaborator[]) => { this.collaboratorModels = collaborators.filter((collaborator) => collaborator.status == "PENDING") }
+      (collaborators:Collaborator[]) => { 
+        this.collaboratorModels = collaborators.filter((collaborator) => collaborator.status == "PENDING") 
+      }
     )
   }
 
