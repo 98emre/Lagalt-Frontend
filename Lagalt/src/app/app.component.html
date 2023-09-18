@@ -7,9 +7,10 @@
     <button class="btn btn-blue loginBtn" (click)="onLoginClick()"><mat-icon class="btnIcon">lock</mat-icon>Login</button>
   </div>
   <div *ngIf="isLoggedIn()" class="navDiv">
+    <p class="color-white fade-in-right">Welcome <b>{{this.userName}}!</b></p>
       <a routerLink="profile" class="profileBtn"><span class="material-symbols-rounded profileIcon">
         person
-        </span>{{this.userName}}</a>
+        </span></a>
       <app-drop-down></app-drop-down>
   </div>
 </header>
