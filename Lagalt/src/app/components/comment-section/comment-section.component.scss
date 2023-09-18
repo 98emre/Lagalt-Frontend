@@ -1,5 +1,8 @@
 .comment-section{
-    
+    background-color: #f5f9fc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 .comment-list{
@@ -11,7 +14,7 @@
 
 .textfield-section{
     border-radius: 8px;
-    background-color: #f5f9fc;
+    background-color: white;
     border: 0.5px solid rgb(230, 230, 230);
     padding: 1.5rem 2rem 1rem;
 }
@@ -34,12 +37,12 @@ form button{
 }
 
 textarea{
-    width: 90%;
+    width: 98%;
     height: 5vh;
     font-family: 'Manrope', sans-serif;
     padding: 1rem;
     border-radius: 8px;
-    border: none;
+    border: 1px solid rgb(230, 230, 230);
 }
 
 .character-limit-exceeded{
