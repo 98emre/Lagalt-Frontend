@@ -141,4 +141,13 @@ export class ProjectService {
     });
   }
 
+  customUpdateProject(id: number, project: Partial<Project>){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    return this.http.patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id, project, httpOptions)
+  }
+
 }

@@ -151,8 +151,21 @@ export class ProjectDetailsComponent {
     this.projectDetails.gitlink = this.newLink;
     this.projectDetails.status = this.newStatus;
 
-    this.projectService.updateProject(this.projectDetails.id, updatedProject)
-    
+    // Bugfix: Make a get for new data once the initial update is completed, so the change is installed instantly: 
+    // Old code: this.projectService.updateProject(this.projectDetails.id, updatedProject)
+    this.projectService.customUpdateProject(this.projectDetails.id, updatedProject).subscribe({
+      next: (response) => {
+        this.projectService.getProjectById(this.projectDetails.id).subscribe({
+          next: (updatedApiProject) => {
+            console.log(JSON.stringify(updatedApiProject))
+            this.projectDetails.descriptions = updatedApiProject.descriptions
+            this.projectDetails.gitlink = updatedApiProject.gitlink
+            this.projectDetails.status = updatedApiProject.status
+          }
+        })
+      }
+    })
+
     this.userService.tokenRefresh()
   }
 
