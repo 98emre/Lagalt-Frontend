@@ -1,5 +1,5 @@
 <div class="project-page-section">
-    <div class="project-page-wr">
+    <div class="project-page-wr fade-in">
         <!--Project details -->
         <app-project-details [projectDetails]="project" [projectOwner]="projectOwner"
             [collaboratorLength]="acceptedUserModels.length"
@@ -24,6 +24,15 @@
 
 </div>
 
-<div class="delete-div" *ngIf="this.projectOwner?.id != null && this.user?.id != null && this.projectOwner?.id == this.user?.id">
-    <button class="btn deleteBtn" (click)="removeProject()">Delete project</button>
+<div class="deleteBtn-div" *ngIf="this.projectOwner?.id != null && this.user?.id != null && this.projectOwner?.id == this.user?.id">
+    <!--<button class="btn deleteBtn" (click)="removeProject()">Delete project</button>-->
+    <button class="btn deleteBtn" (click)="deleteBtnClicked=true">Delete project</button>
 </div>
+
+<div *ngIf="deleteBtnClicked" class="delete-div">
+        <p>Are you sure you want to delete this project?</p>
+        <div class="btn-wr">
+            <button type="submit" class="btn deleteBtn" (click)="removeProject()">Delete project</button>
+            <button class="btn btn-white" (click)="deleteBtnClicked=false">Cancel</button>
+        </div>
+    </div>
