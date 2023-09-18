@@ -25,11 +25,16 @@ export class CommentItemComponent {
   ngOnInit(): void {
 
     const date = new Date(this.commentModel.date)
-    this.userService.getUserById(this.commentModel.userId).subscribe({
+    /*this.userService.getUserById(this.commentModel.userId).subscribe({
       next: ((response) => { this.user = response}),
       error: ((error) => console.error(error))
     }
     )
+    */
+   // Bugfix:
+    if(localStorage.getItem('user') != null){
+      this.user = localStorage.getItem('user')
+    } 
   }
 
 
