@@ -64,6 +64,19 @@
     gap: 1rem;
 }
 
+.requestBtn{
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #f5f9fc;
+    font-family: 'Manrope', sans-serif;
+    cursor: pointer;
+}
+
+.requestBtn:hover{
+    color: #4f91b7;
+    border-bottom: 1px solid #4f91b7;
+}
+
 @media only screen and (max-width: 375px) {
 
     .project-page-section{

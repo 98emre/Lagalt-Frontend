@@ -15,7 +15,7 @@
             <div class="collab-div collab" *ngFor="let acceptedUser of acceptedUserModels">
                 <span class="material-symbols-rounded userIcon">face_6</span>
                 {{acceptedUser.username}}
-                <button *ngIf="user.id == acceptedUser.id || user.id == projectOwner.id" (click) ="removeCollaborator(acceptedUser.collaboratorId)"> Remove </button>
+                <button class="requestBtn" *ngIf="user.id == acceptedUser.id || user.id == projectOwner?.id" (click) ="removeCollaborator(acceptedUser.collaboratorId)"> Remove </button>
             </div>
         </div>
         </div>
@@ -27,7 +27,6 @@
 </div>
 
 <div class="deleteBtn-div" *ngIf="this.projectOwner?.id != null && this.user?.id != null && this.projectOwner?.id == this.user?.id">
-    <!--<button class="btn deleteBtn" (click)="removeProject()">Delete project</button>-->
     <button class="btn deleteBtn" (click)="deleteBtnClicked=true">Delete project</button>
 </div>
 
