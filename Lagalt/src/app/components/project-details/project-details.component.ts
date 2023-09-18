@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Collaborator } from 'src/app/models/collaborator';
 import { Project } from 'src/app/models/project';
 import { User } from 'src/app/models/user';
@@ -34,7 +35,10 @@ export class ProjectDetailsComponent {
   newStatus: string = ""; 
   newLink: string = "";
 
-  constructor(private collaboratorService: CollaboratorService, private userService: UserService, private projectService: ProjectService){}
+  constructor(private collaboratorService: CollaboratorService, 
+    private userService: UserService, 
+    private projectService: ProjectService, 
+    private router: Router){}
 
   /**
    * ngOnInit()
@@ -122,6 +126,10 @@ export class ProjectDetailsComponent {
     return convertedString;
   }
 
+  /**
+   * ShowEditElem()
+   * showEditElem() is a method that handles the toggle between visible and invisible for the edit div
+   */
   showEditElem(){
     if(this.editBtnClicked){
       this.editBtnClicked = false;
@@ -131,6 +139,17 @@ export class ProjectDetailsComponent {
     this.userService.tokenRefresh()
   }
 
+  navigateToUser(){
+    this.router.navigate(['/user', this.projectOwner.id]);
+  }
+
+    /**
+   * onSubmit()
+   * onSubmit() is a method that handles the changes of the project details
+   * The method received the changes from the form and update the project by calling customUpdateProject() in projectService
+   * 
+   * @param form, a NgForm where the changes is received onto this function.
+   */
   public onSubmit(form: NgForm): void {
     this.editBtnClicked = false;
     this.newDescription = form.value.desc;

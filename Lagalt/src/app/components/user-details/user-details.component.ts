@@ -37,6 +37,7 @@ export class UserDetailsComponent {
     this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
 
     // Set the default value of the edit form to the description of the user
+    console.log(this.userDetails.description)
     this.description = this.userDetails.description;
 
     // Set the default value of the checkboxes to the skills of the user 
@@ -89,14 +90,6 @@ export class UserDetailsComponent {
     this.userService.tokenRefresh()
   }
 
-  /**
-   * toLowercase()
-   * A method that convert a skill to lowercase. 
-   * The method is called for each skill in the html template of the component
-   */
-  toLowerCase(skill: string){
-    return skill.toLowerCase();
-  }
 
   /**
    * onSubmit()
@@ -125,9 +118,7 @@ export class UserDetailsComponent {
 
     this.userDetails.description = this.newDescription;
     this.userDetails.skills = this.newSkills;
-
-    console.log(updatedUser)
-    // old code: this.userService.updateUser(this.userDetails.id, updatedUser)
+    
     this.userService.customUpdateUser(this.userDetails.id, updatedUser).subscribe({
       next: (response) => {
         console.log(response)
@@ -141,6 +132,8 @@ export class UserDetailsComponent {
         })
       }
     })
+    
     this.userService.tokenRefresh()
+
   }
 }
