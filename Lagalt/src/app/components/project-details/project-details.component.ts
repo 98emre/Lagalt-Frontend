@@ -27,6 +27,8 @@ export class ProjectDetailsComponent {
   collabClicked: boolean = false;
   editBtnClicked: boolean = false;
   description: string = "";
+  link: string = "";
+  selectedStatus: string = "";
 
   newDescription: string = "";
   newStatus: string = ""; 
@@ -67,6 +69,11 @@ export class ProjectDetailsComponent {
     if(filterPending.length > 0){
       this.isPending = true;
     }
+
+    // Set the default value of the edit form to the description of the project
+    this.description = this.projectDetails.descriptions;
+    this.link = this.projectDetails.gitlink;
+    this.selectedStatus = this.projectDetails.status;
   }
 
   /**

@@ -70,7 +70,7 @@
         
                 <div>
                     <p class="color-light-blue">Status</p>
-                    <select ngModel required name="status" id="status">
+                    <select [(ngModel)]="selectedStatus" required name="status" id="status">
                         <option value="NOT_STARTED">Founding</option>
                         <option value="IN_PROGRESS">In progress</option>
                         <option value="COMPLETED">Completed</option>
@@ -79,7 +79,7 @@
         
                 <div>
                     <p class="color-light-blue">Gitlink</p>
-                    <input type="text" ngModel id="link" name="link">
+                    <input type="text" [(ngModel)]="link" id="link" name="link">
                 </div>
             </div>
             <button class="btn btn-blue" type="submit">Save</button>
