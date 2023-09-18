@@ -20,7 +20,7 @@
     gap: 1rem;
 }
 
-.delete-div{
+.deleteBtn-div{
     text-align: center;
     padding-bottom: 3rem;
 }
@@ -37,6 +37,27 @@
     background-color: white;
 }
 
+.delete-div{
+    border: 4px solid rgb(230, 230, 230);
+    border-radius: 8px;
+    position: absolute;
+    background-color: #f5f9fc;
+    top: 30%;
+    left: 30%;
+    width: 30%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.delete-div .btn-wr{
+    display: flex; 
+    gap: 1rem;
+}
+
 @media only screen and (max-width: 375px) {
 
     .project-page-section{
@@ -47,4 +68,11 @@
     .project-page-wr{
         padding: 1rem 1rem;
     }  
+
+    .delete-div{
+        width: 50%;
+        padding: 2rem;
+        left: 15%;
+        top: 100%;
+    }
 }
