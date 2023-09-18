@@ -4,7 +4,12 @@ export type User = {
     email: String, 
     fullname: String, 
     username: String, 
-    description: String
-    skills: String[]
+    description: String,
+    skills: String[],
+    profileVisibility: String,
     projectIds: number[],
+    collaboratorIds: number[],
+    commentIds: number[],
+    receivedMessageIds: number[],
+    sentMessageIds: number[],
 }

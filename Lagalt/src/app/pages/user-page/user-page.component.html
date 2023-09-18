@@ -4,15 +4,15 @@
         <app-user-details [userDetails]="user"></app-user-details>
 
         <!--User projects -->
-        <div class="project-wr">
-            <h3>All projects</h3>
+        <h3 *ngIf="user?.profileVisibility != 'PRIVATE'">All projects</h3>
+        <h3>All projects</h3>
             <div *ngIf="projectModels.length < 1">
                 <p>This user has no projects</p>
             </div>
-            <app-project-list class="landing-list">
-                <app-project-item class="landing-item" *ngFor="let projectData of projectModels" [projectModel]="projectData" />
-            </app-project-list>
-        </div>
+        <app-project-list class="landing-list">
+            <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
+                [projectModel]="projectData" />
+        </app-project-list>
 
     </div>
 
