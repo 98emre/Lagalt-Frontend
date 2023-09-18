@@ -6,6 +6,7 @@
             [collaboratorModels]="collaboratorModels"></app-project-details>
 
         <!--Collaborators-->
+        <div class="collab-wr">
         <h3>Collaborators</h3>
         <div *ngIf="acceptedUserModels.length < 1" class="collab-div">
             <p>No collaborators on this project</p>
@@ -16,6 +17,7 @@
                 {{acceptedUser.username}}
                 <button *ngIf="user.id == acceptedUser.id || user.id == projectOwner.id" (click) ="removeCollaborator(acceptedUser.collaboratorId)"> Remove </button>
             </div>
+        </div>
         </div>
 
         <!--Comment section -->
