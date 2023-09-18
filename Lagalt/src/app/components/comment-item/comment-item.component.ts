@@ -33,7 +33,8 @@ export class CommentItemComponent {
     */
    // Bugfix:
     if(localStorage.getItem('user') != null){
-      this.user = localStorage.getItem('user')
+      this.user = JSON.parse(localStorage.getItem('user')!) as User
+      console.log("Hello")
     } 
   }
 
