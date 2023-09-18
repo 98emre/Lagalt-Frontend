@@ -32,7 +32,7 @@ export class ProfilePageComponent implements OnInit{
     this.userService.tokenRefresh()
 
     this.projectService.getProjects().subscribe(
-      (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id) }
+      (projects: Project[]) => { this.projectModels = projects.filter((element) => element.userId === this.user.id || element.collaboratorIds.includes(this.user.id)) }
     )
 
     this.collaboratorService.getCollaborators().subscribe(

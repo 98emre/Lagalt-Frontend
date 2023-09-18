@@ -126,12 +126,17 @@ export class UserDetailsComponent {
     this.userDetails.description = this.newDescription;
     this.userDetails.skills = this.newSkills;
 
+    console.log(updatedUser)
     // old code: this.userService.updateUser(this.userDetails.id, updatedUser)
     this.userService.customUpdateUser(this.userDetails.id, updatedUser).subscribe({
       next: (response) => {
+        console.log(response)
         this.userService.getUserById(this.userDetails.id).subscribe({
           next: (userObject) => {
             localStorage.setItem('user', JSON.stringify(userObject))
+          },
+          error: (errorMsg) =>{
+            console.error(errorMsg)
           }
         })
       }

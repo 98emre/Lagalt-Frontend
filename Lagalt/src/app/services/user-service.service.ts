@@ -155,7 +155,7 @@ export class UserService {
       }),
     };
     this.http
-    .patch<User>(USER_PRIVATE_API_URL + '/' + id, user, httpOptions)
+    .patch<User>(USER_PRIVATE_API_URL + '/' + id + "/update", user, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -174,7 +174,7 @@ export class UserService {
         Authorization: `Bearer ${keycloak.token}` 
       }),
     };
-    return this.http.patch<User>(USER_PRIVATE_API_URL + '/' + id, user, httpOptions)
+    return this.http.patch<User>(USER_PRIVATE_API_URL + '/' + id + "/update", user, httpOptions)
   }
 
   /**
