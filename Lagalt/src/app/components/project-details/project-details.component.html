@@ -4,14 +4,16 @@
             <span class="material-symbols-rounded codeIcon">code</span>
         </div>
         <div>
-            <div class="col-1">
-                <h3>{{projectDetails?.title}}</h3>
-                <p class="category">{{projectDetails?.category}}</p>
+            <div>
+                <div class="col-1">
+                    <h3>{{projectDetails?.title}}</h3>
+                    <p class="category">{{projectDetails?.category}}</p>
+                </div>
             </div>
             <div class="project-details">
                 <div class="col">
                     <p class="small-title color-light-blue">Owner</p>
-                    <p>{{projectOwner?.username}}</p>
+                    <p class="owner" (click)="navigateToUser()">{{projectOwner?.username}}</p>
                 </div>
                 <div class="col">
                     <p class="small-title color-light-blue">Collaborators</p>
