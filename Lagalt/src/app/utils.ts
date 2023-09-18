@@ -1,8 +1,12 @@
 // Change the port to be anything you like:
-const PORT = "8081"
+const PORT = "8080"
 
 // URLs leading to the generic controller endpoint for different models (Projects, Users, Comments, etc):
+
+// Path to local:
 const path = "http://localhost:" + PORT
+
+//const path = "https://lagalt-backend-app.azurewebsites.net"
 export const PROJECT_PRIVATE_API_URL:string = path + "/api/projects"
 export const PROJECT_PUBLIC_API_URL:string = PROJECT_PRIVATE_API_URL + "/public"
 
@@ -14,3 +18,4 @@ export const USER_PUBLIC_API_URL:string = USER_PRIVATE_API_URL + "/public"
 
 export const COLL_PRIVATE_API_URL:string = path + "/api/collaborators"
 export const COLL_PUBLIC_API_URL:string = COLL_PRIVATE_API_URL + "/public"
+

@@ -127,6 +127,18 @@ export class ProjectPageComponent {
     this.collaboratorService.customDeleteCollaboratorOnId(collaboratorId).subscribe({
       complete: () =>{this.getCollaborators()}
     })
+
+    /* Attempted Bugfix (Remove the accepted user model locally):
+    let index = 0
+    while(index < this.acceptedUserModels.length){
+      if(collaboratorId == this.acceptedUserModels[index].collaboratorId){
+        console.log(collaboratorId, JSON.stringify(this.acceptedUserModels))
+        this.acceptedUserModels.splice(index, 1)
+        break
+      }
+      index ++
+    }
+    */
   }
 
   /**

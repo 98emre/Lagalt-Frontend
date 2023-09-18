@@ -116,7 +116,7 @@ export class ProjectService {
       }),
     };
     this.http
-    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + id, httpOptions)
+    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + id + "/delete", httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });

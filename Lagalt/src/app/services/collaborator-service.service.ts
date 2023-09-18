@@ -46,7 +46,7 @@ export class CollaboratorService{
       }),
     };
     this.http
-    .post<Collaborator>(COLL_PRIVATE_API_URL + "/"+ collaborator.projectId + "/collaborator", postCollaborator, httpOptions)
+    .post<Collaborator>(COLL_PRIVATE_API_URL + "/"+ collaborator.projectId + "/add-collaborator", postCollaborator, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -102,7 +102,7 @@ export class CollaboratorService{
       }),
     };
     this.http
-    .patch<Collaborator>(COLL_PRIVATE_API_URL + "/" + collaborator.id, collaborator, httpOptions).subscribe({
+    .patch<Collaborator>(COLL_PRIVATE_API_URL + "/" + collaborator.id + "/update", collaborator, httpOptions).subscribe({
       error:(error) => console.log(error)
     })
   }
