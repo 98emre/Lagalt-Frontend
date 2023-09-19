@@ -8,8 +8,10 @@
 
 .btn-container{
     display: flex;
-    justify-content: center;
-    gap: 10rem;
+    margin: auto;
+    /*gap: 10rem;*/
+    width: 40vw;
+    justify-content: space-between;
     margin-bottom: 2rem;
 }
 
@@ -37,19 +39,6 @@
     color: white;
 }
 
-/*.send-btn-container button{
-    border: none;
-    border-bottom: 2px solid white;
-    background-color: white;
-    font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 1rem 5rem;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}*/
-
 .active{
     border-bottom: 2px solid #4f91b7!important;
     color: #4f91b7;
@@ -57,4 +46,25 @@
 
 .active-icon{
     color: #4f91b7;
+}
+
+@media only screen and (max-width: 375px) {
+    .msg-box-section{
+       padding: 1rem;
+       margin: 1rem;
+    }
+
+    .btn-container{
+        width: 10vw;
+        margin: 2rem 2rem;
+    }
+
+    .btn-container button{
+        padding: 1rem;
+    }
+
+    .send-btn-container{
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
 }
