@@ -22,7 +22,12 @@ export class ProfilePageComponent implements OnInit{
   collaboratorProjects:Project[] = []
   user:User|any = null;
 
-
+  /**
+   * overlappingId()
+   * A helper function to filter projects that the logged in user is a collaborator of.
+   * @param project, The project to check if it is owned.
+   * @returns True or False, depending on if the the collaborator IDs overlap.
+   */
   overlappingId(project:Project){
     for(let collabId of this.user.collaboratorIds){
       if(project.collaboratorIds.includes(collabId)){
