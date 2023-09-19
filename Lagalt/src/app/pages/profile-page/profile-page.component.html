@@ -4,6 +4,15 @@
         <!--User details -->
         <app-user-details [projectAmount]="projectModels.length" [userDetails]="user"></app-user-details>
 
+        <!-- Hidden mode toggle-->
+        <div class="hidden-div">
+        <p>Hidden mode</p>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>  
+
         <!--Collaborations -->
         <div class="collab-wr">
             <h3>Collaboration Requests</h3>
