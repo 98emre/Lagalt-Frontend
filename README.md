@@ -19,6 +19,8 @@ As seen in the video, there are some users added prior to running the applicatio
 ### Deployment To Vercel (To Test The Application Yourself)
 Here is a link to the deployment in Vercel, feel free to log in as any of the users above to explore every functionality: [Vercel Deployment](https://lagat-frontend.vercel.app/)
 
+**NOTE:** Cookies can interrupt the Vercel run, if you have a white screen in running the link above, right click it and run in private / incognito mode. 
+
 ## Installation Guide
 If you want to run the project locally, follow these steps down below:
 1. Install NPM and Git Bash if you haven't already.
