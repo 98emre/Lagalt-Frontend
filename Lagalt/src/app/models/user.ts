@@ -1,3 +1,4 @@
+import { Message } from "./message"
 
 export type User = {
     id: number, 

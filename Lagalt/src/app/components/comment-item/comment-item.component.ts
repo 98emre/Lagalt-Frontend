@@ -12,8 +12,8 @@ import { UserService } from 'src/app/services/user-service.service';
 export class CommentItemComponent {
   @Input() commentModel: ProjectComment | any;
   @Output() removeSignal = new EventEmitter()
-  user:User|any = null
-
+  commentUser:User|any = null
+  loggedInUser:User|any = null
   constructor(private commentService:CommentService, public userService:UserService){}
 
   /**
@@ -22,10 +22,19 @@ export class CommentItemComponent {
    * gets the user that is connected to the comment via userId.
    * With the user the comment-item can then populate the HTML.
    */
-  ngOnInit(): void {
-    if(localStorage.getItem('user') != null){
-      this.user = JSON.parse(localStorage.getItem('user')!) as User
-    } 
+  ngOnChanges(): void {
+    this.loggedInUser = JSON.parse(localStorage.getItem('user')!)
+    if(this.commentModel != null){
+      this.userService.getUserById(this.commentModel.userId).subscribe({
+        next: (apiUser) => {
+          this.commentUser = apiUser
+          console.log("test:", this.commentUser, this.loggedInUser)
+        },
+        error: (errorMsg) => {
+          console.error(errorMsg)
+        }
+      })
+    }
   }
 
 

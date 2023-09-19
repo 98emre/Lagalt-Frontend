@@ -20,3 +20,4 @@ export const USER_PUBLIC_API_URL:string = USER_PRIVATE_API_URL + "/public"
 export const COLL_PRIVATE_API_URL:string = path + "/api/collaborators"
 export const COLL_PUBLIC_API_URL:string = COLL_PRIVATE_API_URL + "/public"
 
+export const MESSAGE_PRIVATE_API_URL:string = path + "/api/messages"

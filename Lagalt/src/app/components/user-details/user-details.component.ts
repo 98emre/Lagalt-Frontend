@@ -46,7 +46,6 @@ export class UserDetailsComponent {
    * The inputted project ids are written to this object's project ids.
    */
   ngOnChanges(){
-
     if(this.userDetails != null){
       this.projectIds = this.userDetails.projectIds
 
@@ -65,6 +64,10 @@ export class UserDetailsComponent {
       }*/
     }
 
+  }
+
+  ngDoCheck(){
+    this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
   }
 
   /**
