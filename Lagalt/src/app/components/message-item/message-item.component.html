@@ -3,7 +3,7 @@
 <div class="message-box">
     <div class="message-header">
         <h5>{{ MessageModel.title }}</h5>
-        <h6>{{ MessageModel.date }}</h6>
+        <h6>{{ formatDate(MessageModel.date) }}</h6>
     </div>
     <p class="message-text">{{ MessageModel.text }}</p>
     <div class="message-footer">

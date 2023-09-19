@@ -37,4 +37,18 @@ export class MessageItemComponent {
           }
        })
   }
+
+
+  formatDate(date: string){
+   var originalDate = new Date(date);
+   var year = originalDate.getFullYear();
+   var month = (originalDate.getMonth() + 1).toString().padStart(2, '0'); 
+   var day = originalDate.getDate().toString().padStart(2, '0');
+   var hours = originalDate.getHours().toString().padStart(2, '0');
+   var minutes = originalDate.getMinutes().toString().padStart(2, '0');
+
+   var formattedDateString = `${year}/${month}/${day} ${hours}.${minutes}`;
+
+   return formattedDateString
+ }
  }
