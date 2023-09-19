@@ -1,5 +1,5 @@
 
-<div class="user-page-section">
+<div class="user-page-section fade-in">
     <div class="user-page-wr">
         <!--User details -->
         <app-user-details [projectAmount]="projectModels.length" [userDetails]="user"></app-user-details>
@@ -17,14 +17,25 @@
                 [collaboratorModels]="collaboratorModels"></app-collaborator-list>
         </div>
         <!--User projects -->
-        <div class="add-project-wr">
-        <h3>All projects</h3>
-        <button class="btn btn-blue" (click)="onClickAddProject()">Create project</button>
+        <div class="project-wr">
+            <div class="add-project-wr">
+                <h3>Owned projects</h3>
+                <button class="btn btn-blue" (click)="onClickAddProject()">Create project</button>
+            </div>
+            <app-project-list class="landing-list">
+                <app-project-item class="landing-item" *ngFor="let projectData of projectModels" [projectModel]="projectData" />
+            </app-project-list>
         </div>
-        <app-project-list class="landing-list">
-            <app-project-item class="landing-item" *ngFor="let projectData of projectModels"
-                [projectModel]="projectData" />
-        </app-project-list>
+
+        <!--User projects -->
+        <div class="project-wr">
+            <div class="add-project-wr">
+                <h3>Collaborative projects</h3>
+            </div>
+            <app-project-list class="landing-list">
+                <app-project-item class="landing-item" *ngFor="let projectData of collaboratorProjects" [projectModel]="projectData" />
+            </app-project-list>
+        </div>
 
     </div>
 

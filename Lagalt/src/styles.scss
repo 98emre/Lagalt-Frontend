@@ -102,6 +102,33 @@ header a:visited, header a:active, header a:link{
     text-decoration: none;
 }
 
+/* --- Animations --- */ 
+
+.fade-in-right{
+    animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.fade-in {
+    animation: fadeIn 1s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+      /*opacity: 0;*/
+      transform: translateY(-3px);
+    }
+  }
+
 /* --- project list on landing page */ 
 
 .landing-item{

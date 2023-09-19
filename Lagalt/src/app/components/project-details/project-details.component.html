@@ -4,14 +4,16 @@
             <span class="material-symbols-rounded codeIcon">code</span>
         </div>
         <div>
-            <div class="col-1">
-                <h3>{{projectDetails?.title}}</h3>
-                <p class="category">{{projectDetails?.category}}</p>
+            <div>
+                <div class="col-1">
+                    <h3>{{projectDetails?.title}}</h3>
+                    <p class="category">{{projectDetails?.category}}</p>
+                </div>
             </div>
             <div class="project-details">
                 <div class="col">
                     <p class="small-title color-light-blue">Owner</p>
-                    <p>{{projectOwner?.username}}</p>
+                    <p class="owner" (click)="navigateToUser()">{{projectOwner?.username}}</p>
                 </div>
                 <div class="col">
                     <p class="small-title color-light-blue">Collaborators</p>
@@ -70,7 +72,7 @@
         
                 <div>
                     <p class="color-light-blue">Status</p>
-                    <select ngModel required name="status" id="status">
+                    <select [(ngModel)]="selectedStatus" required name="status" id="status">
                         <option value="NOT_STARTED">Founding</option>
                         <option value="IN_PROGRESS">In progress</option>
                         <option value="COMPLETED">Completed</option>
@@ -79,7 +81,7 @@
         
                 <div>
                     <p class="color-light-blue">Gitlink</p>
-                    <input type="text" ngModel id="link" name="link">
+                    <input type="text" [(ngModel)]="link" id="link" name="link">
                 </div>
             </div>
             <button class="btn btn-blue" type="submit">Save</button>
@@ -87,17 +89,6 @@
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <div *ngIf="collabClicked" class="motivation-div">
     <form #myForm="ngForm" (ngSubmit)="onCollabSubmit(myForm)">

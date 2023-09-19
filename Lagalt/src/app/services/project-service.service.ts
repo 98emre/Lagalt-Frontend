@@ -116,7 +116,7 @@ export class ProjectService {
       }),
     };
     this.http
-    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + id, httpOptions)
+    .delete<Project>(PROJECT_PRIVATE_API_URL+"/" + id + "/delete", httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -135,10 +135,19 @@ export class ProjectService {
       }),
     };
     this.http
-    .patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id, project, httpOptions)
+    .patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id + "/update", project, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
+  }
+
+  customUpdateProject(id: number, project: Partial<Project>){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    return this.http.patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id + "/update", project, httpOptions)
   }
 
 }

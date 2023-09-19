@@ -24,6 +24,7 @@ export class ProjectPageComponent {
   acceptedUserModels:any[] = []
   allUserModels:User[] = []
   user:User|any = null
+  deleteBtnClicked: boolean = false;
 
   constructor(private userService:UserService, 
     private projectService:ProjectService, 
@@ -40,6 +41,7 @@ export class ProjectPageComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const projectId = Number(params.get('id'));
+  
       this.projectService.getProjectById(projectId).subscribe(
         (project) => {
           this.project = project;
@@ -60,7 +62,6 @@ export class ProjectPageComponent {
     // Get the collaborators from backend:
     this.getCollaborators()
     this.userService.getAllUsers().subscribe((users) => {this.allUserModels = users})
-
 
     if(localStorage.getItem('user') != null){
       this.user = JSON.parse(localStorage.getItem('user')!)

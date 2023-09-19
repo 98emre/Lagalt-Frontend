@@ -46,7 +46,7 @@ export class CommentService {
         }),
       };
 
-      return this.http.post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId, postComment, httpOptions)
+      return this.http.post<ProjectComment>(COMMENT_PRIVATE_API_URL + "/project/" + projectId + "/add-comment", postComment, httpOptions)
     }
 
     /**
@@ -65,7 +65,7 @@ export class CommentService {
           Authorization: `Bearer ${keycloak.token}` 
         }),
       };
-      return this.http.delete<ProjectComment>(COMMENT_PRIVATE_API_URL + "/" + comment.id, httpOptions)
+      return this.http.delete<ProjectComment>(COMMENT_PRIVATE_API_URL + "/" + comment.id + "/delete", httpOptions)
     }
     
 }

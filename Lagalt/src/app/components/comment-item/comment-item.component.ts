@@ -23,13 +23,9 @@ export class CommentItemComponent {
    * With the user the comment-item can then populate the HTML.
    */
   ngOnInit(): void {
-
-    const date = new Date(this.commentModel.date)
-    this.userService.getUserById(this.commentModel.userId).subscribe({
-      next: ((response) => { this.user = response}),
-      error: ((error) => console.error(error))
-    }
-    )
+    if(localStorage.getItem('user') != null){
+      this.user = JSON.parse(localStorage.getItem('user')!) as User
+    } 
   }
 
 

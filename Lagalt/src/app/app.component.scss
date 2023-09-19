@@ -62,7 +62,7 @@ header{
 .navDiv{
     display: flex;
     gap: 1rem;
-    align-items:flex-start;
+    align-items:center;
 }
 
 /* --- Media queries --- */
@@ -70,5 +70,9 @@ header{
 @media only screen and (max-width: 375px) {
     header{
         padding: 1rem 2rem;
+    }
+
+    .welcome{
+        display: none;
     }
 }

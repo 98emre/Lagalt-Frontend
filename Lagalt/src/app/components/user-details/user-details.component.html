@@ -21,7 +21,7 @@
                     <p class="small-title color-light-blue">Skills</p>
                     <div class="skill-div">
                         <p *ngFor="let skill of this.userDetails?.skills" class="small-title">
-                            {{toLowerCase(skill)}}
+                            {{skill.toLowerCase()}}
                         </p>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
     </div>
 </div>
 <div *ngIf="editBtnClicked">
-    <div class="form-section">
+    <div class="form-section ">
         <!-- Edit My Profile has a ngForm that maps to onSubmit in the profile page component. The whole ngForm is sent there and the user input is extracted. -->
         <h3>Edit profile</h3>
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">

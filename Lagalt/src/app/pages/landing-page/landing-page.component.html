@@ -1,6 +1,6 @@
 
 <!--Search form-->
-<div class="search-section">
+<div class="search-section fade-in">
     <h1>Browse projects</h1>
     <app-search-form (search)="handleSearch($event)"></app-search-form>
 </div>
@@ -37,6 +37,6 @@
 </div>
 
 <!-- Project list search -->
-<div *ngIf="this.searchBtnClicked" class="search-result-section">
+<div *ngIf="this.searchBtnClicked" class="search-result-section fade-in">
     <app-search-result [userModels]="userModels" [projectModels]="projectModels" [searchTerm]="searchTerm"></app-search-result>
 </div>

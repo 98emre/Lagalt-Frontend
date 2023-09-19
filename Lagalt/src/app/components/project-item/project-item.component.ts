@@ -50,7 +50,8 @@ export class ProjectItemComponent{
    * ngOnChanges()
    * Potentially sets the owner flag depending on the logged in user. 
    */
-  ngOnChanges(){
+  ngDoCheck(){
+  // old code: ngOnChanges(){
     if(localStorage.getItem('user') != null){
       let user:User = JSON.parse(localStorage.getItem('user')!) as User
       if(this.projectModel.userId == user.id){

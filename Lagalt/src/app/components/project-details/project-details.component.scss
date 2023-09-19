@@ -1,9 +1,11 @@
 .project-details-section{
     color: black;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-between;
     border-bottom: 0.5px solid black;
     margin-bottom: 2rem;
+    align-items: flex-end;
 }
 
 .project-details-wr{
@@ -11,6 +13,7 @@
     align-items: center;
     gap: 2rem;
     padding-bottom: 2rem;
+    width: 100%;
 
 }
 
@@ -18,6 +21,7 @@
     display: flex;
     gap: 2rem;
 }
+
 
 .col-1{
     display: flex;
@@ -40,7 +44,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 10vw;
+    padding-right: 2rem;
 }
 
 p{
@@ -158,6 +162,10 @@ gap: 2rem;
 
 .character-limit-exceeded{
     color: red;
+}
+
+.owner{
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 375px) {
