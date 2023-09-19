@@ -28,7 +28,6 @@ export class CommentItemComponent {
       this.userService.getUserById(this.commentModel.userId).subscribe({
         next: (apiUser) => {
           this.commentUser = apiUser
-          console.log("test:", this.commentUser, this.loggedInUser)
         },
         error: (errorMsg) => {
           console.error(errorMsg)

@@ -17,6 +17,10 @@ export class MessageSentBoxComponent {
 
   constructor(private router: Router, public messageService: MessageService, public userService: UserService) {}
 
+  /**
+   * ngOnInit()
+   * Gets the messages and sets the local user.
+   */
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user')!);
 
@@ -25,6 +29,10 @@ export class MessageSentBoxComponent {
       });
   }
 
+  /**
+   * onClickBackToProfile()
+   * An action listening method that navigates us back to the message box.
+   */
   onClickBackToProfile(){
     this.router.navigate(["/message-box"])
   }
