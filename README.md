@@ -8,14 +8,6 @@ Lagalt is a project management tool. A user can register themselves / log in to 
 ### Example Run (Video Demonstration of the Application) 
 Here is an example of how the application can look like, in running the application via the deployment to Vercel, while the backend is also running (and serving our API requests):
 
-#### Users
-As seen in the video, there are some users added prior to running the application, theses are:
-|Username | Password |
-|------|---------|
-|test| test |
-|testtest| test|
---------------------
-
 ### Deployment To Vercel (To Test The Application Yourself)
 Here is a link to the deployment in Vercel, feel free to log in as any of the users above to explore every functionality: [Vercel Deployment](https://lagat-frontend.vercel.app/)
 
