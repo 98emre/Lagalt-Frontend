@@ -1,0 +1,6 @@
+<p>message-received-box works!</p>
+
+
+<app-message-item *ngFor="let receivedMessage of receivedMessages" [MessageModel]="receivedMessage"></app-message-item>
+
+<button class="btn btn-blue" (click)="onClickBackToProfile()">Back To Profile</button>

@@ -44,6 +44,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     MessagePageComponent,
     MessageFormComponent,
     AddMessagePageComponent,
+    MessageSentBoxComponent,
+    MessageReceivedBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,4 +74,6 @@ import { MessageListComponent } from './components/message-list/message-list.com
 import { MessagePageComponent } from './pages/message-page/message-page.component';
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { AddMessagePageComponent } from './pages/add-message-page/add-message-page.component';
+import { MessageSentBoxComponent } from './components/message-sent-box/message-sent-box.component';
+import { MessageReceivedBoxComponent } from './components/message-received-box/message-received-box.component';
 

@@ -20,6 +20,10 @@ export class MessageService {
     return this.http.get<Message[]>('http://localhost:8080/api/messages/' + id +'/sent-messages')
   }
 
+  getMessageById(id: number): Observable<Message[]> {
+    return this.http.get<Message[]>('http://localhost:8080/api/messages/' + id)
+  }
+
 
   postMessage(message:Message){
 

@@ -21,18 +21,15 @@ export class MessageListComponent {
   }
 
   ngOnInit(){
-     this.user = JSON.parse(localStorage.getItem('user')!)
-     this.messageService.getAllReceivedMessageById(this.user.id).subscribe((messages) => {
-      this.receivedMessages = messages;
-      console.log("list mo2d ", messages);
-        
-    });
-    
-    this.messageService.getAllSentMessageById(this.user.id).subscribe((messages) => {
-      this.sentMessages = messages;
-      console.log("list mod ", messages);
-    });
      
+  }
+
+  onClickCheckSentMessageBox(){
+    this.router.navigate(['/message-box-sent'])
+  }
+
+  onClickCheckReceivedMessageBox(){
+    this.router.navigate(['/message-box-received'])
   }
 
 }
