@@ -33,7 +33,7 @@ If you want to run the project locally, follow these steps down below:
 
 ## Component Tree
 Here is a component tree that makes up the application you might have tested:
-![frontend drawio (1)](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/e4321abb-ce68-4fb9-91a5-469f38260564)
+![compTree drawio](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/bd27874b-1fe4-4afd-8bd2-8105d743b79c)
 
 
 ## Authors
