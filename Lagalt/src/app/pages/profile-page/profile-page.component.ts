@@ -71,4 +71,12 @@ export class ProfilePageComponent implements OnInit{
     this.router.navigate(['/add']);
   }
 
+  onClickMessagePage(){
+    this.router.navigate(['/message-box'])
+  }
+
+  onClickAddMessage(){
+    this.router.navigate(['/add-message'])
+  }
+
 }

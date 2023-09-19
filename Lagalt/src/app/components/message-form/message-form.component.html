@@ -1,0 +1,50 @@
+<div class="message-form">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <h2>Send a Message</h2>
+        
+        <label class="color-light-blue small-title">
+            Send message to:
+            <select ngModel required name="user" id="user" class="form-control">
+                <option value="" disabled selected hidden>Choose a user</option>
+                <ng-container *ngFor="let user of users">
+                    <option [value]="user.id" *ngIf="currentUser?.id !== user?.id">{{ user.username }}</option>
+                </ng-container>
+            </select>
+        </label>
+
+        <input 
+            type="text" 
+            [(ngModel)]="title"
+            name="title"
+            id="title"
+            required
+            placeholder="Provide your message title"
+            class="form-control"
+            maxlength="100"
+        >
+
+        <div *ngIf="title.length > 99" class="character-limit-exceeded">
+            <small class="small-title">Character limit exceeded (max 100 characters).</small>
+        </div>
+
+        <textarea 
+            [(ngModel)]="text" 
+            maxlength="250" 
+            name="text" 
+            id="text" 
+            required 
+            placeholder="Provide a text message"
+            class="form-control"
+        >
+        </textarea>
+        
+        <div *ngIf="text.length > 249" class="character-limit-exceeded">
+            <small class="small-title">Character limit exceeded (max 250 characters).</small>
+        </div>
+
+        <div class="btn-wrapper">
+            <button class="btn" [class.btn-gray]="myForm.form.invalid" [class.btn-blue]="!myForm.form.invalid" type="submit" [disabled]="myForm.form.invalid">Send Message</button>
+            <button class="btn btn-white" (click)="onGoBack()">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -155,7 +155,7 @@ export class UserService {
       }),
     };
     this.http
-    .patch<User>(USER_PRIVATE_API_URL + '/' + id + "/update", user, httpOptions)
+    .patch<User>(USER_PRIVATE_API_URL + '/' + id+"/update", user, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
