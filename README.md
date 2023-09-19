@@ -32,7 +32,6 @@ If you want to run the project locally, follow these steps down below:
 7. If no error occurs, go to localhost:4200 as displayed in the terminal. 
 
 ## Component Tree
-Here is a component tree that makes up the application you might have tested:
 ![compTree drawio (1)](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/225ae60f-3d91-4fed-bf61-78241ecc0d8d)
 
 
