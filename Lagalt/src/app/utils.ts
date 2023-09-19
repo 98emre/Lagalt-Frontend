@@ -3,10 +3,11 @@ const PORT = "8080"
 
 // URLs leading to the generic controller endpoint for different models (Projects, Users, Comments, etc):
 
-// Path to local:
-const path = "http://localhost:" + PORT
+// Path to local (Set path to whatever you want to run):
+const localHost = "http://localhost:" + PORT
+const azureDeployment = "https://lagalt-backend-app.azurewebsites.net"
+const path = azureDeployment
 
-//const path = "https://lagalt-backend-app.azurewebsites.net"
 export const PROJECT_PRIVATE_API_URL:string = path + "/api/projects"
 export const PROJECT_PUBLIC_API_URL:string = PROJECT_PRIVATE_API_URL + "/public"
 

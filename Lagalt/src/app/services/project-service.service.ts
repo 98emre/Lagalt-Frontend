@@ -135,7 +135,7 @@ export class ProjectService {
       }),
     };
     this.http
-    .patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id, project, httpOptions)
+    .patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id + "/update", project, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -147,7 +147,7 @@ export class ProjectService {
         Authorization: `Bearer ${keycloak.token}` 
       }),
     };
-    return this.http.patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id, project, httpOptions)
+    return this.http.patch<Project>(PROJECT_PRIVATE_API_URL + '/' + id + "/update", project, httpOptions)
   }
 
 }
