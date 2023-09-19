@@ -32,4 +32,8 @@ export class MessageListComponent {
     this.router.navigate(['/message-box-received'])
   }
 
+  onClickBackToProfile(){
+    this.router.navigate(['/profile'])
+  }
+
 }
