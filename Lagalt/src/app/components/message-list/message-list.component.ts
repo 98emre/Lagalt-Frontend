@@ -20,18 +20,26 @@ export class MessageListComponent {
 
   }
 
-  ngOnInit(){
-     
-  }
-
+  /**
+   * onClickCheckSentMessageBox()
+   * A method that navigates the user to the box of sent messages (Mapped To by Click)
+   */
   onClickCheckSentMessageBox(){
     this.router.navigate(['/message-box-sent'])
   }
 
+  /**
+   * onClickCheckReceivedMessageBox()
+   * A method that navigates the user to the box of received messages (Mapped To by Click)
+   */
   onClickCheckReceivedMessageBox(){
     this.router.navigate(['/message-box-received'])
   }
 
+  /**
+   * onClickBackToProfile()
+   * A method that navigates the user back to the profile page (Mapped To by Click).
+   */
   onClickBackToProfile(){
     this.router.navigate(['/profile'])
   }

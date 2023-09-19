@@ -21,6 +21,10 @@ export class MessageFormComponent {
 
   constructor(private router: Router, public messageService: MessageService, public userService:UserService) { }
 
+  /**
+   * ngOnInit()
+   * Get the users and set a current user from localStorage.
+   */
   ngOnInit() {
     this.userService.getAllUsers().subscribe(users => {
       this.users = users;
@@ -29,6 +33,12 @@ export class MessageFormComponent {
     this.currentUser = JSON.parse(localStorage.getItem("user")!);
   }
 
+  /**
+   * onSubmit()
+   * A method that handles the submission a a new message.
+   * Data comes in, token is refreshed, API request is made (update) and a navigation is conducted.
+   * @param form, a NgForm encapsulating the data from the user.
+   */
   onSubmit(form: NgForm):void{
     let newTitle = form.value.title
     let newText = form.value.text

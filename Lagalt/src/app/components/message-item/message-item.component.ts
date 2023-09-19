@@ -22,24 +22,30 @@ export class MessageItemComponent {
    
   }
 
+  /**
+   * ngOnInit()
+   * Gets the recieverUser and the senderUser.
+   */
   ngOnInit() {
-       console.log(this.messageModel)
        this.userService.getUserById(this.messageModel.receiverId).subscribe({
           next: (user) => {
              this.receiver = user;
-             console.log(user)
           }
        })
  
        this.userService.getUserById(this.messageModel.senderId).subscribe({
           next: (user) => {
              this.sender = user;
-             console.log(user)
           }
        })
   }
 
-
+  /**
+   * formatDate()
+   * A method that formats the date for a message (similar to comments).
+   * @param date, An incoming date type.
+   * @returns formattedDateString, a string that is on the format that we want. 
+   */
   formatDate(date: string){
    var originalDate = new Date(date);
    var year = originalDate.getFullYear();
@@ -53,13 +59,17 @@ export class MessageItemComponent {
    return formattedDateString
  }
 
+ /**
+  * markAsRead()
+  * A method that marks a message as read (no longer highlighted with green) on click.
+  */
  markAsRead() {
    if (this.isUnread) {
-       // Update the message status locally
+       // 1. Update the message status locally
        this.messageModel.messageStatus = 'READ';
        this.isUnread = false;
        
-       // Update the message status in your service/backend
+       // 2. Update the message status in your service/backend
        this.messageService.updateMessage(this.messageModel.id,this.messageModel)
    }
 }
