@@ -1,5 +1,15 @@
+<div class="container">
 
-<p>message-box sent!</p>
+    <div class="header">
+        <p class="title">Sent Message Box</p>
+    </div>
+    
 
+    <div class="message-list">
+        <app-message-item *ngFor="let sentMessage of sentMessages" [MessageModel]="sentMessage"></app-message-item>
+    </div>
+    <div class="footer">
+        <button class="btn btn-blue" (click)="onClickBackToProfile()">Back To Profile</button>
+    </div>
 
-<button class="btn btn-blue"  (click)="onClickBackToProfile()">Back To Profile</button>
+</div>

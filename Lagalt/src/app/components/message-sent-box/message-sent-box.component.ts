@@ -28,9 +28,4 @@ export class MessageSentBoxComponent {
   onClickBackToProfile(){
     this.router.navigate(["/message-box"])
   }
-
-  onMessageClick(message: Message) {
-    this.router.navigate(["/message-detail", message.id]);
-  }
-  
 }

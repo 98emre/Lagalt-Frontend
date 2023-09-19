@@ -1,9 +1,32 @@
-
-div {
+.message-box {
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 10px 0;
+    margin: 5px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+}
+
+.message-header, .message-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-text {
+    margin: 8px 0;
+    color: #555;
+    max-height: 100px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+h5, h6 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.message-footer span {
+    margin-right: 15px;
+    font-size: 0.8rem;
+}

@@ -1,9 +1,13 @@
 
-<div>
-    <h5>Title: {{ MessageModel.title }}</h5>
-    <h5>Text: {{ MessageModel.text }}</h5>
-    <h5>Date: {{ MessageModel.date }}</h5>
-    <h5>Sender: {{ sender?.username }}</h5>
-    <h5>Receiver: {{ receiver?.username }}</h5>
-    <br/>
+
+<div class="message-box">
+    <div class="message-header">
+        <h5>{{ MessageModel.title }}</h5>
+        <h6>{{ MessageModel.date }}</h6>
+    </div>
+    <p class="message-text">{{ MessageModel.text }}</p>
+    <div class="message-footer">
+        <span>Sent by: {{ sender?.username }}</span>
+        <span>Receiver: {{ receiver?.username }}</span>
+    </div>
 </div>
