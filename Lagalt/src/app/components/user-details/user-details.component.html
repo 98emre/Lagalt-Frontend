@@ -1,11 +1,13 @@
 <div class="user-details-section">
     <div class="user-details-wr">
         <div>
-            <span class="material-symbols-rounded userIcon">face_6</span>
+            <span class="material-symbols-rounded userIcon" *ngIf="!hiddenMode">face_6</span>
+            <span class="material-symbols-rounded userIcon" *ngIf="hiddenMode">lock</span>
         </div>
         <div>
-            <div>
+            <div class="hidden-username">
                 <h3>{{userDetails?.fullname}}</h3>
+                <p *ngIf="hiddenMode" class="small-title">Hidden user</p>
             </div>
             <div class="user-details">
                 <div class="col">
@@ -14,12 +16,11 @@
                 </div>
                 <div class="col">
                     <p class="small-title color-light-blue">Projects</p>
-                    <!--<p>{{userDetails?.projectsIds ? userDetails.projectsIds.length : 0}}</p>-->
-                    <p>{{projectAmount}}</p>
+                    <p *ngIf="!hiddenMode">{{projectAmount}}</p>
                 </div>
                 <div class="col">
                     <p class="small-title color-light-blue">Skills</p>
-                    <div class="skill-div">
+                    <div class="skill-div" *ngIf="!hiddenMode">
                         <p *ngFor="let skill of this.userDetails?.skills" class="small-title">
                             {{skill.toLowerCase()}}
                         </p>
@@ -27,7 +28,7 @@
                 </div>
                 <div>
                     <p class="small-title color-light-blue">About</p>
-                    <p>{{userDetails?.description}}</p>
+                    <p *ngIf="!hiddenMode">{{userDetails?.description}}</p>
                 </div>
             </div>
         </div>
@@ -51,7 +52,7 @@
                     <textarea [(ngModel)]="description" name="desc" id="desc" rows="4"
                         cols="50" resize="false" maxlength="200"></textarea>
 
-                        <div *ngIf="description.length > 199" class="character-limit-exceeded">
+                        <div *ngIf="description?.length > 199" class="character-limit-exceeded">
                             <p class="small-title">Character limit exceeded (max 200 characters).</p>
                           </div>
                 </div>

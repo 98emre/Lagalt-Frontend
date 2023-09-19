@@ -7,8 +7,8 @@
         <!-- Hidden mode toggle-->
         <div class="hidden-div">
         <p>Hidden mode</p>
-        <label class="switch">
-            <input type="checkbox">
+        <label class="switch" (click)="toggleUserVisibility()">
+            <input type="checkbox" [(ngModel)]="hiddenUser">
             <span class="slider round"></span>
           </label>
         </div>  

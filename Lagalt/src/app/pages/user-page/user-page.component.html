@@ -1,12 +1,11 @@
 <div class="user-page-section">
     <div class="user-page-wr fade-in">
         <!--User details -->
-        <app-user-details [userDetails]="user"></app-user-details>
+        <app-user-details [userDetails]="user" [hiddenMode]="hiddenMode"></app-user-details>
 
         <!--User projects -->
-        <h3 *ngIf="user?.profileVisibility != 'PRIVATE'">All projects</h3>
-        <h3>All projects</h3>
-            <div *ngIf="projectModels.length < 1">
+        <h3 *ngIf="!hiddenMode">All projects</h3>
+            <div *ngIf="projectModels.length < 1 && !hiddenMode">
                 <p>This user has no projects</p>
             </div>
         <app-project-list class="landing-list">
