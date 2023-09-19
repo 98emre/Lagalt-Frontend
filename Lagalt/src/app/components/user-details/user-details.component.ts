@@ -33,9 +33,6 @@ export class UserDetailsComponent {
    * On init this life cycle hook reads in a user from the local storage.
    */
   ngOnInit(){
-
-    this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
-
     // Set the default value of the edit form to the description of the user
     console.log(this.userDetails.description)
     this.description = this.userDetails.description;
@@ -55,11 +52,14 @@ export class UserDetailsComponent {
    * The inputted project ids are written to this object's project ids.
    */
   ngOnChanges(){
-
     if(this.userDetails != null){
       this.projectIds = this.userDetails.projectIds
     }
 
+  }
+
+  ngDoCheck(){
+    this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
   }
 
   /**

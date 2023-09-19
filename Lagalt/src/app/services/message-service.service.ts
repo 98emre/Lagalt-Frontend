@@ -4,6 +4,7 @@ import { Message } from '../models/message';
 import keycloak from 'src/keycloak';
 import { UserService } from './user-service.service';
 import { Observable } from 'rxjs/internal/Observable';
+import { MESSAGE_PRIVATE_API_URL } from '../utils';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,15 @@ export class MessageService {
   constructor(private readonly http:HttpClient, private readonly userService: UserService){}
 
   getAllReceivedMessageById(id: number): Observable<Message[]> {
-    return this.http.get<Message[]>('http://localhost:8080/api/messages/' + id +'/received-messages')
+    return this.http.get<Message[]>(MESSAGE_PRIVATE_API_URL + "/" + id +'/received-messages')
   }
 
   getAllSentMessageById(id: number): Observable<Message[]> {
-    return this.http.get<Message[]>('http://localhost:8080/api/messages/' + id +'/sent-messages')
+    return this.http.get<Message[]>(MESSAGE_PRIVATE_API_URL + "/" + id +'/sent-messages')
   }
 
   getMessageById(id: number): Observable<Message[]> {
-    return this.http.get<Message[]>('http://localhost:8080/api/messages/' + id)
+    return this.http.get<Message[]>(MESSAGE_PRIVATE_API_URL + "/" + id)
   }
 
   updateMessage(id: number, message: Partial<Message>){
@@ -31,7 +32,7 @@ export class MessageService {
       }),
     };
     this.http
-    .patch<Message>('http://localhost:8080/api/messages/' + id +"/update", message, httpOptions)
+    .patch<Message>(MESSAGE_PRIVATE_API_URL + "/" + id +"/update", message, httpOptions)
     .subscribe({
       error: (error) => {console.log(error)}
     });
@@ -55,7 +56,7 @@ export class MessageService {
       }),
     };
    
-    this.http.post<Partial<Message>>("http://localhost:8080/api/messages", postMessage, httpOptions).subscribe({
+    this.http.post<Partial<Message>>(MESSAGE_PRIVATE_API_URL, postMessage, httpOptions).subscribe({
       next: (response) => {console.log(response) },
       error: (error) => { console.log(error)}
     });

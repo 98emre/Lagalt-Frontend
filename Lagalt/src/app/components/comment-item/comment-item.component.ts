@@ -29,6 +29,9 @@ export class CommentItemComponent {
         next: (apiUser) => {
           this.commentUser = apiUser
           console.log("test:", this.commentUser, this.loggedInUser)
+        },
+        error: (errorMsg) => {
+          console.error(errorMsg)
         }
       })
     }
