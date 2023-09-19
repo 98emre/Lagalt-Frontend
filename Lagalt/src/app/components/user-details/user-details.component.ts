@@ -12,14 +12,16 @@ export class UserDetailsComponent {
 
   @Input() userDetails: User | any;
   @Input() projectAmount : Number | any;
+  @Input() hiddenMode: boolean | any;
 
   editBtnClicked: boolean = false;
   newDescription: string = "";
   newSkills: string[] = [];
   projectIds:number[] = [];
   loggedInUser: User|any = null;
+  //hiddenMode: boolean = false;
 
-  description: string = "";
+  description: any | string = "";
   java = false; // Initialize checkbox states
   javascript = false;
   react = false;
@@ -33,16 +35,8 @@ export class UserDetailsComponent {
    * On init this life cycle hook reads in a user from the local storage.
    */
   ngOnInit(){
-    // Set the default value of the edit form to the description of the user
-    console.log(this.userDetails.description)
-    this.description = this.userDetails.description;
 
-    // Set the default value of the checkboxes to the skills of the user 
-    this.java = this.userDetails.skills.includes('JAVA');
-    this.javascript = this.userDetails.skills.includes('JAVASCRIPT');
-    this.react = this.userDetails.skills.includes('REACT');
-    this.angular = this.userDetails.skills.includes('ANGULAR');
-    this.c = this.userDetails.skills.includes('C');
+    this.loggedInUser = JSON.parse(localStorage.getItem("user")!);
 
   }
 
@@ -54,6 +48,16 @@ export class UserDetailsComponent {
   ngOnChanges(){
     if(this.userDetails != null){
       this.projectIds = this.userDetails.projectIds
+
+      this.description = this.userDetails.description;
+
+      // Set the default value of the checkboxes to the skills of the user 
+      this.java = this.userDetails.skills.includes('JAVA');
+      this.javascript = this.userDetails.skills.includes('JAVASCRIPT');
+      this.react = this.userDetails.skills.includes('REACT');
+      this.angular = this.userDetails.skills.includes('ANGULAR');
+      this.c = this.userDetails.skills.includes('C');
+
     }
 
   }
@@ -120,16 +124,8 @@ export class UserDetailsComponent {
     this.userDetails.skills = this.newSkills;
     
     this.userService.customUpdateUser(this.userDetails.id, updatedUser).subscribe({
-      next: (response) => {
-        console.log(response)
-        this.userService.getUserById(this.userDetails.id).subscribe({
-          next: (userObject) => {
-            localStorage.setItem('user', JSON.stringify(userObject))
-          },
-          error: (errorMsg) =>{
-            console.error(errorMsg)
-          }
-        })
+      next: (user) => {
+        localStorage.setItem('user', JSON.stringify(user))
       }
     })
     

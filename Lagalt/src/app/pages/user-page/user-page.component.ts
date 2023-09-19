@@ -14,6 +14,7 @@ export class UserPageComponent {
 
   user: User | null = null;
   projectModels: Project[] = []
+  hiddenMode: boolean = false;
 
   constructor(private userService: UserService, 
     private projectService: ProjectService, 
@@ -32,10 +33,17 @@ export class UserPageComponent {
     this.route.paramMap.subscribe((params: ParamMap) => {
 
       const userId = Number(params.get('id'));
+      const loggedInUser = JSON.parse(localStorage.getItem("user")!);
 
       // get userdetails:
       this.userService.getUserById(userId).subscribe((user) => {
         this.user = user;
+
+        // check if user has hidden mode on
+        if(this.user.profileVisibility == "PRIVATE" && loggedInUser.id != this.user.id){
+          this.hiddenMode = true;
+        }
+        
       },
       (error) => {
         // Navigate to error page if user id not found 
@@ -48,6 +56,7 @@ export class UserPageComponent {
       })
 
     });
+
     this.userService.tokenRefresh()
   }
 

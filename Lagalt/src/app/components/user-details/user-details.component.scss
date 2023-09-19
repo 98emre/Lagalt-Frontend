@@ -27,6 +27,20 @@
     width: 10vw;
 }
 
+.hidden-username{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hidden-username p{
+    margin: 0;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #808080;
+}
+
 .skill-div{
     display: flex;
     flex-direction: row;

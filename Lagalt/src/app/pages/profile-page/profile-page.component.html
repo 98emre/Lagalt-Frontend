@@ -4,8 +4,16 @@
         <!--User details -->
         <app-user-details [projectAmount]="projectModels.length" [userDetails]="user"></app-user-details>
 
-        <button class="btn btn-blue" (click)="onClickMessagePage()">Message Page</button>
-        <button class="btn btn-blue" (click)="onClickAddMessage()">Send Message</button>
+        <!-- Hidden mode toggle-->
+        <div class="hidden-div">
+        <p>Hidden mode</p>
+        <label class="switch" (click)="toggleUserVisibility()">
+            <input type="checkbox" [(ngModel)]="hiddenUser">
+            <span class="slider round"></span>
+          </label>
+        </div>  
+        <!--<button class="btn btn-blue" (click)="onClickMessagePage()">Message Page</button>
+        <button class="btn btn-blue" (click)="onClickAddMessage()">Send Message</button>-->
 
         <!--Collaborations -->
         <div class="collab-wr">

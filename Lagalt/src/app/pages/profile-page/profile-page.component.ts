@@ -21,6 +21,9 @@ export class ProfilePageComponent implements OnInit{
   collaboratorModels:Collaborator[] = []
   collaboratorProjects:Project[] = []
   user:User|any = null;
+  //hiddenMode: String = "";
+  hiddenUser: boolean = false;
+  
 
   /**
    * overlappingId()
@@ -60,6 +63,36 @@ export class ProfilePageComponent implements OnInit{
         this.collaboratorModels = collaborators.filter((collaborator) => collaborator.status == "PENDING") 
       }
     )
+
+    if(this.user.profileVisibility == "PRIVATE"){
+      this.hiddenUser = true;
+    }
+  }
+
+  /**
+   * toggleUserVisibility()
+   * A method that toggle the setting of hidden or visibility mode for the user
+   */
+
+  toggleUserVisibility(){
+    let updatedSetting; 
+
+    if(!this.hiddenUser){
+      updatedSetting = "PRIVATE"
+    }else{
+      updatedSetting = "PUBLIC"
+    }
+
+    const updatedUser: Partial<User> = {
+      profileVisibility: updatedSetting
+    }
+    
+    this.userService.customUpdateUser(this.user.id, updatedUser).subscribe({
+      next: (user) => {
+        localStorage.setItem('user', JSON.stringify(user))
+      }
+    })
+
   }
 
   /** 

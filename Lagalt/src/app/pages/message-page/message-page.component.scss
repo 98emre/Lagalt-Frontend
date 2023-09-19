@@ -1,0 +1,60 @@
+.msg-box-section{
+    margin: 3rem 5rem;
+    padding: 2rem 5rem;
+    height: 100%;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    margin-bottom: 2rem;
+}
+
+.btn-container button{
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: white;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 1rem 5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.send-btn-container{
+    display: flex;
+    justify-content: right;
+    gap: 10rem;
+    margin-bottom: 2rem;
+    padding-right: 2rem;
+}
+
+.msgIcon{
+    color: white;
+}
+
+/*.send-btn-container button{
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: white;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 1rem 5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}*/
+
+.active{
+    border-bottom: 2px solid #4f91b7!important;
+    color: #4f91b7;
+}
+
+.active-icon{
+    color: #4f91b7;
+}
