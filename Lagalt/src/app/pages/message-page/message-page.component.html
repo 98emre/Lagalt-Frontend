@@ -1,1 +1,15 @@
-<app-message-list></app-message-list>
+<div class="msg-box-section">
+    <div class="btn-container">
+        <button (click)="toggleView()" [class.active]="showReceivedMessages"><span class="material-symbols-rounded" [class.active-icon]="showReceivedMessages">inbox</span>Inbox</button>
+        <button (click)="toggleView()" [class.active]="showSentMessages"><span class="material-symbols-rounded" [class.active-icon]="showSentMessages">send</span>Sent</button>
+    </div>
+    <div class="send-btn-container">
+        <button class="btn btn-blue" (click)="onClickAddMessage()">Create message</button>
+    </div>
+    <div *ngIf="showReceivedMessages">
+        <app-message-received-box></app-message-received-box>
+    </div>
+    <div *ngIf="showSentMessages">
+        <app-message-sent-box></app-message-sent-box>
+    </div>
+</div>

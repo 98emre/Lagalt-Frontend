@@ -69,6 +69,11 @@ export class ProfilePageComponent implements OnInit{
     }
   }
 
+  /**
+   * toggleUserVisibility()
+   * A method that toggle the setting of hidden or visibility mode for the user
+   */
+
   toggleUserVisibility(){
     let updatedSetting; 
 

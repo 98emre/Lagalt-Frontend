@@ -8,9 +8,8 @@
   </div>
   <div *ngIf="isLoggedIn()" class="navDiv">
     <p class="color-white fade-in-right welcome">Welcome <b>{{this.userName}}!</b></p>
-      <a routerLink="profile" class="profileBtn"><span class="material-symbols-rounded profileIcon">
-        person
-        </span></a>
+      <a routerLink="profile" class="profileBtn"><span class="material-symbols-rounded profileIcon">person</span></a>
+      <a routerLink="message-box" class="profileBtn"><span class="material-symbols-rounded messageIcon">mail</span></a>
       <app-drop-down></app-drop-down>
   </div>
 </header>

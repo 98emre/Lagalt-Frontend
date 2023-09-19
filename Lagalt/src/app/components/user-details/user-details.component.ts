@@ -58,10 +58,6 @@ export class UserDetailsComponent {
       this.angular = this.userDetails.skills.includes('ANGULAR');
       this.c = this.userDetails.skills.includes('C');
 
-      /*if(this.userDetails.profileVisibility == "PRIVATE" && this.loggedInUser.id != this.userDetails.id){
-        console.log("hej")
-        this.hiddenMode = true;
-      }*/
     }
 
   }

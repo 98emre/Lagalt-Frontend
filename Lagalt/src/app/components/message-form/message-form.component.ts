@@ -53,12 +53,12 @@ export class MessageFormComponent {
 
 
   
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/message-box']);
   }
 
 
   onGoBack(){
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/message-box']);
   }
 
 }

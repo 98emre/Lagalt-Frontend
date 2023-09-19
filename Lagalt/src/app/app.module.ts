@@ -40,7 +40,6 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     ProjectDetailsComponent,
     NotFoundComponent,
     MessageItemComponent,
-    MessageListComponent,
     MessagePageComponent,
     MessageFormComponent,
     AddMessagePageComponent,
@@ -70,7 +69,6 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MessageItemComponent } from './components/message-item/message-item.component';
-import { MessageListComponent } from './components/message-list/message-list.component';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { AddMessagePageComponent } from './pages/add-message-page/add-message-page.component';
