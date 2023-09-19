@@ -1,13 +1,13 @@
 
 
-<div class="message-box">
+<div [class.unread]="isUnread" class="message-box" (click)="markAsRead()">
     <div class="message-header">
-        <h5>{{ MessageModel.title }}</h5>
-        <h6>{{ formatDate(MessageModel.date) }}</h6>
+        <h5>{{ messageModel.title }}</h5>
+        <h6>{{ formatDate(messageModel.date) }}</h6>
     </div>
-    <p class="message-text">{{ MessageModel.text }}</p>
+    <p class="message-text">{{ messageModel.text }}</p>
     <div class="message-footer">
         <span>Sent by: {{ sender?.username }}</span>
-        <span>Receiver: {{ receiver?.username }}</span>
+        <span>Sent to: {{ receiver?.username }}</span>
     </div>
 </div>

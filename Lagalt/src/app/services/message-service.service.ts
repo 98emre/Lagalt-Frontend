@@ -24,6 +24,19 @@ export class MessageService {
     return this.http.get<Message[]>('http://localhost:8080/api/messages/' + id)
   }
 
+  updateMessage(id: number, message: Partial<Message>){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${keycloak.token}` 
+      }),
+    };
+    this.http
+    .patch<Message>('http://localhost:8080/api/messages/' + id +"/update", message, httpOptions)
+    .subscribe({
+      error: (error) => {console.log(error)}
+    });
+  }
+
 
   postMessage(message:Message){
 

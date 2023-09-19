@@ -12,7 +12,8 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class MessageItemComponent {
 
-  @Input() MessageModel: Message | any;
+  @Input() messageModel: Message | any;
+  @Input() isUnread: boolean = false;
   receiver: User | any;
   sender: User | any;
 
@@ -22,15 +23,15 @@ export class MessageItemComponent {
   }
 
   ngOnInit() {
-       console.log(this.MessageModel)
-       this.userService.getUserById(this.MessageModel.receiverId).subscribe({
+       console.log(this.messageModel)
+       this.userService.getUserById(this.messageModel.receiverId).subscribe({
           next: (user) => {
              this.receiver = user;
              console.log(user)
           }
        })
  
-       this.userService.getUserById(this.MessageModel.senderId).subscribe({
+       this.userService.getUserById(this.messageModel.senderId).subscribe({
           next: (user) => {
              this.sender = user;
              console.log(user)
@@ -51,4 +52,16 @@ export class MessageItemComponent {
 
    return formattedDateString
  }
+
+ markAsRead() {
+   if (this.isUnread) {
+       // Update the message status locally
+       this.messageModel.messageStatus = 'READ';
+       this.isUnread = false;
+       
+       // Update the message status in your service/backend
+       this.messageService.updateMessage(this.messageModel.id,this.messageModel)
+   }
+}
+
  }

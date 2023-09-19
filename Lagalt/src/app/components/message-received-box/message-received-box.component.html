@@ -6,7 +6,7 @@
     
 
     <div class="message-list">
-        <app-message-item *ngFor="let receivedMessage of receivedMessages" [MessageModel]="receivedMessage"></app-message-item>
+        <app-message-item *ngFor="let receivedMessage of receivedMessages" [messageModel]="receivedMessage" [isUnread]="receivedMessage.messageStatus === 'UNREAD'"></app-message-item>
     </div>
     <div class="footer">
         <button class="btn btn-blue" (click)="onClickBackToProfile()">Back To Profile</button>

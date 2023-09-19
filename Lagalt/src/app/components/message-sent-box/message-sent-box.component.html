@@ -6,7 +6,7 @@
     
 
     <div class="message-list">
-        <app-message-item *ngFor="let sentMessage of sentMessages" [MessageModel]="sentMessage"></app-message-item>
+        <app-message-item *ngFor="let sentMessage of sentMessages" [messageModel]="sentMessage"></app-message-item>
     </div>
     <div class="footer">
         <button class="btn btn-blue" (click)="onClickBackToProfile()">Back To Profile</button>

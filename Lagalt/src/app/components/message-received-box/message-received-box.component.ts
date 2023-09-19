@@ -15,6 +15,7 @@ export class MessageReceivedBoxComponent {
   user:User|any = null
   receivedMessages: Message[] = [];
 
+
   constructor(private router: Router, public messageService: MessageService, public userService:UserService){
 
   }
@@ -30,6 +31,8 @@ export class MessageReceivedBoxComponent {
   onClickBackToProfile(){
     return this.router.navigate(["/message-box"]);
   }
+
+  
 }
 
 
