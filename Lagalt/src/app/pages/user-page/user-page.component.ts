@@ -40,7 +40,10 @@ export class UserPageComponent {
         this.user = user;
 
         // check if user has hidden mode on
-        if(this.user.profileVisibility == "PRIVATE" && loggedInUser.id != this.user.id){
+        if(this.user.profileVisibility == "PRIVATE" && loggedInUser == null){
+          this.hiddenMode = true;
+        }
+        else if(this.user.profileVisibility == "PRIVATE" && loggedInUser.id != this.user.id){
           this.hiddenMode = true;
         }
         
