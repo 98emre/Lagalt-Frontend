@@ -6,8 +6,8 @@ import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-custom-form',
-  templateUrl: './custom-form.component.html',
-  styleUrls: ['./custom-form.component.scss']
+  templateUrl: './project-form.component.html',
+  styleUrls: ['./project-form.component.scss']
 })
 export class CustomFormComponent {
   constructor(private router: Router, private userService:UserService) { }

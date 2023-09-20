@@ -12,7 +12,7 @@ import { ProjectItemComponent } from './components/project-item/project-item.com
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
-import { CustomFormComponent } from './components/custom-form/custom-form.component';
+import { CustomFormComponent } from './components/project-form/project-form.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomFormComponent } from './custom-form.component';
+import { CustomFormComponent } from './project-form.component';
 
 describe('CustomFormComponent', () => {
   let component: CustomFormComponent;
