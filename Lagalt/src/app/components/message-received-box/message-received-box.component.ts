@@ -23,8 +23,7 @@ export class MessageReceivedBoxComponent {
   ngOnInit(){
      this.user = JSON.parse(localStorage.getItem('user')!)
      this.messageService.getAllReceivedMessageById(this.user.id).subscribe((messages) => {
-      this.receivedMessages = messages;
-        
+     this.receivedMessages = messages.reverse();      
     }); 
   }
   
@@ -32,7 +31,6 @@ export class MessageReceivedBoxComponent {
     return this.router.navigate(["/message-box"]);
   }
 
-  
 }
 
 

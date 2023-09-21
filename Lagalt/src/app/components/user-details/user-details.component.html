@@ -9,6 +9,9 @@
                 <h3>{{userDetails?.fullname}}</h3>
                 <p *ngIf="hiddenMode" class="small-title">Hidden user</p>
             </div>
+            <div class="desc">
+                <p *ngIf="!hiddenMode">{{userDetails?.description}}</p>
+            </div>
             <div class="user-details">
                 <div class="col">
                     <p class="small-title color-light-blue">Username</p>
@@ -25,10 +28,6 @@
                             {{skill.toLowerCase()}}
                         </p>
                     </div>
-                </div>
-                <div>
-                    <p class="small-title color-light-blue">About</p>
-                    <p *ngIf="!hiddenMode">{{userDetails?.description}}</p>
                 </div>
             </div>
         </div>

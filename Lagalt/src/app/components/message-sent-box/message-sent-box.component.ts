@@ -25,7 +25,7 @@ export class MessageSentBoxComponent {
     this.user = JSON.parse(localStorage.getItem('user')!);
 
     this.messageService.getAllSentMessageById(this.user.id).subscribe((messages) => {
-        this.sentMessages = messages;
+        this.sentMessages = messages.reverse();
       });
   }
 
