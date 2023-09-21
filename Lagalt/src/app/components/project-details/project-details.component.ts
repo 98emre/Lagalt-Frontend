@@ -40,28 +40,20 @@ export class ProjectDetailsComponent {
     private projectService: ProjectService, 
     private router: Router){}
 
-  /**
-   * ngOnInit()
-   * When project details is first run, it reads in the user from the local storage.
-   */
-  ngOnInit(){
-
-    if(localStorage.getItem('user') != null){
-      this.user = JSON.parse(localStorage.getItem('user')!) 
-    }
-
-  }
+ 
 
   /**
-   * ngOnChanges()
-   * To handle input, the ngOnChanges() method is called for when the colaboratorModels are read in.
+   * ngDoCheck()
+   * To handle input, the ngDoCheck() method is called for when the colaboratorModels are read in.
    * When this happens, collaborators are filtered on those who are APPROVED and those who are PENDING.
+   * The ngDoCheck life cycle hook will make sure to read in the user related data when that is taken care of
+   * (Local Storage, API requests etc).
    */
 
-  ngOnChanges(){
-    if(this.projectDetails == null || this.user == null)
-      return
+  ngDoCheck(){
 
+    if(this.projectDetails != null && localStorage.getItem('user') != null && this.collaboratorModels != null){
+      this.user = JSON.parse(localStorage.getItem('user')!) 
     // checks if this project id and logged in user id is in the list:
     const filterCollab = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "APPROVED")
     const filterPending = this.collaboratorModels.filter((collaborator) => collaborator.userId === this.user.id && collaborator.projectId === this.projectDetails.id && collaborator.status === "PENDING")
@@ -78,6 +70,7 @@ export class ProjectDetailsComponent {
     this.description = this.projectDetails.descriptions;
     this.link = this.projectDetails.gitlink;
     this.selectedStatus = this.projectDetails.status;
+    }
   }
 
   /**
