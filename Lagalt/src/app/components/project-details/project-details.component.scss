@@ -29,11 +29,15 @@
     gap: 1rem;
 }
 
+.desc{
+    margin-bottom: 1rem;
+    max-width: 700px;
+}
+
 .category{
     margin: 0;
     background-color: var(--secondary-blue-color);
     color: white;
-    /*display: inline-block;*/
     padding: 5px;
     border-radius: 5px;
     font-size: 14px;
