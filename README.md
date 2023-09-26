@@ -21,7 +21,8 @@ If you want to run the project locally, follow these steps down below:
 7. If no error occurs, go to localhost:4200 as displayed in the terminal. 
 
 ## Component Tree
-![compTree drawio (1)](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/225ae60f-3d91-4fed-bf61-78241ecc0d8d)
+![compTree drawio (2)](https://github.com/AugustDanell/Lagalt-Frontend/assets/70810124/93ae1339-89f0-457f-97ca-7a8011777453)
+
 
 
 ## Authors
